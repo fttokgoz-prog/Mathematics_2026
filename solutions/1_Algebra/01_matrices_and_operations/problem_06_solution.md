@@ -1,274 +1,359 @@
 # Exercise 6. Transpose
 
-## Given
+## Question
 
-A = ( 1  2  3 )
-    ( 4  5  6 )
+For the matrices
 
+$$
+A=\begin{pmatrix}
+1 & 2 & 3\\
+4 & 5 & 6
+\end{pmatrix},
+\qquad
+B=\begin{pmatrix}
+1 & 0\\
+2 & 1\\
+-1 & 3
+\end{pmatrix}
+$$
 
-B = (  1  0 )
-    (  2  1 )
-    ( -1  3 )
+compute \(A^T\), \(B^T\), and \(AB\). Then verify in this example that
 
+$$
+(AB)^T=B^T A^T.
+$$
 
-## 1. Compute Aᵀ
+**Why this exercise:** Teaches transposition and an important property that reverses the order of factors.
 
-The transpose of a matrix is obtained by changing its rows into columns. The first row becomes the first column, and the second row becomes the second column.
+## Solution
 
-The first row of A is (1, 2, 3).
+### Step 1: Understand the transpose of a matrix
 
-The second row of A is (4, 5, 6).
+The transpose of a matrix is obtained by exchanging its rows and columns. Each row of the original matrix becomes a column of the transposed matrix, and each column becomes a row.
 
-After changing the rows into columns, we get:
+The transpose of a matrix \(A\) is denoted by \(A^T\).
 
-Aᵀ = ( 1  4 )
-     ( 2  5 )
-     ( 3  6 )
+For example, if
 
-The original matrix A has size 2 × 3, so its transpose has size 3 × 2.
+$$
+A=\begin{pmatrix}
+a & b & c\\
+d & e & f
+\end{pmatrix},
+$$
+
+then
+
+$$
+A^T=\begin{pmatrix}
+a & d\\
+b & e\\
+c & f
+\end{pmatrix}.
+$$
 
+Since \(A\) has dimensions \(2\times3\), its transpose \(A^T\) will have dimensions \(3\times2\).
+
+Similarly, \(B\) has dimensions \(3\times2\), so \(B^T\) will have dimensions \(2\times3\).
+
+### Step 2: Calculate \(A^T\)
+
+The original matrix is
 
-## 2. Compute Bᵀ
+$$
+A=\begin{pmatrix}
+1 & 2 & 3\\
+4 & 5 & 6
+\end{pmatrix}.
+$$
 
-To find the transpose of B, we change every row into a column.
+The first row, \((1,2,3)\), becomes the first column. The second row, \((4,5,6)\), becomes the second column.
 
-The first row of B is (1, 0).
+Therefore,
 
-The second row of B is (2, 1).
+$$
+\boxed{
+A^T=\begin{pmatrix}
+1 & 4\\
+2 & 5\\
+3 & 6
+\end{pmatrix}
+}
+$$
+
+The original matrix has dimensions \(2\times3\), while its transpose has dimensions \(3\times2\).
+
+### Step 3: Calculate \(B^T\)
 
-The third row of B is (-1, 3).
+The original matrix is
 
-After changing the rows into columns, we get:
+$$
+B=\begin{pmatrix}
+1 & 0\\
+2 & 1\\
+-1 & 3
+\end{pmatrix}.
+$$
 
-Bᵀ = (  1   2  -1 )
-     (  0   1   3 )
+The first column, \((1,2,-1)\), becomes the first row. The second column, \((0,1,3)\), becomes the second row.
 
-The original matrix B has size 3 × 2, so its transpose has size 2 × 3.
+Therefore,
 
-
-## 3. Compute AB
-
-Matrix A has size 2 × 3, and matrix B has size 3 × 2.
-
-The number of columns in A is 3, and the number of rows in B is also 3. Therefore, the multiplication AB is defined.
-
-The result has size 2 × 2.
-
-AB = ( 1  2  3 ) (  1  0 )
-     ( 4  5  6 ) (  2  1 )
-                   ( -1  3 )
-
-
-**Step 1: Calculate the first row, first column.**
-
-Multiply the first row of A by the first column of B.
-
-1 × 1 = 1
-
-2 × 2 = 4
-
-3 × (-1) = -3
-
-Add the results:
-
-1 + 4 + (-3) = 5 - 3 = 2
-
-The first entry is 2.
-
-
-**Step 2: Calculate the first row, second column.**
-
-Multiply the first row of A by the second column of B.
-
-1 × 0 = 0
-
-2 × 1 = 2
-
-3 × 3 = 9
-
-Add the results:
-
-0 + 2 + 9 = 11
-
-The second entry is 11.
-
-
-**Step 3: Calculate the second row, first column.**
-
-Multiply the second row of A by the first column of B.
-
-4 × 1 = 4
-
-5 × 2 = 10
-
-6 × (-1) = -6
-
-Add the results:
-
-4 + 10 + (-6) = 14 - 6 = 8
-
-The third entry is 8.
-
-
-**Step 4: Calculate the second row, second column.**
-
-Multiply the second row of A by the second column of B.
-
-4 × 0 = 0
-
-5 × 1 = 5
-
-6 × 3 = 18
-
-Add the results:
-
-0 + 5 + 18 = 23
-
-The fourth entry is 23.
-
-
-**Final result:**
-
-AB = (  2  11 )
-     (  8  23 )
-
-
-## 4. Verify that (AB)ᵀ = BᵀAᵀ
-
-We need to calculate both sides and check whether they are equal.
-
-### Step 1: Calculate (AB)ᵀ
-
-From the previous calculation, we know that:
-
-AB = (  2  11 )
-     (  8  23 )
-
-To find the transpose, we change the rows into columns.
-
-The first row (2, 11) becomes the first column.
-
-The second row (8, 23) becomes the second column.
-
-Therefore:
-
-(AB)ᵀ = (  2   8 )
-        ( 11  23 )
-
-
-### Step 2: Calculate BᵀAᵀ
-
-From the previous calculations:
-
-Bᵀ = (  1   2  -1 )
-     (  0   1   3 )
-
-
-Aᵀ = ( 1  4 )
-     ( 2  5 )
-     ( 3  6 )
-
-The number of columns in Bᵀ is 3, and the number of rows in Aᵀ is also 3. Therefore, the multiplication BᵀAᵀ is defined.
-
-The result has size 2 × 2.
-
-BᵀAᵀ = (  1   2  -1 ) ( 1  4 )
-       (  0   1   3 ) ( 2  5 )
-                         ( 3  6 )
-
-
-**First row, first column:**
-
-Multiply the first row of Bᵀ by the first column of Aᵀ.
-
-1 × 1 = 1
-
-2 × 2 = 4
-
-(-1) × 3 = -3
-
-Add the results:
-
-1 + 4 + (-3) = 2
-
-
-**First row, second column:**
-
-Multiply the first row of Bᵀ by the second column of Aᵀ.
-
-1 × 4 = 4
-
-2 × 5 = 10
-
-(-1) × 6 = -6
-
-Add the results:
-
-4 + 10 + (-6) = 14 - 6 = 8
-
-
-**Second row, first column:**
-
-Multiply the second row of Bᵀ by the first column of Aᵀ.
-
-0 × 1 = 0
-
-1 × 2 = 2
-
-3 × 3 = 9
-
-Add the results:
-
-0 + 2 + 9 = 11
-
-
-**Second row, second column:**
-
-Multiply the second row of Bᵀ by the second column of Aᵀ.
-
-0 × 4 = 0
-
-1 × 5 = 5
-
-3 × 6 = 18
-
-Add the results:
-
-0 + 5 + 18 = 23
-
-
-Therefore:
-
-BᵀAᵀ = (  2   8 )
-       ( 11  23 )
-
-
-### Step 3: Compare both results
-
-We calculated:
-
-(AB)ᵀ = (  2   8 )
-        ( 11  23 )
-
-
-BᵀAᵀ = (  2   8 )
-       ( 11  23 )
-
-Both matrices have exactly the same entries in the same positions.
-
-Therefore:
-
-(AB)ᵀ = BᵀAᵀ
-
-
-## Conclusion
-
-The transpose of a matrix changes its rows into columns and its columns into rows.
-
-When we take the transpose of a product of two matrices, we must also reverse the order of the matrices.
-
-Therefore, the general rule is:
-
-(AB)ᵀ = BᵀAᵀ
-
-This example verifies the rule because both sides produce the same matrix.
+$$
+\boxed{
+B^T=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 1 & 3
+\end{pmatrix}
+}
+$$
+
+The original matrix has dimensions \(3\times2\), while its transpose has dimensions \(2\times3\).
+
+### Step 4: Calculate \(AB\)
+
+We are given
+
+$$
+A=\begin{pmatrix}
+1 & 2 & 3\\
+4 & 5 & 6
+\end{pmatrix},
+\qquad
+B=\begin{pmatrix}
+1 & 0\\
+2 & 1\\
+-1 & 3
+\end{pmatrix}.
+$$
+
+Matrix \(A\) has 3 columns, and matrix \(B\) has 3 rows. Therefore, \(AB\) is defined. The result has dimensions \(2\times2\).
+
+$$
+AB=
+\begin{pmatrix}
+1 & 2 & 3\\
+4 & 5 & 6
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0\\
+2 & 1\\
+-1 & 3
+\end{pmatrix}
+$$
+
+**Entry in row 1, column 1:**
+
+$$
+1\cdot1+2\cdot2+3\cdot(-1)
+=1+4-3=2
+$$
+
+**Entry in row 1, column 2:**
+
+$$
+1\cdot0+2\cdot1+3\cdot3
+=0+2+9=11
+$$
+
+**Entry in row 2, column 1:**
+
+$$
+4\cdot1+5\cdot2+6\cdot(-1)
+=4+10-6=8
+$$
+
+**Entry in row 2, column 2:**
+
+$$
+4\cdot0+5\cdot1+6\cdot3
+=0+5+18=23
+$$
+
+Combining these entries gives
+
+$$
+\boxed{
+AB=\begin{pmatrix}
+2 & 11\\
+8 & 23
+\end{pmatrix}
+}
+$$
+
+### Step 5: Calculate \((AB)^T\)
+
+From Step 4, we obtained
+
+$$
+AB=\begin{pmatrix}
+2 & 11\\
+8 & 23
+\end{pmatrix}.
+$$
+
+To calculate \((AB)^T\), exchange the rows and columns. The first row becomes the first column, and the second row becomes the second column.
+
+Therefore,
+
+$$
+\boxed{
+(AB)^T=\begin{pmatrix}
+2 & 8\\
+11 & 23
+\end{pmatrix}
+}
+$$
+
+### Step 6: Calculate \(B^T A^T\)
+
+We have already calculated
+
+$$
+B^T=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 1 & 3
+\end{pmatrix}
+$$
+
+and
+
+$$
+A^T=\begin{pmatrix}
+1 & 4\\
+2 & 5\\
+3 & 6
+\end{pmatrix}.
+$$
+
+The matrix \(B^T\) has dimensions \(2\times3\), and \(A^T\) has dimensions \(3\times2\). Therefore, their product is defined and has dimensions \(2\times2\).
+
+$$
+B^T A^T=
+\begin{pmatrix}
+1 & 2 & -1\\
+0 & 1 & 3
+\end{pmatrix}
+\begin{pmatrix}
+1 & 4\\
+2 & 5\\
+3 & 6
+\end{pmatrix}
+$$
+
+**Entry in row 1, column 1:**
+
+$$
+1\cdot1+2\cdot2+(-1)\cdot3
+=1+4-3=2
+$$
+
+**Entry in row 1, column 2:**
+
+$$
+1\cdot4+2\cdot5+(-1)\cdot6
+=4+10-6=8
+$$
+
+**Entry in row 2, column 1:**
+
+$$
+0\cdot1+1\cdot2+3\cdot3
+=0+2+9=11
+$$
+
+**Entry in row 2, column 2:**
+
+$$
+0\cdot4+1\cdot5+3\cdot6
+=0+5+18=23
+$$
+
+Therefore,
+
+$$
+\boxed{
+B^T A^T=\begin{pmatrix}
+2 & 8\\
+11 & 23
+\end{pmatrix}
+}
+$$
+
+### Step 7: Verify the transpose property
+
+We calculated both sides of the required identity.
+
+The transpose of the product is
+
+$$
+(AB)^T=\begin{pmatrix}
+2 & 8\\
+11 & 23
+\end{pmatrix}.
+$$
+
+The product of the transposed matrices in reverse order is
+
+$$
+B^T A^T=\begin{pmatrix}
+2 & 8\\
+11 & 23
+\end{pmatrix}.
+$$
+
+Both matrices are identical. Therefore, the identity is verified:
+
+$$
+\boxed{(AB)^T=B^T A^T}
+$$
+
+Notice that the order of the matrices is reversed. The transpose of \(AB\) is \(B^T A^T\), not \(A^T B^T\).
+
+### Final Answer
+
+The transpose of \(A\) is
+
+$$
+\boxed{
+A^T=\begin{pmatrix}
+1 & 4\\
+2 & 5\\
+3 & 6
+\end{pmatrix}
+}
+$$
+
+The transpose of \(B\) is
+
+$$
+\boxed{
+B^T=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 1 & 3
+\end{pmatrix}
+}
+$$
+
+The product of \(A\) and \(B\) is
+
+$$
+\boxed{
+AB=\begin{pmatrix}
+2 & 11\\
+8 & 23
+\end{pmatrix}
+}
+$$
+
+Finally,
+
+$$
+(AB)^T=B^T A^T=
+\begin{pmatrix}
+2 & 8\\
+11 & 23
+\end{pmatrix}.
+$$
+
+Thus, the identity \((AB)^T=B^T A^T\) is verified. Transposing a product reverses the order of its factors.
