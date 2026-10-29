@@ -1,288 +1,455 @@
 # Exercise 7. Identity Matrix, Zero Matrix, and Powers
 
-## Given
+## Question
 
-A = ( 2  1 )
-    ( 0  2 )
+For
 
+$$
+A=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
+$$
 
-We will compute AI, IA, A + 0, A², and A³.
+compute
 
-The identity matrix I and the zero matrix 0 are both 2 × 2 matrices in this exercise.
+$$
+AI,\qquad IA,\qquad A+0,\qquad A^2,\qquad A^3.
+$$
 
-The identity matrix is:
+Explain the roles of the matrices \(I\) and \(0\), and describe the pattern you observe in successive powers of \(A\).
 
-I = ( 1  0 )
-    ( 0  1 )
+**Why this exercise:** Organizes the roles of neutral elements and reveals regularity in successive powers of a matrix.
 
+## Solution
 
-The zero matrix is:
+### Step 1: Understand the identity matrix and the zero matrix
 
-0 = ( 0  0 )
-    ( 0  0 )
+The identity matrix \(I\) is a square matrix with ones on its main diagonal and zeros everywhere else. For a \(2\times2\) matrix, it is
 
+$$
+I=\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}.
+$$
 
-## 1. Compute AI
+Multiplying a matrix by the identity matrix does not change the matrix. This is similar to multiplying an ordinary number by \(1\).
 
-Matrix multiplication is performed by multiplying the rows of the first matrix by the columns of the second matrix and adding the products.
+The zero matrix \(0\) contains only zeros. For a \(2\times2\) matrix, it is
 
-First, we multiply A by the identity matrix I:
+$$
+0=\begin{pmatrix}
+0 & 0\\
+0 & 0
+\end{pmatrix}.
+$$
 
-AI = ( 2  1 ) ( 1  0 )
-     ( 0  2 ) ( 0  1 )
+Adding the zero matrix to a matrix does not change its entries. This is similar to adding \(0\) to an ordinary number.
 
+We are given
 
-**Step 1: Calculate the first row, first column.**
+$$
+A=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}.
+$$
 
-2 × 1 + 1 × 0 = 2 + 0 = 2
+### Step 2: Calculate \(AI\)
 
+We multiply \(A\) by the identity matrix:
 
-**Step 2: Calculate the first row, second column.**
+$$
+AI=
+\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}.
+$$
 
-2 × 0 + 1 × 1 = 0 + 1 = 1
+Calculate each entry.
 
+First row, first column:
 
-**Step 3: Calculate the second row, first column.**
+$$
+2\cdot1+1\cdot0=2
+$$
 
-0 × 1 + 2 × 0 = 0 + 0 = 0
+First row, second column:
 
+$$
+2\cdot0+1\cdot1=1
+$$
 
-**Step 4: Calculate the second row, second column.**
+Second row, first column:
 
-0 × 0 + 2 × 1 = 0 + 2 = 2
+$$
+0\cdot1+2\cdot0=0
+$$
 
+Second row, second column:
 
-Therefore:
+$$
+0\cdot0+2\cdot1=2
+$$
 
-AI = ( 2  1 )
-     ( 0  2 )
+Therefore,
 
+$$
+\boxed{
+AI=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}=A
+}
+$$
+
+Multiplication by the identity matrix leaves \(A\) unchanged.
+
+### Step 3: Calculate \(IA\)
+
+Now we reverse the order:
+
+$$
+IA=
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}.
+$$
+
+First row, first column:
+
+$$
+1\cdot2+0\cdot0=2
+$$
+
+First row, second column:
+
+$$
+1\cdot1+0\cdot2=1
+$$
+
+Second row, first column:
+
+$$
+0\cdot2+1\cdot0=0
+$$
+
+Second row, second column:
+
+$$
+0\cdot1+1\cdot2=2
+$$
+
+Therefore,
+
+$$
+\boxed{
+IA=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}=A
+}
+$$
+
+The identity matrix leaves \(A\) unchanged whether it is multiplied on the left or on the right. Thus,
+
+$$
+\boxed{AI=IA=A}
+$$
+
+### Step 4: Calculate \(A+0\)
+
+We add the zero matrix to \(A\):
 
-We can see that AI = A. Multiplying a matrix by the identity matrix does not change the matrix.
+$$
+A+0=
+\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 0\\
+0 & 0
+\end{pmatrix}.
+$$
+
+Matrix addition is performed by adding corresponding entries.
+
+$$
+A+0=
+\begin{pmatrix}
+2+0 & 1+0\\
+0+0 & 2+0
+\end{pmatrix}.
+$$
+
+Simplifying each entry gives
+
+$$
+\boxed{
+A+0=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}=A
+}
+$$
+
+The zero matrix is the additive identity because adding it does not change the original matrix.
 
+### Step 5: Calculate \(A^2\)
 
-## 2. Compute IA
+The notation \(A^2\) means multiplying \(A\) by itself:
 
-Now, we multiply the identity matrix I by A. The order of multiplication is reversed.
+$$
+A^2=A\cdot A.
+$$
 
-IA = ( 1  0 ) ( 2  1 )
-     ( 0  1 ) ( 0  2 )
+Therefore,
 
+$$
+A^2=
+\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}.
+$$
 
-**Step 1: Calculate the first row, first column.**
+First row, first column:
 
-1 × 2 + 0 × 0 = 2 + 0 = 2
+$$
+2\cdot2+1\cdot0=4
+$$
 
+First row, second column:
+
+$$
+2\cdot1+1\cdot2=2+2=4
+$$
+
+Second row, first column:
+
+$$
+0\cdot2+2\cdot0=0
+$$
+
+Second row, second column:
+
+$$
+0\cdot1+2\cdot2=4
+$$
+
+Combining the entries gives
+
+$$
+\boxed{
+A^2=\begin{pmatrix}
+4 & 4\\
+0 & 4
+\end{pmatrix}
+}
+$$
 
-**Step 2: Calculate the first row, second column.**
+Notice that the diagonal entries have increased from \(2\) to \(4\), and the upper-right entry has increased from \(1\) to \(4\).
 
-1 × 1 + 0 × 2 = 1 + 0 = 1
+### Step 6: Calculate \(A^3\)
 
+The notation \(A^3\) means multiplying \(A^2\) by \(A\):
 
-**Step 3: Calculate the second row, first column.**
+$$
+A^3=A^2A.
+$$
+
+Using the result from Step 5,
 
-0 × 2 + 1 × 0 = 0 + 0 = 0
+$$
+A^3=
+\begin{pmatrix}
+4 & 4\\
+0 & 4
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}.
+$$
 
+First row, first column:
 
-**Step 4: Calculate the second row, second column.**
+$$
+4\cdot2+4\cdot0=8
+$$
 
-0 × 1 + 1 × 2 = 0 + 2 = 2
+First row, second column:
 
+$$
+4\cdot1+4\cdot2=4+8=12
+$$
 
-Therefore:
+Second row, first column:
 
-IA = ( 2  1 )
-     ( 0  2 )
+$$
+0\cdot2+4\cdot0=0
+$$
 
+Second row, second column:
 
-We can see that IA = A as well. The identity matrix leaves A unchanged whether it is multiplied from the left or from the right.
+$$
+0\cdot1+4\cdot2=8
+$$
 
+Therefore,
 
-## 3. Compute A + 0
+$$
+\boxed{
+A^3=\begin{pmatrix}
+8 & 12\\
+0 & 8
+\end{pmatrix}
+}
+$$
 
-Matrix addition means adding the corresponding entries in the same positions.
+### Step 7: Describe the pattern in successive powers of \(A\)
 
-A = ( 2  1 )
-    ( 0  2 )
+We obtained the following matrices:
 
+$$
+A=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
+$$
 
-0 = ( 0  0 )
-    ( 0  0 )
+$$
+A^2=\begin{pmatrix}
+4 & 4\\
+0 & 4
+\end{pmatrix}
+$$
 
+$$
+A^3=\begin{pmatrix}
+8 & 12\\
+0 & 8
+\end{pmatrix}
+$$
 
-We add the two matrices entry by entry:
+The diagonal entries follow the pattern
 
-A + 0 = ( 2 + 0    1 + 0 )
-        ( 0 + 0    2 + 0 )
+$$
+2,\quad 4,\quad 8.
+$$
 
+Each diagonal entry is twice the previous one. For \(A^n\), the diagonal entries are \(2^n\).
 
-Now, calculate each entry:
+The lower-left entry remains \(0\) in every power because the product of upper-triangular matrices is also upper triangular.
 
-2 + 0 = 2
+The upper-right entries are
 
-1 + 0 = 1
+$$
+1,\quad 4,\quad 12.
+$$
 
-0 + 0 = 0
+For this particular matrix, the general pattern is
 
-2 + 0 = 2
+$$
+A^n=
+\begin{pmatrix}
+2^n & n2^{n-1}\\
+0 & 2^n
+\end{pmatrix},
+\qquad n\geq1.
+$$
 
+For example, when \(n=2\), the upper-right entry is
 
-Therefore:
+$$
+2\cdot2^{2-1}=2\cdot2=4.
+$$
 
-A + 0 = ( 2  1 )
-        ( 0  2 )
+When \(n=3\), it is
 
+$$
+3\cdot2^{3-1}=3\cdot4=12.
+$$
 
-We can see that A + 0 = A. Adding a zero matrix does not change the original matrix because adding zero to any number leaves that number unchanged.
+This formula matches the results calculated for \(A^2\) and \(A^3\).
 
+### Step 8: Explain the roles of \(I\) and \(0\)
 
-## 4. Compute A²
+The identity matrix \(I\) is the multiplicative identity. Multiplying \(A\) by \(I\) on either side leaves \(A\) unchanged:
 
-The notation A² means multiplying A by itself.
+$$
+AI=IA=A.
+$$
 
-A² = A × A
+The zero matrix \(0\) is the additive identity. Adding it to \(A\) leaves \(A\) unchanged:
 
+$$
+A+0=A.
+$$
 
-A² = ( 2  1 ) ( 2  1 )
-     ( 0  2 ) ( 0  2 )
+These matrices play roles similar to the numbers \(1\) and \(0\), respectively, in ordinary arithmetic.
 
+### Final Answer
 
-**Step 1: Calculate the first row, first column.**
+The identity-matrix products are
 
-Multiply the first row of the first matrix by the first column of the second matrix.
+$$
+\boxed{
+AI=IA=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
+}
+$$
 
-2 × 2 + 1 × 0 = 4 + 0 = 4
+The sum with the zero matrix is
 
+$$
+\boxed{
+A+0=\begin{pmatrix}
+2 & 1\\
+0 & 2
+\end{pmatrix}
+}
+$$
 
-**Step 2: Calculate the first row, second column.**
+The second power is
 
-2 × 1 + 1 × 2 = 2 + 2 = 4
+$$
+\boxed{
+A^2=\begin{pmatrix}
+4 & 4\\
+0 & 4
+\end{pmatrix}
+}
+$$
 
+The third power is
 
-**Step 3: Calculate the second row, first column.**
+$$
+\boxed{
+A^3=\begin{pmatrix}
+8 & 12\\
+0 & 8
+\end{pmatrix}
+}
+$$
 
-0 × 2 + 2 × 0 = 0 + 0 = 0
-
-
-**Step 4: Calculate the second row, second column.**
-
-0 × 1 + 2 × 2 = 0 + 4 = 4
-
-
-Therefore:
-
-A² = ( 4  4 )
-     ( 0  4 )
-
-
-The matrix A² is obtained by multiplying A by itself once.
-
-
-## 5. Compute A³
-
-The notation A³ means multiplying A by itself three times.
-
-A³ = A² × A
-
-
-From the previous calculation:
-
-A² = ( 4  4 )
-     ( 0  4 )
-
-
-Now, multiply A² by A:
-
-A³ = ( 4  4 ) ( 2  1 )
-     ( 0  4 ) ( 0  2 )
-
-
-**Step 1: Calculate the first row, first column.**
-
-4 × 2 + 4 × 0 = 8 + 0 = 8
-
-
-**Step 2: Calculate the first row, second column.**
-
-4 × 1 + 4 × 2 = 4 + 8 = 12
-
-
-**Step 3: Calculate the second row, first column.**
-
-0 × 2 + 4 × 0 = 0 + 0 = 0
-
-
-**Step 4: Calculate the second row, second column.**
-
-0 × 1 + 4 × 2 = 0 + 8 = 8
-
-
-Therefore:
-
-A³ = (  8  12 )
-     (  0   8 )
-
-
-The matrix A³ is obtained by multiplying A² by A.
-
-
-## 6. Explain the roles of the matrices I and 0
-
-The identity matrix I acts as a multiplicative identity. This means that multiplying a matrix by I does not change the original matrix.
-
-In this exercise:
-
-AI = A
-
-IA = A
-
-The zero matrix 0 acts as an additive identity. This means that adding the zero matrix to a matrix does not change the original matrix.
-
-In this exercise:
-
-A + 0 = A
-
-Therefore, the identity matrix is used in matrix multiplication, while the zero matrix is used in matrix addition.
-
-
-## 7. Describe the pattern in successive powers of A
-
-The successive powers of A are:
-
-A = ( 2  1 )
-    ( 0  2 )
-
-
-A² = ( 4  4 )
-     ( 0  4 )
-
-
-A³ = (  8  12 )
-     (  0   8 )
-
-
-Looking at the results, we can observe the following pattern:
-
-- The diagonal entries double with each successive power: 2, 4, 8.
-- The bottom-left entry remains 0 in every power.
-- The top-right entry changes from 1 to 4 and then to 12.
-
-The pattern can be expressed more generally as:
-
-Aⁿ = ( 2ⁿ    n × 2ⁿ⁻¹ )
-     (  0        2ⁿ   )
-
-For example, when n = 2, the top-right entry is 2 × 2¹ = 4.
-
-When n = 3, the top-right entry is 3 × 2² = 12.
-
-Therefore, the diagonal entries follow powers of 2, while the top-right entry follows the pattern n × 2ⁿ⁻¹.
-
-
-## Conclusion
-
-The identity matrix I does not change a matrix when multiplied by it, and the zero matrix 0 does not change a matrix when added to it.
-
-The successive powers A² and A³ show a clear pattern: the diagonal entries are powers of 2, the bottom-left entry remains zero, and the top-right entry follows the formula n × 2ⁿ⁻¹.
-
-These results demonstrate the roles of identity and zero matrices and show how patterns can appear in successive powers of a matrix.
+The identity matrix leaves a matrix unchanged under multiplication, while the zero matrix leaves it unchanged under addition. In successive powers of \(A\), the diagonal entries double at each step, the lower-left entry remains zero, and the upper-right entry follows the pattern \(n2^{n-1}\).
