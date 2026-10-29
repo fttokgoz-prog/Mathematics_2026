@@ -1,174 +1,392 @@
 # Exercise 9. Composing Transformations
 
-## Given
+## Question
+
+Let
+
+$$
+S=\begin{pmatrix}
+2 & 0\\
+0 & 1
+\end{pmatrix},
+\qquad
+R=\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix}.
+$$
+
+The matrix \(S\) describes nonuniform scaling, while \(R\) describes a \(90^\circ\) counterclockwise rotation. For
+
+$$
+x=\begin{pmatrix}
+1\\
+2
+\end{pmatrix}
+$$
+
+compute \(RSx\) and \(SRx\). Compare the results and explain geometrically why the order of these transformations matters.
+
+**Why this exercise:** Interprets matrix multiplication as composition of transformations.
+
+## Solution
+
+### Step 1: Understand the transformations
+
+We are given three matrices or vectors:
+
+$$
+S=\begin{pmatrix}
+2 & 0\\
+0 & 1
+\end{pmatrix},
+\qquad
+R=\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix},
+\qquad
+x=\begin{pmatrix}
+1\\
+2
+\end{pmatrix}.
+$$
+
+The matrix \(S\) represents nonuniform scaling. It multiplies the horizontal coordinate by \(2\) and leaves the vertical coordinate unchanged.
+
+For a general vector
+
+$$
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix},
+$$
+
+the scaling transformation gives
+
+$$
+S\begin{pmatrix}
+a\\
+b
+\end{pmatrix}
+=
+\begin{pmatrix}
+2a\\
+b
+\end{pmatrix}.
+$$
+
+The matrix \(R\) represents a \(90^\circ\) counterclockwise rotation. It transforms a vector according to the rule
+
+$$
+R\begin{pmatrix}
+a\\
+b
+\end{pmatrix}
+=
+\begin{pmatrix}
+-b\\
+a
+\end{pmatrix}.
+$$
+
+The original vector is
+
+$$
+x=\begin{pmatrix}
+1\\
+2
+\end{pmatrix}.
+$$
+
+We will calculate \(RSx\) and \(SRx\) separately because the order of the transformations is different.
 
-S = ( 2  0 )
-    ( 0  1 )
+### Step 2: Calculate \(RSx\)
 
+The expression \(RSx\) means
 
-R = ( 0  -1 )
-    ( 1   0 )
+$$
+RSx=R(Sx).
+$$
+
+Matrix multiplication is performed from right to left. Therefore, we first apply the scaling transformation \(S\) to \(x\), then rotate the resulting vector using \(R\).
 
+**First, calculate \(Sx\):**
 
-x = ( 1 )
-    ( 2 )
+$$
+Sx=
+\begin{pmatrix}
+2 & 0\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix}.
+$$
 
+Calculate the first entry:
 
-The matrix S describes nonuniform scaling, while R describes a 90° counterclockwise rotation.
+$$
+2\cdot1+0\cdot2=2.
+$$
 
-We need to compute RSx and SRx, compare the results, and explain why the order of the transformations matters.
+Calculate the second entry:
 
-## 1. Compute RSx
+$$
+0\cdot1+1\cdot2=2.
+$$
 
-The expression RSx means that we first apply the scaling transformation S to the vector x, and then apply the rotation transformation R to the result.
+Therefore,
 
-Therefore, we calculate Sx first.
+$$
+Sx=\begin{pmatrix}
+2\\
+2
+\end{pmatrix}.
+$$
+
+**Next, apply the rotation \(R\):**
 
-### Step 1: Calculate Sx
+$$
+RSx=
+\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+2\\
+2
+\end{pmatrix}.
+$$
 
-Sx = ( 2  0 ) ( 1 )
-     ( 0  1 ) ( 2 )
+Calculate the first entry:
 
+$$
+0\cdot2+(-1)\cdot2=-2.
+$$
+
+Calculate the second entry:
 
-First entry:
+$$
+1\cdot2+0\cdot2=2.
+$$
 
-2 × 1 + 0 × 2 = 2 + 0 = 2
+Thus,
 
+$$
+\boxed{
+RSx=\begin{pmatrix}
+-2\\
+2
+\end{pmatrix}
+}
+$$
 
-Second entry:
+The final vector is \((-2,2)\).
 
-0 × 1 + 1 × 2 = 0 + 2 = 2
+### Step 3: Calculate \(SRx\)
 
+The expression \(SRx\) means
+
+$$
+SRx=S(Rx).
+$$
 
-Therefore:
+This time, we first rotate the original vector using \(R\), then apply the scaling transformation \(S\).
 
-Sx = ( 2 )
-     ( 2 )
+**First, calculate \(Rx\):**
 
+$$
+Rx=
+\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix}.
+$$
 
-The original vector (1, 2) becomes (2, 2). The first coordinate is doubled, while the second coordinate remains unchanged.
+Calculate the first entry:
 
-### Step 2: Apply the rotation matrix R
+$$
+0\cdot1+(-1)\cdot2=-2.
+$$
 
-Now, we multiply R by the result Sx.
+Calculate the second entry:
 
-RSx = ( 0  -1 ) ( 2 )
-      ( 1   0 ) ( 2 )
+$$
+1\cdot1+0\cdot2=1.
+$$
 
+Therefore,
 
-First entry:
+$$
+Rx=\begin{pmatrix}
+-2\\
+1
+\end{pmatrix}.
+$$
 
-0 × 2 + (-1) × 2 = 0 - 2 = -2
+**Next, apply the scaling transformation \(S\):**
 
+$$
+SRx=
+\begin{pmatrix}
+2 & 0\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+-2\\
+1
+\end{pmatrix}.
+$$
 
-Second entry:
+Calculate the first entry:
 
-1 × 2 + 0 × 2 = 2 + 0 = 2
+$$
+2\cdot(-2)+0\cdot1=-4.
+$$
 
+Calculate the second entry:
 
-Therefore, the final result is:
+$$
+0\cdot(-2)+1\cdot1=1.
+$$
 
-RSx = ( -2 )
-      (  2 )
+Thus,
 
+$$
+\boxed{
+SRx=\begin{pmatrix}
+-4\\
+1
+\end{pmatrix}
+}
+$$
 
-## 2. Compute SRx
+The final vector is \((-4,1)\).
 
-The expression SRx means that we first apply the rotation transformation R to the vector x, and then apply the scaling transformation S.
+### Step 4: Compare the results
 
-Therefore, we calculate Rx first.
+We obtained
 
-### Step 1: Calculate Rx
+$$
+RSx=\begin{pmatrix}
+-2\\
+2
+\end{pmatrix}
+$$
 
-Rx = ( 0  -1 ) ( 1 )
-     ( 1   0 ) ( 2 )
+and
 
+$$
+SRx=\begin{pmatrix}
+-4\\
+1
+\end{pmatrix}.
+$$
 
-First entry:
+The two vectors are different:
 
-0 × 1 + (-1) × 2 = 0 - 2 = -2
+$$
+\boxed{RSx\neq SRx}
+$$
 
+The first result is \((-2,2)\), while the second result is \((-4,1)\). This demonstrates that applying the same two transformations in different orders can produce different final positions.
 
-Second entry:
+### Step 5: Explain geometrically why the order matters
 
-1 × 1 + 0 × 2 = 1 + 0 = 1
+The matrix \(S\) stretches vectors horizontally by a factor of \(2\), while leaving their vertical coordinates unchanged. The matrix \(R\) rotates vectors \(90^\circ\) counterclockwise.
 
+**Case 1: Scale first, then rotate**
 
-Therefore:
+Starting with
 
-Rx = ( -2 )
-     (  1 )
+$$
+x=\begin{pmatrix}
+1\\
+2
+\end{pmatrix},
+$$
 
+scaling gives
 
-The original vector (1, 2) becomes (-2, 1). This is a 90° counterclockwise rotation.
+$$
+Sx=\begin{pmatrix}
+2\\
+2
+\end{pmatrix}.
+$$
 
-### Step 2: Apply the scaling matrix S
+Rotating this vector gives
 
-Now, we multiply S by the result Rx.
+$$
+RSx=\begin{pmatrix}
+-2\\
+2
+\end{pmatrix}.
+$$
 
-SRx = ( 2  0 ) ( -2 )
-      ( 0  1 ) (  1 )
+The horizontal coordinate is doubled before the rotation takes place.
 
+**Case 2: Rotate first, then scale**
 
-First entry:
+Starting with the same vector, rotation gives
 
-2 × (-2) + 0 × 1 = -4 + 0 = -4
+$$
+Rx=\begin{pmatrix}
+-2\\
+1
+\end{pmatrix}.
+$$
 
+Scaling this vector gives
 
-Second entry:
+$$
+SRx=\begin{pmatrix}
+-4\\
+1
+\end{pmatrix}.
+$$
 
-0 × (-2) + 1 × 1 = 0 + 1 = 1
+Here, the rotation moves the original horizontal coordinate into the vertical position and the original vertical coordinate into the horizontal position, with a negative sign. The subsequent horizontal scaling doubles the new horizontal coordinate from \(-2\) to \(-4\).
 
+The final positions differ because the scaling acts along the horizontal direction, and the rotation changes how the vector is oriented relative to that direction.
 
-Therefore, the final result is:
+Therefore, scaling and rotation do not commute in this example.
 
-SRx = ( -4 )
-      (  1 )
+### Final Answer
 
+Scaling followed by rotation gives
 
-## 3. Compare the results
+$$
+\boxed{
+RSx=\begin{pmatrix}
+-2\\
+2
+\end{pmatrix}
+}
+$$
 
-We obtained the following results:
+Rotation followed by scaling gives
 
-RSx = ( -2 )
-      (  2 )
+$$
+\boxed{
+SRx=\begin{pmatrix}
+-4\\
+1
+\end{pmatrix}
+}
+$$
 
+Since
 
-SRx = ( -4 )
-      (  1 )
+$$
+\boxed{RSx\neq SRx},
+$$
 
-
-The results are different:
-
-RSx ≠ SRx
-
-
-When we apply scaling first and rotation second, the final vector is (-2, 2).
-
-When we apply rotation first and scaling second, the final vector is (-4, 1).
-
-Therefore, changing the order of the transformations changes the final result.
-
-## 4. Explain geometrically why the order matters
-
-The scaling matrix S doubles the horizontal coordinate and leaves the vertical coordinate unchanged.
-
-The rotation matrix R rotates a vector 90° counterclockwise. During this rotation, the horizontal and vertical coordinates change their positions and signs.
-
-In the first case, we scale the original vector (1, 2) to obtain (2, 2), and then rotate it to obtain (-2, 2).
-
-In the second case, we rotate the original vector (1, 2) to obtain (-2, 1), and then scale its horizontal coordinate to obtain (-4, 1).
-
-The difference occurs because the scaling transformation treats the horizontal and vertical coordinates differently. Rotating the vector before scaling changes which original coordinate is affected by the scaling.
-
-Therefore, these transformations are not interchangeable, and their order matters.
-
-## Conclusion
-
-RSx = (-2, 2)
-
-SRx = (-4, 1)
-
-Since RSx and SRx are different, applying scaling and rotation in different orders produces different results.
-
-This demonstrates that matrix multiplication represents the composition of transformations, and the order in which the transformations are applied is important.
+the order of the transformations matters. Nonuniform scaling and rotation produce different results when their order is reversed.
