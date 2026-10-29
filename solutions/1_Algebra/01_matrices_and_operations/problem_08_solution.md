@@ -1,199 +1,304 @@
 # Exercise 8. Row Operations and Their Reversibility
 
-## Given
+## Question
 
-A = (  1   2  -1 )
-    (  2   4   1 )
-    ( -1   1   3 )
+For
 
+$$
+A=\begin{pmatrix}
+1 & 2 & -1\\
+2 & 4 & 1\\
+-1 & 1 & 3
+\end{pmatrix}
+$$
 
-We must perform the following row operations in order:
+perform, in order:
 
-1. R₂ ← R₂ − 2R₁
-2. R₃ ← R₃ + R₁
-3. Interchange R₂ and R₃
+1. \(R_2\leftarrow R_2-2R_1\)
+2. \(R_3\leftarrow R_3+R_1\)
+3. Interchange \(R_2\) and \(R_3\).
 
-After each operation, we write the resulting matrix and explain how to reverse the operation.
+Write the matrix after each step. Then, for each of the three operations, state an operation that reverses it.
 
-## 1. Perform R₂ ← R₂ − 2R₁
+**Why this exercise:** Prepares for elimination by showing that row operations are controlled and reversible transformations of a matrix.
 
-This operation means that we multiply the first row by 2 and subtract the result from the second row. The first and third rows remain unchanged.
+## Solution
 
-The original matrix is:
+### Step 1: Understand elementary row operations
 
-A = (  1   2  -1 )
-    (  2   4   1 )
-    ( -1   1   3 )
+An elementary row operation changes one or more rows of a matrix in a specific way. These operations are commonly used to simplify matrices when solving systems of linear equations.
 
+There are three main types of elementary row operations:
 
-Step 1: Multiply the first row by 2.
+1. Interchanging two rows.
+2. Multiplying a row by a nonzero scalar.
+3. Adding a multiple of one row to another row.
 
-R₁ = (1, 2, -1)
+Each operation is reversible. This means that after performing a row operation, we can apply another operation to recover the original matrix.
 
-2R₁ = (2, 4, -2)
+The original matrix is
 
+$$
+A=\begin{pmatrix}
+1 & 2 & -1\\
+2 & 4 & 1\\
+-1 & 1 & 3
+\end{pmatrix}.
+$$
 
-Step 2: Subtract 2R₁ from the second row.
+We will apply the three given operations in the specified order.
 
-The original second row is:
+### Step 2: Perform the first row operation
 
-R₂ = (2, 4, 1)
+The first operation is
 
-Calculate each entry:
+$$
+R_2\leftarrow R_2-2R_1.
+$$
 
-2 − 2 = 0
+This means that we replace the second row with the second row minus twice the first row. The other rows remain unchanged.
 
-4 − 4 = 0
+The original rows are
 
-1 − (-2) = 3
+$$
+R_1=(1,2,-1)
+$$
 
+$$
+R_2=(2,4,1)
+$$
 
-Therefore, the new second row is:
+$$
+R_3=(-1,1,3).
+$$
 
-R₂ = (0, 0, 3)
+First, calculate twice the first row:
 
+$$
+2R_1=2(1,2,-1)=(2,4,-2).
+$$
 
-Step 3: Write the resulting matrix.
+Now subtract this result from the second row:
 
-A₁ = (  1   2  -1 )
-     (  0   0   3 )
-     ( -1   1   3 )
+$$
+R_2-2R_1=(2,4,1)-(2,4,-2).
+$$
 
+Subtract the corresponding entries:
 
-**Reverse operation:**
+$$
+R_2-2R_1=
+(2-2,\;4-4,\;1-(-2)).
+$$
 
-To reverse R₂ ← R₂ − 2R₁, we add 2R₁ back to R₂.
+Therefore, the new second row is
 
-The reverse operation is:
+$$
+R_2=(0,0,3).
+$$
 
-R₂ ← R₂ + 2R₁
+The first and third rows remain unchanged. The matrix after the first operation is
+
+$$
+\boxed{
+A_1=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 0 & 3\\
+-1 & 1 & 3
+\end{pmatrix}
+}
+$$
+
+**How to reverse the first operation:**
+
+The original operation subtracts \(2R_1\) from \(R_2\). To reverse it, add \(2R_1\) back to \(R_2\):
+
+$$
+\boxed{R_2\leftarrow R_2+2R_1}
+$$
 
 This restores the original second row.
 
+### Step 3: Perform the second row operation
 
-## 2. Perform R₃ ← R₃ + R₁
+The second operation is
 
-We now use the matrix obtained after Step 1.
+$$
+R_3\leftarrow R_3+R_1.
+$$
 
-A₁ = (  1   2  -1 )
-     (  0   0   3 )
-     ( -1   1   3 )
+We apply this operation to the matrix obtained in Step 2:
 
+$$
+A_1=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 0 & 3\\
+-1 & 1 & 3
+\end{pmatrix}.
+$$
 
-This operation means that we add the first row to the third row. The first and second rows remain unchanged.
+The first and second rows remain unchanged. We replace the third row with the sum of the third row and the first row.
 
+The relevant rows are
 
-Step 1: Identify the rows.
+$$
+R_3=(-1,1,3)
+$$
 
-First row:
+and
 
-R₁ = (1, 2, -1)
+$$
+R_1=(1,2,-1).
+$$
 
-Third row:
+Add their corresponding entries:
 
-R₃ = (-1, 1, 3)
+$$
+R_3+R_1=(-1+1,\;1+2,\;3+(-1)).
+$$
 
+Simplifying gives
 
-Step 2: Add the corresponding entries.
+$$
+R_3+R_1=(0,3,2).
+$$
 
-First entry:
+Therefore, the new third row is
 
--1 + 1 = 0
+$$
+R_3=(0,3,2).
+$$
 
-Second entry:
+The matrix after the second operation is
 
-1 + 2 = 3
+$$
+\boxed{
+A_2=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 0 & 3\\
+0 & 3 & 2
+\end{pmatrix}
+}
+$$
 
-Third entry:
+**How to reverse the second operation:**
 
-3 + (-1) = 2
+The original operation adds \(R_1\) to \(R_3\). To reverse it, subtract \(R_1\) from \(R_3\):
 
+$$
+\boxed{R_3\leftarrow R_3-R_1}
+$$
 
-Therefore, the new third row is:
+This restores the third row to its value before the second operation.
 
-R₃ = (0, 3, 2)
+### Step 4: Perform the third row operation
 
+The third operation is to interchange \(R_2\) and \(R_3\).
 
-Step 3: Write the resulting matrix.
+Before the interchange, the matrix is
 
-A₂ = (  1   2  -1 )
-     (  0   0   3 )
-     (  0   3   2 )
+$$
+A_2=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 0 & 3\\
+0 & 3 & 2
+\end{pmatrix}.
+$$
 
+The second row is
 
-**Reverse operation:**
+$$
+R_2=(0,0,3),
+$$
 
-To reverse R₃ ← R₃ + R₁, we subtract the first row from the third row.
+and the third row is
 
-The reverse operation is:
+$$
+R_3=(0,3,2).
+$$
 
-R₃ ← R₃ − R₁
+Interchanging the two rows means that the second row becomes \((0,3,2)\), while the third row becomes \((0,0,3)\). The first row stays unchanged.
 
-This restores the previous third row.
-
-
-## 3. Interchange R₂ and R₃
-
-We now use the matrix obtained after Step 2.
-
-A₂ = (  1   2  -1 )
-     (  0   0   3 )
-     (  0   3   2 )
-
-
-Interchanging R₂ and R₃ means swapping the second and third rows. The first row remains unchanged.
-
-
-Step 1: Identify the rows to interchange.
-
-Second row:
-
-R₂ = (0, 0, 3)
-
-Third row:
-
-R₃ = (0, 3, 2)
-
-
-Step 2: Swap the two rows.
-
-The second row becomes (0, 3, 2).
-
-The third row becomes (0, 0, 3).
-
-
-Step 3: Write the resulting matrix.
-
-A₃ = (  1   2  -1 )
-     (  0   3   2 )
-     (  0   0   3 )
-
-
-**Reverse operation:**
-
-To reverse the interchange, we swap the second and third rows again.
-
-The reverse operation is:
-
-Interchange R₂ and R₃
-
-Swapping the same two rows a second time restores the previous matrix.
-
-
-## Conclusion
-
-Elementary row operations are reversible because each operation has an inverse operation that restores the previous matrix.
-
-1. R₂ ← R₂ − 2R₁ is reversed by R₂ ← R₂ + 2R₁.
-
-2. R₃ ← R₃ + R₁ is reversed by R₃ ← R₃ − R₁.
-
-3. Interchanging R₂ and R₃ is reversed by interchanging R₂ and R₃ again.
-
-The final matrix after all three operations is:
-
-A₃ = (  1   2  -1 )
-     (  0   3   2 )
-     (  0   0   3 )
-
-These operations demonstrate how rows can be transformed in a controlled way while preserving the ability to return to the previous matrix.
+The resulting matrix is
+
+$$
+\boxed{
+A_3=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 3 & 2\\
+0 & 0 & 3
+\end{pmatrix}
+}
+$$
+
+**How to reverse the third operation:**
+
+Interchanging the same two rows again restores their original positions:
+
+$$
+\boxed{\text{Interchange }R_2\text{ and }R_3}
+$$
+
+Swapping two rows twice returns the matrix to its original arrangement.
+
+### Step 5: Summarize the three operations and their inverses
+
+| Step | Original operation | Resulting matrix | Inverse operation |
+|---|---|---|---|
+| 1 | \(R_2\leftarrow R_2-2R_1\) | \(A_1\) | \(R_2\leftarrow R_2+2R_1\) |
+| 2 | \(R_3\leftarrow R_3+R_1\) | \(A_2\) | \(R_3\leftarrow R_3-R_1\) |
+| 3 | Interchange \(R_2\) and \(R_3\) | \(A_3\) | Interchange \(R_2\) and \(R_3\) again |
+
+Each inverse operation undoes the corresponding original operation. To reverse the entire sequence, the operations must be undone in reverse order: first swap \(R_2\) and \(R_3\), then subtract \(R_1\) from \(R_3\), and finally add \(2R_1\) to \(R_2\).
+
+### Final Answer
+
+After the first operation,
+
+$$
+\boxed{
+A_1=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 0 & 3\\
+-1 & 1 & 3
+\end{pmatrix}
+}
+$$
+
+After the second operation,
+
+$$
+\boxed{
+A_2=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 0 & 3\\
+0 & 3 & 2
+\end{pmatrix}
+}
+$$
+
+After the third operation,
+
+$$
+\boxed{
+A_3=\begin{pmatrix}
+1 & 2 & -1\\
+0 & 3 & 2\\
+0 & 0 & 3
+\end{pmatrix}
+}
+$$
+
+The inverse operations are, respectively,
+
+$$
+R_2\leftarrow R_2+2R_1,
+$$
+
+$$
+R_3\leftarrow R_3-R_1,
+$$
+
+and interchanging \(R_2\) and \(R_3\) again.
+
+These calculations demonstrate that elementary row operations are reversible. This property is important in Gaussian elimination, where row operations simplify matrices while preserving the solutions of the corresponding system of linear equations.
