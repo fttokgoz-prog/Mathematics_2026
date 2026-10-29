@@ -1,110 +1,267 @@
 # Exercise 5. Matrix Times Vector
 
-**Given:**
+## Question
 
-A = ( 2  -1 )
-    ( 1   3 )
+Let
 
-x = ( 4 )
-    ( 2 )
+$$
+A=\begin{pmatrix}
+2 & -1\\
+1 & 3
+\end{pmatrix},
+\qquad
+x=\begin{pmatrix}
+4\\
+2
+\end{pmatrix}
+$$
 
+Compute \(Ax\). Then express \(Ax\) as a linear combination of the columns of \(A\), with coefficients coming from the vector \(x\).
 
-## 1. Compute Ax
+**Why this exercise:** Shows that multiplying a matrix by a vector can be understood as a linear combination of the matrix columns.
 
-To multiply a matrix by a vector, we multiply each row of the matrix by the entries of the vector. Then, we add the products to obtain each entry of the result.
+## Solution
 
-The matrix A has 2 rows, and the vector x has 2 entries. Therefore, the multiplication Ax is defined, and the result will be a vector with 2 entries.
+### Step 1: Understand the dimensions
 
-**Step 1: Calculate the first entry.**
+The matrix \(A\) has 2 rows and 2 columns, so its dimensions are \(2\times2\).
 
-The first row of A contains the numbers 2 and -1. The vector x contains the numbers 4 and 2.
+The vector \(x\) has 2 rows and 1 column, so its dimensions are \(2\times1\).
 
-We multiply the corresponding entries and add the results:
+Matrix multiplication is possible because the number of columns in \(A\) equals the number of rows in \(x\). Therefore, the result \(Ax\) will be a \(2\times1\) vector.
 
-2 × 4 + (-1) × 2 = 8 - 2 = 6
+### Step 2: Calculate \(Ax\)
 
-Therefore, the first entry of Ax is 6.
+We are given
 
-**Step 2: Calculate the second entry.**
+$$
+A=\begin{pmatrix}
+2 & -1\\
+1 & 3
+\end{pmatrix},
+\qquad
+x=\begin{pmatrix}
+4\\
+2
+\end{pmatrix}
+$$
 
-The second row of A contains the numbers 1 and 3.
+Multiply each row of \(A\) by the column vector \(x\):
 
-We multiply the corresponding entries of this row by the entries of x and add the results:
+$$
+Ax=
+\begin{pmatrix}
+2 & -1\\
+1 & 3
+\end{pmatrix}
+\begin{pmatrix}
+4\\
+2
+\end{pmatrix}
+$$
 
-1 × 4 + 3 × 2 = 4 + 6 = 10
+**First entry:**
 
-Therefore, the second entry of Ax is 10.
+Multiply the first row of \(A\), \((2,-1)\), by the vector \(x\):
 
-**Step 3: Write the final result.**
+$$
+2\cdot4+(-1)\cdot2=8-2=6
+$$
 
-The first entry is 6, and the second entry is 10.
+**Second entry:**
 
-Ax = (  6 )
-     ( 10 )
+Multiply the second row of \(A\), \((1,3)\), by the vector \(x\):
 
+$$
+1\cdot4+3\cdot2=4+6=10
+$$
 
-## 2. Express Ax as a linear combination of the columns of A
+Combining the two entries gives
 
-A linear combination means multiplying each column of a matrix by a number and then adding the resulting vectors.
+$$
+\boxed{
+Ax=\begin{pmatrix}
+6\\
+10
+\end{pmatrix}
+}
+$$
 
-**Step 1: Identify the columns of A.**
+### Step 3: Identify the columns of \(A\)
 
-The first column of A is:
+To express \(Ax\) as a linear combination of the columns of \(A\), we first write the columns separately.
 
-c₁ = ( 2 )
-     ( 1 )
+The first column of \(A\) is
 
-The second column of A is:
+$$
+a_1=\begin{pmatrix}
+2\\
+1
+\end{pmatrix}
+$$
 
-c₂ = ( -1 )
-     (  3 )
+The second column of \(A\) is
 
-**Step 2: Identify the coefficients.**
+$$
+a_2=\begin{pmatrix}
+-1\\
+3
+\end{pmatrix}
+$$
 
-The vector x is:
+Therefore, the matrix \(A\) can be written using its column vectors as
 
-x = ( 4 )
-    ( 2 )
+$$
+A=\begin{pmatrix}a_1 & a_2\end{pmatrix}
+$$
 
-The first entry of x is 4, and the second entry is 2. These numbers are the coefficients of the corresponding columns of A.
+The vector \(x\) contains the coefficients \(4\) and \(2\):
 
-Therefore, the first column is multiplied by 4, and the second column is multiplied by 2.
+$$
+x=\begin{pmatrix}
+4\\
+2
+\end{pmatrix}
+$$
 
-This gives:
+The first coefficient is \(4\), and the second coefficient is \(2\).
 
-Ax = 4c₁ + 2c₂
+### Step 4: Express \(Ax\) as a linear combination
 
-**Step 3: Multiply each column by its coefficient.**
+A matrix multiplied by a vector can be expressed as a linear combination of the matrix's columns. Each column is multiplied by the corresponding entry of the vector.
 
-First column:
+In general, if
 
-4c₁ = 4 × ( 2 ) = ( 8 )
-             ( 1 )   ( 4 )
+$$
+A=\begin{pmatrix}a_1 & a_2\end{pmatrix},
+\qquad
+x=\begin{pmatrix}x_1\\x_2\end{pmatrix},
+$$
 
-Second column:
+then
 
-2c₂ = 2 × ( -1 ) = ( -2 )
-             (  3 )   (  6 )
+$$
+Ax=x_1a_1+x_2a_2
+$$
 
-**Step 4: Add the resulting vectors.**
+For this exercise, \(x_1=4\) and \(x_2=2\). Therefore,
 
-Ax = (  8 ) + ( -2 )
-     (  4 )   (  6 )
+$$
+Ax=4a_1+2a_2
+$$
 
-We add the corresponding entries:
+Substitute the column vectors:
 
-First entry: 8 + (-2) = 6
+$$
+Ax=
+4\begin{pmatrix}
+2\\
+1
+\end{pmatrix}
++
+2\begin{pmatrix}
+-1\\
+3
+\end{pmatrix}
+$$
 
-Second entry: 4 + 6 = 10
+Multiply each vector by its coefficient:
 
-Therefore:
+$$
+Ax=
+\begin{pmatrix}
+8\\
+4
+\end{pmatrix}
++
+\begin{pmatrix}
+-2\\
+6
+\end{pmatrix}
+$$
 
-Ax = (  6 )
-     ( 10 )
+Add the corresponding entries:
 
+$$
+Ax=
+\begin{pmatrix}
+8+(-2)\\
+4+6
+\end{pmatrix}
+=
+\begin{pmatrix}
+6\\
+10
+\end{pmatrix}
+$$
 
-## Conclusion
+Thus, the linear combination gives the same result as the direct matrix multiplication.
 
-The result of multiplying a matrix by a vector can be expressed as a linear combination of the columns of the matrix.
+### Step 5: Explain the result
 
-The entries of the vector determine the coefficients used to multiply each column. In this exercise, the first column is multiplied by 4, and the second column is multiplied by 2. Adding these vectors gives the same result as calculating Ax directly.
+We calculated \(Ax\) in two different ways.
+
+Using direct matrix multiplication:
+
+$$
+Ax=\begin{pmatrix}
+6\\
+10
+\end{pmatrix}
+$$
+
+Using a linear combination of the columns of \(A\):
+
+$$
+Ax=
+4\begin{pmatrix}
+2\\
+1
+\end{pmatrix}
++
+2\begin{pmatrix}
+-1\\
+3
+\end{pmatrix}
+=
+\begin{pmatrix}
+6\\
+10
+\end{pmatrix}
+$$
+
+Both methods produce the same vector.
+
+This demonstrates that multiplying a matrix by a vector means taking a weighted sum of the matrix's columns. The entries of the vector provide the coefficients used to multiply each column.
+
+### Final Answer
+
+The matrix-vector product is
+
+$$
+\boxed{
+Ax=\begin{pmatrix}
+6\\
+10
+\end{pmatrix}
+}
+$$
+
+The linear combination of the columns of \(A\) is
+
+$$
+\boxed{
+Ax=
+4\begin{pmatrix}
+2\\
+1
+\end{pmatrix}
++
+2\begin{pmatrix}
+-1\\
+3
+\end{pmatrix}
+}
+$$
+
+The coefficients \(4\) and \(2\) come directly from the vector \(x\), and the linear combination produces the same result as the matrix-vector multiplication.
