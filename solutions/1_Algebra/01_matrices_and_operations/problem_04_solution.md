@@ -1,81 +1,225 @@
 # Exercise 4. Matrix Multiplication and Noncommutativity
 
-**Given:**
+## Question
 
-A = (1  2)
-    (0  1)
+For the matrices
 
-B = (2  0)
-    (3  1)
+$$
+A=\begin{pmatrix}
+1 & 2\\
+0 & 1
+\end{pmatrix},
+\qquad
+B=\begin{pmatrix}
+2 & 0\\
+3 & 1
+\end{pmatrix}
+$$
 
-## 1. Compute AB
+compute \(AB\) and \(BA\). Is \(AB=BA\)? Use this example to explain what noncommutativity of matrix multiplication means.
 
-To multiply two matrices, we multiply each row of the first matrix by each column of the second matrix and add the products.
+**Why this exercise:** Shows one of the most important differences between matrix multiplication and multiplication of numbers.
 
-AB = (1  2) (2  0)
-     (0  1) (3  1)
+## Solution
 
-First row, first column:
+### Step 1: Understand the matrix multiplication rule
 
-1 × 2 + 2 × 3 = 2 + 6 = 8
+To multiply two matrices, the number of columns in the first matrix must equal the number of rows in the second matrix.
 
-First row, second column:
+Both \(A\) and \(B\) are \(2\times2\) matrices. Therefore, both products \(AB\) and \(BA\) are defined, and each result is also a \(2\times2\) matrix.
 
-1 × 0 + 2 × 1 = 0 + 2 = 2
+Each entry of the result is calculated by multiplying the elements of a row of the first matrix by the corresponding elements of a column of the second matrix and then adding the products.
 
-Second row, first column:
+### Step 2: Calculate \(AB\)
 
-0 × 2 + 1 × 3 = 0 + 3 = 3
+We multiply matrix \(A\) by matrix \(B\):
 
-Second row, second column:
+$$
+AB=
+\begin{pmatrix}
+1 & 2\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+2 & 0\\
+3 & 1
+\end{pmatrix}
+$$
 
-0 × 0 + 1 × 1 = 0 + 1 = 1
+**Entry in row 1, column 1:**
+
+$$
+1\cdot2+2\cdot3=2+6=8
+$$
+
+**Entry in row 1, column 2:**
+
+$$
+1\cdot0+2\cdot1=0+2=2
+$$
+
+**Entry in row 2, column 1:**
+
+$$
+0\cdot2+1\cdot3=0+3=3
+$$
+
+**Entry in row 2, column 2:**
+
+$$
+0\cdot0+1\cdot1=0+1=1
+$$
+
+Combining these four entries gives
+
+$$
+\boxed{
+AB=\begin{pmatrix}
+8 & 2\\
+3 & 1
+\end{pmatrix}
+}
+$$
+
+### Step 3: Calculate \(BA\)
+
+Now we reverse the order and multiply matrix \(B\) by matrix \(A\):
+
+$$
+BA=
+\begin{pmatrix}
+2 & 0\\
+3 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 2\\
+0 & 1
+\end{pmatrix}
+$$
+
+**Entry in row 1, column 1:**
+
+$$
+2\cdot1+0\cdot0=2+0=2
+$$
+
+**Entry in row 1, column 2:**
+
+$$
+2\cdot2+0\cdot1=4+0=4
+$$
+
+**Entry in row 2, column 1:**
+
+$$
+3\cdot1+1\cdot0=3+0=3
+$$
+
+**Entry in row 2, column 2:**
+
+$$
+3\cdot2+1\cdot1=6+1=7
+$$
+
+Combining these entries gives
+
+$$
+\boxed{
+BA=\begin{pmatrix}
+2 & 4\\
+3 & 7
+\end{pmatrix}
+}
+$$
+
+### Step 4: Compare \(AB\) and \(BA\)
+
+We obtained
+
+$$
+AB=\begin{pmatrix}
+8 & 2\\
+3 & 1
+\end{pmatrix}
+$$
+
+and
+
+$$
+BA=\begin{pmatrix}
+2 & 4\\
+3 & 7
+\end{pmatrix}
+$$
+
+Two matrices are equal only if all their corresponding entries are equal.
+
+However, their top-left entries are different:
+
+$$
+8\neq2
+$$
+
+Their top-right entries are also different:
+
+$$
+2\neq4
+$$
 
 Therefore,
 
-AB = (8  2)
-     (3  1)
+$$
+\boxed{AB\neq BA}
+$$
 
-## 2. Compute BA
+### Step 5: Explain noncommutativity
 
-Now we reverse the order of the matrices.
+For ordinary numbers, multiplication is commutative. This means that changing the order of the factors does not change the result:
 
-BA = (2  0) (1  2)
-     (3  1) (0  1)
+$$
+2\cdot3=3\cdot2=6
+$$
 
-First row, first column:
+However, matrix multiplication is **not commutative in general**. Reversing the order of two matrices can produce a different result.
 
-2 × 1 + 0 × 0 = 2 + 0 = 2
+In this example,
 
-First row, second column:
+$$
+AB=
+\begin{pmatrix}
+8 & 2\\
+3 & 1
+\end{pmatrix}
+\neq
+\begin{pmatrix}
+2 & 4\\
+3 & 7
+\end{pmatrix}
+=BA
+$$
 
-2 × 2 + 0 × 1 = 4 + 0 = 4
+This difference occurs because reversing the order changes which rows and columns are multiplied together.
 
-Second row, first column:
+Noncommutativity does not mean that \(AB\) and \(BA\) are always different. Some pairs of matrices do satisfy \(AB=BA\). It means that, unlike ordinary number multiplication, matrix multiplication does not guarantee the same result when the order is reversed.
 
-3 × 1 + 1 × 0 = 3 + 0 = 3
+### Final Answer
 
-Second row, second column:
+$$
+AB=\begin{pmatrix}
+8 & 2\\
+3 & 1
+\end{pmatrix}
+$$
 
-3 × 2 + 1 × 1 = 6 + 1 = 7
+$$
+BA=\begin{pmatrix}
+2 & 4\\
+3 & 7
+\end{pmatrix}
+$$
 
-Therefore,
+$$
+\boxed{AB\neq BA}
+$$
 
-BA = (2  4)
-     (3  7)
-
-## 3. Is AB = BA? Explain noncommutativity.
-
-The results are:
-
-AB = (8  2)
-     (3  1)
-
-BA = (2  4)
-     (3  7)
-
-The matrices are different because their corresponding entries are not all equal. For example, the top-left entries are 8 and 2.
-
-Therefore, AB ≠ BA.
-
-Matrix multiplication is generally not commutative. This means that changing the order of the matrices can produce a different result. In this example, multiplying A by B gives a different matrix from multiplying B by A. Therefore, matrix multiplication does not follow the commutative property of ordinary number multiplication.
+Matrix multiplication is not commutative in general because changing the order of the matrices can change the result.
