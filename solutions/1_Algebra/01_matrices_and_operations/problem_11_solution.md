@@ -1,234 +1,179 @@
-# Exercise 11. When Do Matrices Commute?
+# EXERCISE 11
+# WHEN DO MATRICES COMMUTE?
 
-## Given
+---
 
-A = ( 1  1 )
-    ( 0  1 )
+## 1. GIVEN
 
+The following matrices are given:
 
-B = ( a  b )
-    ( c  d )
+Matrix A:
 
+$$
+A =
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
-We need to find the conditions on a, b, c, and d such that AB = BA, and describe the general form of all matrices B satisfying this condition.
+Matrix B:
 
-## 1. Compute AB
+$$
+B =
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+$$
 
-To multiply two matrices, we multiply each row of the first matrix by each column of the second matrix and add the products.
+## 2. QUESTION
 
-AB = ( 1  1 ) ( a  b )
-     ( 0  1 ) ( c  d )
+Find the conditions on \(a, b, c, d\) under which:
 
+$$
+AB = BA
+$$
 
-**Step 1: Calculate the first row, first column.**
+Describe the general form of all such matrices B.
 
-1 × a + 1 × c = a + c
+---
 
+## 3. SOLUTION
 
-**Step 2: Calculate the first row, second column.**
+### STEP 1 – Calculate AB
 
-1 × b + 1 × d = b + d
+Multiply matrix A by matrix B:
 
+$$
+AB =
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+$$
 
-**Step 3: Calculate the second row, first column.**
+$$
+AB =
+\begin{pmatrix}
+a+c & b+d \\
+c & d
+\end{pmatrix}
+$$
 
-0 × a + 1 × c = 0 + c = c
+### STEP 2 – Calculate BA
 
+Now multiply matrix B by matrix A:
 
-**Step 4: Calculate the second row, second column.**
+$$
+BA =
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
-0 × b + 1 × d = 0 + d = d
+$$
+BA =
+\begin{pmatrix}
+a & a+b \\
+c & c+d
+\end{pmatrix}
+$$
 
+### STEP 3 – Compare AB and BA
+
+For the matrices to commute, their corresponding entries must be equal.
 
 Therefore:
 
-AB = ( a + c  b + d )
-     ( c       d     )
+$$
+\begin{aligned}
+a+c &= a \\
+b+d &= a+b \\
+c &= c \\
+d &= c+d
+\end{aligned}
+$$
 
+Simplifying these equations:
 
-## 2. Compute BA
+From the first equation:
 
-Now, we reverse the order and multiply B by A.
+$$
+c=0
+$$
 
-BA = ( a  b ) ( 1  1 )
-     ( c  d ) ( 0  1 )
+From the second equation:
 
+$$
+d=a
+$$
 
-**Step 1: Calculate the first row, first column.**
-
-a × 1 + b × 0 = a + 0 = a
-
-
-**Step 2: Calculate the first row, second column.**
-
-a × 1 + b × 1 = a + b
-
-
-**Step 3: Calculate the second row, first column.**
-
-c × 1 + d × 0 = c + 0 = c
-
-
-**Step 4: Calculate the second row, second column.**
-
-c × 1 + d × 1 = c + d
-
-
-Therefore:
-
-BA = ( a  a + b )
-     ( c  c + d )
-
-
-## 3. Find the conditions for AB = BA
-
-For AB and BA to be equal, their corresponding entries must be equal.
-
-We have:
-
-AB = ( a + c  b + d )
-     ( c       d     )
-
-
-BA = ( a  a + b )
-     ( c  c + d )
-
-
-We compare the corresponding entries.
-
-**First entry:**
-
-a + c = a
-
-Subtract a from both sides:
-
-c = 0
-
-
-**Second entry:**
-
-b + d = a + b
-
-Subtract b from both sides:
-
-d = a
-
-
-**Third entry:**
-
-c = c
-
-This equality is always true, so it gives no additional condition.
-
-
-**Fourth entry:**
-
-d = c + d
-
-Subtract d from both sides:
-
-c = 0
-
-This is the same condition we obtained from the first entry.
-
+The remaining equations give the same condition or are automatically satisfied.
 
 Therefore, the required conditions are:
 
-c = 0
+$$
+\boxed{c=0,\quad d=a}
+$$
 
-d = a
+---
 
+## 4. GENERAL FORM OF MATRIX B
 
-There are no additional restrictions on a or b.
+Substitute the conditions \(c=0\) and \(d=a\) into matrix B:
 
+$$
+B =
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+$$
 
-## 4. Describe the general form of all matrices B
+Here, \(a\) and \(b\) can be any real numbers.
 
-We found that:
+This is the general form of all matrices B that commute with A.
 
-c = 0
+---
 
-d = a
+## 5. FINAL ANSWER
 
+The matrices A and B commute when:
 
-The original matrix B is:
+$$
+\boxed{c=0,\quad d=a}
+$$
 
-B = ( a  b )
-    ( c  d )
+The general form of matrix B is:
 
+$$
+\boxed{
+B =
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+}
+$$
 
-Substituting c = 0 and d = a gives:
+where \(a,b \in \mathbb{R}\).
 
-B = ( a  b )
-    ( 0  a )
+---
 
+## 6. CONCLUSION
 
-Therefore, the general form of all matrices B that commute with A is:
+Two matrices commute when multiplying them in either order gives the same result.
 
-B = ( a  b )
-    ( 0  a )
+In this exercise, the condition \(AB=BA\) requires the lower-left entry of B to be zero and both diagonal entries to be equal.
 
-where a and b can be any real numbers.
-
-
-## 5. Verify the result
-
-Using the general form:
-
-B = ( a  b )
-    ( 0  a )
-
-
-Calculate AB:
-
-AB = ( 1  1 ) ( a  b )
-     ( 0  1 ) ( 0  a )
-
-
-AB = ( a + 0  b + a )
-     ( 0 + 0  0 + a )
-
-
-AB = ( a  a + b )
-     ( 0  a     )
-
-
-Now calculate BA:
-
-BA = ( a  b ) ( 1  1 )
-     ( 0  a ) ( 0  1 )
-
-
-BA = ( a + 0  a + b )
-     ( 0 + 0  0 + a )
-
-
-BA = ( a  a + b )
-     ( 0  a     )
-
-
-Both products are equal:
-
-AB = BA
-
-
-This confirms that every matrix of the form
-
-B = ( a  b )
-    ( 0  a )
-
-commutes with A.
-
-
-## Conclusion
-
-The matrices A and B commute when AB = BA.
-
-Comparing the entries of the two products gives the conditions c = 0 and d = a. There are no restrictions on a and b.
-
-Therefore, all matrices B that commute with A have the form:
-
-B = ( a  b )
-    ( 0  a )
-
-where a and b are arbitrary real numbers.
+Therefore, not every matrix B commutes with A. Only matrices with the form shown above satisfy this condition.
