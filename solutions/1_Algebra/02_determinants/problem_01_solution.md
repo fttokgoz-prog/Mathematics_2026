@@ -1,135 +1,125 @@
-# Exercise 1. Determinant of a 2×2 Matrix
 
-## Given
+# EXERCISE 1
+# DETERMINANT OF A 2×2 MATRIX
 
-We need to calculate the determinants of the following matrices:
+---
 
-A = ( 3  -2 )
-    ( 5   4 )
+## 1. GIVEN
 
+We are given two matrices.
 
-B = (  1   7 )
-    (  2  14 )
+### Matrix A
 
+```math
+A =
+\begin{pmatrix}
+3 & -2 \\
+5 & 4
+\end{pmatrix}
+```
 
-We must also determine which matrix is invertible and justify the answer.
+### Matrix B
 
-## 1. Compute the determinant of matrix A
+```math
+B =
+\begin{pmatrix}
+1 & 7 \\
+2 & 14
+\end{pmatrix}
+```
 
-For a 2×2 matrix, the determinant is calculated by multiplying the entries on the main diagonal and subtracting the product of the entries on the other diagonal.
+Calculate the determinant of each matrix and determine which matrix is invertible. Justify your answer.
 
-The formula is:
+---
 
-det(A) = ad - bc
+## 2. DETERMINANT FORMULA
 
-For matrix A:
+For a 2×2 matrix:
 
-A = ( 3  -2 )
-    ( 5   4 )
+```math
+M =
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+```
 
-The entries are:
+The determinant is calculated using:
 
-a = 3
+```math
+\det(M)=ad-bc
+```
 
-b = -2
+A matrix is invertible if and only if its determinant is not zero.
 
-c = 5
+---
 
-d = 4
+## 3. DETERMINANT OF MATRIX A
 
+Using the determinant formula:
 
-**Step 1: Multiply the main diagonal entries.**
+```math
+\det(A)=(3)(4)-(-2)(5)
+```
 
-3 × 4 = 12
+Calculate:
 
+```math
+\det(A)=12+10
+```
 
-**Step 2: Multiply the other diagonal entries.**
+Therefore:
 
-(-2) × 5 = -10
+```math
+\boxed{\det(A)=22}
+```
 
+Since the determinant is not zero, matrix A is invertible.
 
-**Step 3: Subtract the second product from the first product.**
+---
 
-det(A) = 12 - (-10)
+## 4. DETERMINANT OF MATRIX B
 
-Subtracting a negative number is the same as adding a positive number.
+Using the determinant formula:
 
-det(A) = 12 + 10
+```math
+\det(B)=(1)(14)-(7)(2)
+```
 
-det(A) = 22
+Calculate:
 
+```math
+\det(B)=14-14
+```
 
-**Final answer:**
+Therefore:
 
-det(A) = 22
+```math
+\boxed{\det(B)=0}
+```
 
+Since the determinant is zero, matrix B is not invertible.
 
-## 2. Compute the determinant of matrix B
+---
 
-Matrix B is:
+## 5. COMPARISON OF THE RESULTS
 
-B = (  1   7 )
-    (  2  14 )
+| Matrix | Determinant | Invertible? |
+|---|---:|---|
+| A | 22 | Yes |
+| B | 0 | No |
 
+Matrix A has a non-zero determinant, while matrix B has a zero determinant.
 
-We use the same determinant formula:
+Therefore, only matrix A is invertible.
 
-det(B) = ad - bc
+---
 
+## 6. CONCLUSION
 
-**Step 1: Multiply the main diagonal entries.**
+The determinant determines whether a square matrix has an inverse.
 
-1 × 14 = 14
+- If the determinant is non-zero, the matrix is invertible.
+- If the determinant is zero, the matrix is not invertible.
 
-
-**Step 2: Multiply the other diagonal entries.**
-
-7 × 2 = 14
-
-
-**Step 3: Subtract the second product from the first product.**
-
-det(B) = 14 - 14
-
-det(B) = 0
-
-
-**Final answer:**
-
-det(B) = 0
-
-
-## 3. Which matrix is invertible? Justify your answer.
-
-A square matrix is invertible if and only if its determinant is not equal to zero.
-
-If the determinant is zero, the matrix is not invertible.
-
-For matrix A:
-
-det(A) = 22
-
-Since 22 ≠ 0, matrix A is invertible.
-
-
-For matrix B:
-
-det(B) = 0
-
-Since its determinant is zero, matrix B is not invertible.
-
-
-## Conclusion
-
-The determinants are:
-
-det(A) = 22
-
-det(B) = 0
-
-
-Matrix A is invertible because its determinant is nonzero.
-
-Matrix B is not invertible because its determinant is zero.
-
-Therefore, a 2×2 matrix is invertible if and only if its determinant is nonzero.
+In this exercise, matrix A is invertible, while matrix B is not.
