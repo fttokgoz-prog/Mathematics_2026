@@ -1,284 +1,305 @@
-# Exercise 14. A System of Equations and the Determinant
 
-## Given
+# EXERCISE 14
+# A SYSTEM OF EQUATIONS AND THE DETERMINANT
 
-Consider the system of equations:
+---
 
-Ax = b
+## 1. GIVEN
 
-where
+We are given the following system of linear equations:
 
-A = ( 1  2 )
-    ( k  4 )
+```math
+Ax=b
+```
 
+where the coefficient matrix is:
 
-We need to determine the values of k for which the system has exactly one solution for every right-hand side b.
+```math
+A=
+\begin{pmatrix}
+1 & 2 \\
+k & 4
+\end{pmatrix}
+```
 
-For the remaining value of k, we must give an example of a right-hand side b for which the system has infinitely many solutions and an example for which it has no solution.
+The vector of unknowns is:
 
-## 1. Calculate the determinant of A
+```math
+x=
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}
+```
 
-The coefficient matrix is:
+The right-hand side is:
 
-A = ( 1  2 )
-    ( k  4 )
+```math
+b=
+\begin{pmatrix}
+b_1 \\
+b_2
+\end{pmatrix}
+```
 
+We need to determine:
 
-For a 2 × 2 matrix, the determinant is calculated using the formula:
+1. For which values of k does the system have exactly one solution for every possible vector b?
+2. For the remaining value of k, give an example of a right-hand side b that produces infinitely many solutions.
+3. Give another example of a right-hand side b that produces no solution.
 
-det(A) = ad - bc
+---
 
+## 2. CALCULATE THE DETERMINANT
 
-In this matrix:
+A square matrix has a unique solution for every right-hand side if and only if its determinant is non-zero.
 
-a = 1
+For our matrix:
 
-b = 2
+```math
+A=
+\begin{pmatrix}
+1 & 2 \\
+k & 4
+\end{pmatrix}
+```
 
-c = k
+The determinant of a 2×2 matrix is calculated using:
 
-d = 4
+```math
+\det(A)=ad-bc
+```
 
+Substitute the matrix entries:
 
-Substitute these values into the formula:
+```math
+\det(A)=1\cdot4-2\cdot k
+```
 
-det(A) = 1 × 4 - 2 × k
+Simplifying:
 
+```math
+\det(A)=4-2k
+```
 
-Calculate the products:
+Factor out 2:
 
-det(A) = 4 - 2k
+```math
+\det(A)=2(2-k)
+```
 
+---
+
+## 3. FIND WHEN THE SYSTEM HAS A UNIQUE SOLUTION
+
+For the system to have exactly one solution for every possible b, the determinant must not equal zero.
 
 Therefore:
 
-det(A) = 4 - 2k
-
-
-## 2. Find the values of k for which the system has exactly one solution for every b
-
-A square linear system Ax = b has exactly one solution for every right-hand side b if its coefficient matrix A is invertible.
-
-A matrix is invertible if and only if its determinant is nonzero.
-
-Therefore, we require:
-
-det(A) ≠ 0
-
+```math
+\det(A)\neq0
+```
 
 Substitute the determinant:
 
-4 - 2k ≠ 0
+```math
+4-2k\neq0
+```
 
+Solving for k:
 
-Subtract 4 from both sides:
+```math
+4\neq2k
+```
 
--2k ≠ -4
+```math
+k\neq2
+```
 
+Therefore, for every value of k except 2, the system has exactly one solution for every right-hand side vector b.
 
-Divide both sides by -2:
+---
 
-k ≠ 2
+## 4. EXAMINE THE SPECIAL CASE k = 2
 
+Now consider the remaining value:
 
-Therefore, the system has exactly one solution for every b when:
+```math
+k=2
+```
 
-k ≠ 2
+Substitute it into the coefficient matrix:
 
+```math
+A=
+\begin{pmatrix}
+1 & 2 \\
+2 & 4
+\end{pmatrix}
+```
 
-For these values, the inverse matrix A⁻¹ exists, so the unique solution can be written as:
+The determinant becomes:
 
-x = A⁻¹b
+```math
+\det(A)=1\cdot4-2\cdot2
+```
 
+```math
+\det(A)=4-4=0
+```
 
-## 3. Examine the remaining value k = 2
+The matrix is singular and is not invertible.
 
-The only remaining value is:
+The system becomes:
 
-k = 2
+```math
+x_1+2x_2=b_1
+```
 
+```math
+2x_1+4x_2=b_2
+```
 
-Substitute this value into the coefficient matrix:
+Notice that the second equation has a left-hand side that is exactly twice the first equation.
 
-A = ( 1  2 )
-    ( 2  4 )
+Therefore, the two equations are dependent.
 
+---
 
-The second row is twice the first row:
+## 5. EXAMPLE WITH INFINITELY MANY SOLUTIONS
 
-R₂ = 2R₁
+Choose the following right-hand side:
 
+```math
+b=
+\begin{pmatrix}
+1 \\
+2
+\end{pmatrix}
+```
 
-The determinant is:
+The system becomes:
 
-det(A) = 4 - 2(2)
+```math
+x_1+2x_2=1
+```
 
-det(A) = 4 - 4
-
-det(A) = 0
-
-
-Therefore, the matrix is not invertible.
-
-For this value of k, the system does not have exactly one solution for every b. Depending on the right-hand side, it can have either infinitely many solutions or no solution.
-
-## 4. Give an example with infinitely many solutions
-
-Choose the right-hand side:
-
-b = ( 3 )
-    ( 6 )
-
-
-When k = 2, the system Ax = b becomes:
-
-x₁ + 2x₂ = 3
-
-2x₁ + 4x₂ = 6
-
+```math
+2x_1+4x_2=2
+```
 
 The second equation is exactly twice the first equation.
 
-Multiply the first equation by 2:
+Therefore, both equations represent the same line.
 
-2x₁ + 4x₂ = 6
+We can express the first variable in terms of the second:
 
+```math
+x_1=1-2x_2
+```
 
-This is identical to the second equation. Therefore, the two equations represent the same line and provide only one independent equation.
+Let:
 
-We can solve the first equation for x₁:
-
-x₁ + 2x₂ = 3
-
-
-Subtract 2x₂ from both sides:
-
-x₁ = 3 - 2x₂
-
-
-Let x₂ = t, where t can be any real number.
+```math
+x_2=t
+```
 
 Then:
 
-x₁ = 3 - 2t
+```math
+x_1=1-2t
+```
 
-x₂ = t
+The general solution is:
 
+```math
+x=
+\begin{pmatrix}
+1-2t \\
+t
+\end{pmatrix}
+```
 
-Therefore, the solutions are:
+where t can be any real number.
 
-x = ( 3 - 2t )
-    (     t   )
+Therefore, the system has infinitely many solutions.
 
+---
 
-where t ∈ ℝ.
-
-Since t can take infinitely many real values, the system has infinitely many solutions.
-
-**Example of a right-hand side with infinitely many solutions:**
-
-b = ( 3 )
-    ( 6 )
-
-
-## 5. Give an example with no solution
+## 6. EXAMPLE WITH NO SOLUTION
 
 Now choose a different right-hand side:
 
-b = ( 3 )
-    ( 7 )
+```math
+b=
+\begin{pmatrix}
+1 \\
+3
+\end{pmatrix}
+```
 
+The system becomes:
 
-When k = 2, the system becomes:
+```math
+x_1+2x_2=1
+```
 
-x₁ + 2x₂ = 3
-
-2x₁ + 4x₂ = 7
-
+```math
+2x_1+4x_2=3
+```
 
 Multiply the first equation by 2:
 
-2x₁ + 4x₂ = 6
-
+```math
+2x_1+4x_2=2
+```
 
 However, the second equation requires:
 
-2x₁ + 4x₂ = 7
+```math
+2x_1+4x_2=3
+```
 
+This produces a contradiction:
 
-The same expression cannot equal both 6 and 7.
+```math
+2=3
+```
 
-Subtracting the doubled first equation from the second equation gives:
+Therefore, the system has no solution.
 
-(2x₁ + 4x₂) - (2x₁ + 4x₂) = 7 - 6
+---
 
+## 7. SUMMARY OF THE RESULTS
 
-Simplify:
+| Condition | Result |
+|---|---|
+| k ≠ 2 | Exactly one solution for every b |
+| k = 2 and b₂ = 2b₁ | Infinitely many solutions |
+| k = 2 and b₂ ≠ 2b₁ | No solution |
 
-0 = 1
+The special case k = 2 occurs because the two rows of the coefficient matrix are linearly dependent.
 
+---
 
-This is a contradiction, so the system has no solution.
-
-**Example of a right-hand side with no solution:**
-
-b = ( 3 )
-    ( 7 )
-
-
-## 6. Explain the relationship between the determinant and the number of solutions
-
-The determinant of the coefficient matrix is:
-
-det(A) = 4 - 2k
-
-
-There are two cases.
-
-**Case 1: k ≠ 2**
-
-The determinant is nonzero:
-
-det(A) ≠ 0
-
-
-The matrix is invertible, so the system has exactly one solution for every b.
-
-
-**Case 2: k = 2**
-
-The determinant is zero:
-
-det(A) = 0
-
-
-The matrix is not invertible, and its rows are linearly dependent.
-
-In this case, the system can have infinitely many solutions if the equations are consistent, or no solution if the equations are inconsistent.
-
-For example:
-
-b = (3, 6) gives infinitely many solutions.
-
-b = (3, 7) gives no solution.
-
-
-## Conclusion
+## 8. CONCLUSION
 
 The determinant of the coefficient matrix is:
 
-det(A) = 4 - 2k
+```math
+\det(A)=4-2k
+```
 
+When k is not equal to 2, the determinant is non-zero and the system has exactly one solution for every possible right-hand side vector.
 
-The system has exactly one solution for every b when:
+When k equals 2, the determinant becomes zero and the matrix is not invertible.
 
-k ≠ 2
+Depending on the right-hand side vector, the system can have either infinitely many solutions or no solution.
 
+Therefore, the final condition for a unique solution for every b is:
 
-When k = 2, the determinant is zero and the matrix is not invertible.
+```math
+k\neq2
+```
 
-For b = (3, 6), the system has infinitely many solutions because the two equations represent the same line.
-
-For b = (3, 7), the system has no solution because the equations contradict each other.
-
-This example demonstrates that a nonzero determinant guarantees a unique solution for every right-hand side, while a zero determinant allows either infinitely many solutions or no solution, depending on b.
+This exercise demonstrates the relationship between determinants, invertibility, and the number of solutions of a linear system.
