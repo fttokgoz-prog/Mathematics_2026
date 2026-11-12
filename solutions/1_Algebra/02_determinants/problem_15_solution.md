@@ -1,206 +1,197 @@
-# Exercise 15. Combining Determinant Properties
 
-## Given
+# EXERCISE 15
+# COMBINING DETERMINANT PROPERTIES
 
-Let A and B be invertible 2 × 2 matrices with:
+---
 
-det(A) = -2
+## 1. GIVEN
 
-det(B) = 3
+Let A and B be invertible 2×2 matrices with the following determinants:
 
+```math
+\det(A)=-2
+```
 
-We need to compute:
+```math
+\det(B)=3
+```
 
-det(B⁻¹AᵀB)
+We need to calculate:
 
+```math
+\det(B^{-1}A^TB)
+```
 
-We must state the determinant properties used, in order, and explain why the factors involving B eventually cancel.
+We must solve this problem without finding the individual entries of the matrices.
 
-## 1. Apply the determinant property for a product
+We must also:
 
-The determinant of a product of square matrices is equal to the product of their determinants.
+1. State the determinant properties used, in the correct order.
+2. Explain why the factors involving B eventually cancel.
 
-The formula is:
+---
 
-det(XYZ) = det(X) × det(Y) × det(Z)
+## 2. IMPORTANT DETERMINANT PROPERTIES
 
+Before solving the problem, we recall the following properties.
 
-Applying this property to the given expression:
+### Property 1 - Determinant of a Product
 
-det(B⁻¹AᵀB) = det(B⁻¹) × det(Aᵀ) × det(B)
+For square matrices of the same size:
 
+```math
+\det(ABC)=\det(A)\det(B)\det(C)
+```
 
-We now calculate each determinant separately.
+### Property 2 - Determinant of an Inverse
 
+For an invertible matrix B:
 
-## 2. Calculate det(B⁻¹)
+```math
+\det(B^{-1})=\frac{1}{\det(B)}
+```
 
-For any invertible square matrix B, the determinant of its inverse is the reciprocal of the determinant of B.
+### Property 3 - Determinant of a Transpose
 
-The formula is:
+The determinant of a matrix is equal to the determinant of its transpose:
 
-det(B⁻¹) = 1 / det(B)
+```math
+\det(A^T)=\det(A)
+```
 
+These three properties are sufficient to solve the exercise.
 
-We are given:
+---
 
-det(B) = 3
+## 3. APPLY THE PRODUCT PROPERTY
 
+We start with the given expression:
 
-Substitute this value:
+```math
+\det(B^{-1}A^TB)
+```
 
-det(B⁻¹) = 1 / 3
+Using the determinant of a product, we separate the three factors:
 
+```math
+=\det(B^{-1})\det(A^T)\det(B)
+```
+
+This allows us to calculate each determinant separately.
+
+---
+
+## 4. SUBSTITUTE THE KNOWN VALUES
+
+We know that:
+
+```math
+\det(A)=-2
+```
+
+```math
+\det(B)=3
+```
+
+First, calculate the determinant of the inverse of B:
+
+```math
+\det(B^{-1})=\frac{1}{\det(B)}
+```
+
+Substitute the known value:
+
+```math
+\det(B^{-1})=\frac{1}{3}
+```
+
+Next, use the transpose property:
+
+```math
+\det(A^T)=\det(A)=-2
+```
+
+Now substitute all three values into the original expression:
+
+```math
+\det(B^{-1}A^TB)
+=
+\frac{1}{3}\cdot(-2)\cdot3
+```
+
+---
+
+## 5. EXPLAIN WHY THE FACTORS INVOLVING B CANCEL
+
+The determinant of B is 3, while the determinant of its inverse is 1/3.
+
+Their product is:
+
+```math
+\det(B^{-1})\det(B)
+=
+\frac{1}{3}\cdot3
+```
 
 Therefore:
 
-det(B⁻¹) = 1/3
+```math
+\det(B^{-1})\det(B)=1
+```
 
+The two factors involving B cancel each other.
 
-## 3. Calculate det(Aᵀ)
+Only the determinant of A transpose remains:
 
-An important determinant property states that the determinant of a matrix is equal to the determinant of its transpose.
-
-The formula is:
-
-det(Aᵀ) = det(A)
-
-
-We are given:
-
-det(A) = -2
-
+```math
+\det(B^{-1}A^TB)=1\cdot(-2)
+```
 
 Therefore:
 
-det(Aᵀ) = -2
+```math
+\det(B^{-1}A^TB)=-2
+```
 
+---
 
-## 4. Substitute the determinant values
+## 6. SUMMARY OF THE PROPERTIES USED
 
-From the previous steps, we know that:
+| Step | Property | Result |
+|---|---|---|
+| 1 | Determinant of a product | Separate the three factors |
+| 2 | Determinant of an inverse | det(B⁻¹) = 1/3 |
+| 3 | Determinant of a transpose | det(Aᵀ) = -2 |
+| 4 | Multiplication of determinants | (1/3) × (-2) × 3 = -2 |
 
-det(B⁻¹) = 1/3
+---
 
-det(Aᵀ) = -2
+## 7. FINAL RESULT
 
-det(B) = 3
+The required determinant is:
 
+```math
+\det(B^{-1}A^TB)=-2
+```
 
-Substitute these values into the product formula:
+---
 
-det(B⁻¹AᵀB) = (1/3) × (-2) × 3
+## 8. CONCLUSION
 
+We calculated the determinant without finding the individual entries of A or B.
 
-First, multiply the first two factors:
+We used the product property, the inverse property, and the transpose property of determinants.
 
-(1/3) × (-2) = -2/3
+The determinant of B inverse is the reciprocal of the determinant of B.
 
+Therefore, the two factors involving B cancel each other.
 
-Then multiply by 3:
+The remaining determinant is equal to the determinant of A transpose, which is also equal to the determinant of A.
 
-(-2/3) × 3 = -2
+The final result is:
 
+```math
+\det(B^{-1}A^TB)=-2
+```
 
-Therefore, the final answer is:
-
-det(B⁻¹AᵀB) = -2
-
-
-## 5. Explain why the factors involving B cancel
-
-The original expression contains both B⁻¹ and B:
-
-B⁻¹AᵀB
-
-
-When calculating the determinant, these matrices contribute the factors:
-
-det(B⁻¹) × det(B)
-
-
-Using the inverse property:
-
-det(B⁻¹) × det(B) = (1 / det(B)) × det(B)
-
-
-Since det(B) = 3:
-
-(1/3) × 3 = 1
-
-
-Therefore, the factors involving B cancel each other in the determinant calculation.
-
-The result becomes:
-
-det(B⁻¹AᵀB) = 1 × det(Aᵀ)
-
-
-Since det(Aᵀ) = det(A):
-
-det(B⁻¹AᵀB) = det(A)
-
-
-Finally:
-
-det(B⁻¹AᵀB) = -2
-
-
-It is important to note that we are cancelling the determinant factors, not rearranging the matrices themselves. Matrix multiplication is not generally commutative, but the determinants are ordinary numbers, so their factors can be rearranged.
-
-
-## 6. List the determinant properties used
-
-We used three main properties.
-
-**Property 1: Determinant of a product**
-
-det(XYZ) = det(X) × det(Y) × det(Z)
-
-
-This allows us to separate the determinant of the product into three factors.
-
-
-**Property 2: Determinant of an inverse**
-
-det(B⁻¹) = 1 / det(B)
-
-
-This gives the reciprocal of det(B), which cancels with det(B).
-
-
-**Property 3: Determinant of a transpose**
-
-det(Aᵀ) = det(A)
-
-
-This means transposing A does not change its determinant.
-
-
-## Conclusion
-
-We were given:
-
-det(A) = -2
-
-det(B) = 3
-
-
-Using the determinant properties:
-
-det(B⁻¹AᵀB) = det(B⁻¹) × det(Aᵀ) × det(B)
-
-
-Substituting the values:
-
-det(B⁻¹AᵀB) = (1/3) × (-2) × 3
-
-det(B⁻¹AᵀB) = -2
-
-
-Therefore, the final answer is:
-
-det(B⁻¹AᵀB) = -2
-
-
-The factors involving B cancel because det(B⁻¹) = 1/det(B). The remaining determinant is det(Aᵀ), which equals det(A).
+This exercise demonstrates how several determinant properties can be combined to simplify a calculation without knowing the actual matrix entries.
