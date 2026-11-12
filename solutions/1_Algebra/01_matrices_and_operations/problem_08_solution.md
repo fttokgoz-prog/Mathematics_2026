@@ -17,17 +17,19 @@ A =
 \end{pmatrix}
 ```
 
-We need to perform the following three row operations in order:
+Perform the following three row operations in the given order:
 
-1. Subtract twice the first row from the second row.
-2. Add the first row to the third row.
-3. Interchange the second and third rows.
+1. $R_2 \leftarrow R_2-2R_1$
+2. $R_3 \leftarrow R_3+R_1$
+3. Interchange $R_2$ and $R_3$.
 
-After each operation:
+For each of the three operations:
 
-- Write the resulting matrix.
-- State the inverse operation that reverses the transformation.
-- Explain why the inverse operation restores the previous matrix.
+- Write the resulting matrix after performing the operation.
+- State an inverse row operation that reverses it.
+- Explain how the inverse operation restores the previous matrix.
+
+Finally, explain why elementary row operations are reversible transformations.
 
 ---
 
@@ -59,6 +61,8 @@ R_2=(2,4,1)-2(1,2,-1)
 R_2=(2,4,1)-(2,4,-2)
 ```
 
+Therefore:
+
 ```math
 R_2=(0,0,3)
 ```
@@ -82,32 +86,28 @@ To reverse this operation, we add twice the first row to the second row.
 R_2 \leftarrow R_2+2R_1
 ```
 
-This restores the original second row:
+Verification:
 
 ```math
 (0,0,3)+2(1,2,-1)=(2,4,1)
 ```
 
-Therefore, the inverse operation successfully restores the original matrix.
+This restores the original second row and therefore the original matrix.
 
 ---
 
 ## 3. SECOND ROW OPERATION
 
-Starting with matrix A₁, we perform:
+Starting with matrix $A_1$, perform:
 
 ```math
 R_3 \leftarrow R_3+R_1
 ```
 
-The current rows are:
+The current third row is:
 
 ```math
 R_3=(-1,1,3)
-```
-
-```math
-R_1=(1,2,-1)
 ```
 
 Calculate the new third row:
@@ -115,6 +115,8 @@ Calculate the new third row:
 ```math
 R_3=(-1,1,3)+(1,2,-1)
 ```
+
+Therefore:
 
 ```math
 R_3=(0,3,2)
@@ -133,25 +135,25 @@ A_2=
 
 ### Inverse Operation
 
-To reverse this operation, we subtract the first row from the third row.
+To reverse this operation, subtract the first row from the third row.
 
 ```math
 R_3 \leftarrow R_3-R_1
 ```
 
-This restores the previous third row:
+Verification:
 
 ```math
 (0,3,2)-(1,2,-1)=(-1,1,3)
 ```
 
-Therefore, the inverse operation restores matrix A₁.
+This restores the previous third row and therefore matrix $A_1$.
 
 ---
 
 ## 4. THIRD ROW OPERATION
 
-Starting with matrix A₂, we interchange the second and third rows.
+Starting with matrix $A_2$, interchange the second and third rows.
 
 The operation is:
 
@@ -182,27 +184,25 @@ A_3=
 
 ### Inverse Operation
 
-To reverse a row interchange, we simply interchange the same two rows again.
+To reverse a row interchange, we interchange the same two rows again.
 
 ```math
 R_2 \leftrightarrow R_3
 ```
 
-This restores matrix A₂.
-
-Therefore, swapping the same two rows twice returns the matrix to its previous state.
+Swapping the same two rows twice restores the previous matrix $A_2$.
 
 ---
 
-## 5. SUMMARY OF THE OPERATIONS AND THEIR INVERSES
+## 5. SUMMARY OF OPERATIONS AND THEIR INVERSES
 
-| Step | Original Operation | Inverse Operation |
+| Step | Original operation | Inverse operation |
 |---|---|---|
-| 1 | R₂ ← R₂ − 2R₁ | R₂ ← R₂ + 2R₁ |
-| 2 | R₃ ← R₃ + R₁ | R₃ ← R₃ − R₁ |
-| 3 | R₂ ↔ R₃ | R₂ ↔ R₃ |
+| 1 | $R_2 \leftarrow R_2-2R_1$ | $R_2 \leftarrow R_2+2R_1$ |
+| 2 | $R_3 \leftarrow R_3+R_1$ | $R_3 \leftarrow R_3-R_1$ |
+| 3 | $R_2 \leftrightarrow R_3$ | $R_2 \leftrightarrow R_3$ |
 
-Each row operation has an inverse operation that restores the previous matrix.
+Each inverse operation restores the matrix to the state it had immediately before the corresponding original operation.
 
 ---
 
@@ -219,11 +219,13 @@ A_3=
 \end{pmatrix}
 ```
 
-The three operations are reversible:
+The three inverse operations, applied in reverse order, restore the original matrix.
 
-- The first operation is reversed by adding twice the first row to the second row.
-- The second operation is reversed by subtracting the first row from the third row.
-- The third operation is reversed by swapping the second and third rows again.
+The reverse sequence is:
+
+1. Interchange $R_2$ and $R_3$.
+2. Perform $R_3 \leftarrow R_3-R_1$.
+3. Perform $R_2 \leftarrow R_2+2R_1$.
 
 ---
 
@@ -231,6 +233,8 @@ The three operations are reversible:
 
 Elementary row operations are reversible transformations of a matrix.
 
-Each operation has a corresponding inverse operation that restores the previous matrix.
+In this exercise, we performed two row replacement operations and one row interchange.
 
-This exercise demonstrates that row operations can be used to transform matrices in a controlled way without losing the ability to return to the original matrix.
+Each operation has an inverse that restores the previous matrix.
+
+This demonstrates that row operations can transform a matrix in a controlled way while preserving the ability to return to its original form.
