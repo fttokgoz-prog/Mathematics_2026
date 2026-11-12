@@ -1,188 +1,172 @@
-# Exercise 7. Using Properties Instead of Recomputing
 
-## Given
+# EXERCISE 7
+# USING PROPERTIES INSTEAD OF RECOMPUTING
 
-A is a 3 × 3 matrix, and:
+---
 
-det(A) = -4
+## 1. GIVEN
 
+We are given a 3×3 matrix A with the following determinant:
 
-We need to compute:
+```math
+\det(A)=-4
+```
 
-1. det(2A)
-2. det(Aᵀ)
-3. det(A²)
-4. det(-A)
+We need to calculate:
 
+- det(2A)
+- det(Aᵀ)
+- det(A²)
+- det(-A)
 
-Each answer will be justified using the appropriate determinant property.
+We will use determinant properties instead of calculating each determinant from scratch.
 
-## 1. Compute det(2A)
+---
 
-For an n × n matrix A, multiplying the entire matrix by a scalar k multiplies its determinant by kⁿ.
+## 2. DETERMINANT OF 2A
 
-The formula is:
+One important property states that for an n×n matrix:
 
-det(kA) = kⁿ × det(A)
+```math
+\det(kA)=k^n\det(A)
+```
 
-
-Since A is a 3 × 3 matrix, we have n = 3.
-
-In this exercise, k = 2 and det(A) = -4.
-
-Therefore:
-
-det(2A) = 2³ × det(A)
-
-
-**Step 1: Calculate the power of 2.**
-
-2³ = 2 × 2 × 2 = 8
-
-
-**Step 2: Multiply by the determinant of A.**
-
-det(2A) = 8 × (-4)
-
-det(2A) = -32
-
-
-**Final answer:**
-
-det(2A) = -32
-
-
-## 2. Compute det(Aᵀ)
-
-The transpose of a matrix is obtained by changing its rows into columns and its columns into rows.
-
-An important determinant property states that the determinant of a matrix does not change when the matrix is transposed.
-
-The formula is:
-
-det(Aᵀ) = det(A)
-
-
-We are given:
-
-det(A) = -4
-
+Since A is a 3×3 matrix, n = 3.
 
 Therefore:
 
-det(Aᵀ) = -4
+```math
+\det(2A)=2^3\det(A)
+```
 
+Substitute the given determinant:
 
-**Final answer:**
-
-det(Aᵀ) = -4
-
-
-The determinant remains unchanged because transposing a matrix does not change its determinant.
-
-
-## 3. Compute det(A²)
-
-The notation A² means multiplying A by itself:
-
-A² = A × A
-
-
-The determinant of a product is equal to the product of the determinants.
-
-The formula is:
-
-det(AB) = det(A) × det(B)
-
-
-Applying this property to A²:
-
-det(A²) = det(A × A)
-
-det(A²) = det(A) × det(A)
-
-
-Since det(A) = -4:
-
-det(A²) = (-4) × (-4)
-
-
-Multiplying two negative numbers gives a positive result:
-
-det(A²) = 16
-
-
-**Final answer:**
-
-det(A²) = 16
-
-
-This result can also be written using the general power property:
-
-det(Aⁿ) = (det(A))ⁿ
-
-
-For n = 2:
-
-det(A²) = (-4)² = 16
-
-
-## 4. Compute det(-A)
-
-The matrix -A is obtained by multiplying every entry of A by -1.
-
-For an n × n matrix, multiplying the entire matrix by a scalar k gives:
-
-det(kA) = kⁿ × det(A)
-
-
-Since A is a 3 × 3 matrix, n = 3 and k = -1.
+```math
+\det(2A)=8\cdot(-4)
+```
 
 Therefore:
 
-det(-A) = (-1)³ × det(A)
+```math
+\boxed{\det(2A)=-32}
+```
 
+---
 
-**Step 1: Calculate the power of -1.**
+## 3. DETERMINANT OF THE TRANSPOSE
 
-(-1)³ = (-1) × (-1) × (-1)
+The determinant of a matrix is equal to the determinant of its transpose.
 
-(-1)³ = -1
+The property is:
 
+```math
+\det(A^T)=\det(A)
+```
 
-**Step 2: Multiply by det(A).**
+Since:
 
-det(-A) = (-1) × (-4)
+```math
+\det(A)=-4
+```
 
-det(-A) = 4
+We obtain:
 
+```math
+\boxed{\det(A^T)=-4}
+```
 
-**Final answer:**
+---
 
-det(-A) = 4
+## 4. DETERMINANT OF A²
 
+The determinant of a product of two square matrices is equal to the product of their determinants.
 
-The determinant changes sign because the matrix has an odd number of rows and columns, specifically a dimension of 3 × 3.
+The property is:
 
+```math
+\det(AB)=\det(A)\det(B)
+```
 
-## Conclusion
+Therefore:
 
-Given that det(A) = -4 for a 3 × 3 matrix, the results are:
+```math
+\det(A^2)=\det(A\cdot A)
+```
 
-det(2A) = -32
+Using the property:
 
-det(Aᵀ) = -4
+```math
+\det(A^2)=\det(A)\cdot\det(A)
+```
 
-det(A²) = 16
+Substitute the given value:
 
-det(-A) = 4
+```math
+\det(A^2)=(-4)\cdot(-4)
+```
 
+Therefore:
 
-These results follow from four determinant properties:
+```math
+\boxed{\det(A^2)=16}
+```
 
-1. Scaling a 3 × 3 matrix by k multiplies its determinant by k³.
-2. Transposing a matrix does not change its determinant.
-3. The determinant of a product equals the product of the determinants.
-4. Multiplying a 3 × 3 matrix by -1 changes the sign of its determinant.
+---
 
-Using these properties allows us to calculate the answers without recomputing the determinants from the entries of A.
+## 5. DETERMINANT OF -A
+
+For an n×n matrix, multiplying the matrix by -1 gives:
+
+```math
+\det(-A)=(-1)^n\det(A)
+```
+
+Since A is a 3×3 matrix:
+
+```math
+\det(-A)=(-1)^3\det(A)
+```
+
+Substitute the given determinant:
+
+```math
+\det(-A)=-1\cdot(-4)
+```
+
+Therefore:
+
+```math
+\boxed{\det(-A)=4}
+```
+
+---
+
+## 6. SUMMARY OF THE RESULTS
+
+| Expression | Determinant |
+|---|---:|
+| det(2A) | -32 |
+| det(Aᵀ) | -4 |
+| det(A²) | 16 |
+| det(-A) | 4 |
+
+---
+
+## 7. CONCLUSION
+
+We used four important properties of determinants to calculate the required results without recomputing the original determinant.
+
+The final answers are:
+
+```math
+\boxed{
+\begin{aligned}
+\det(2A)&=-32\\
+\det(A^T)&=-4\\
+\det(A^2)&=16\\
+\det(-A)&=4
+\end{aligned}
+}
+```
+
+These properties make determinant calculations faster and easier, especially when working with larger matrices.
