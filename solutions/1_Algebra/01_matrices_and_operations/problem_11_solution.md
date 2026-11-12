@@ -16,6 +16,8 @@ A =
 \end{pmatrix}
 ```
 
+and
+
 ```math
 B =
 \begin{pmatrix}
@@ -24,17 +26,19 @@ c & d
 \end{pmatrix}
 ```
 
-Find the conditions on $a$, $b$, $c$, and $d$ under which $AB=BA$.
+Find the conditions on $a$, $b$, $c$, and $d$ under which:
+
+```math
+AB=BA
+```
 
 Describe the general form of all matrices $B$ satisfying this condition.
 
 ---
 
-## 2. SOLUTION
+## 2. CALCULATE AB
 
-### STEP 1 - Calculate AB
-
-Multiply matrix A by matrix B:
+First, multiply matrix A by matrix B:
 
 ```math
 AB =
@@ -58,7 +62,9 @@ c & d
 \end{pmatrix}
 ```
 
-### STEP 2 - Calculate BA
+---
+
+## 3. CALCULATE BA
 
 Now multiply matrix B by matrix A:
 
@@ -74,7 +80,7 @@ c & d
 \end{pmatrix}
 ```
 
-The result is:
+Multiply the corresponding rows and columns:
 
 ```math
 BA =
@@ -84,9 +90,15 @@ c & c+d
 \end{pmatrix}
 ```
 
-### STEP 3 - Apply the Condition AB = BA
+---
 
-For the matrices to commute, their corresponding entries must be equal.
+## 4. SET AB EQUAL TO BA
+
+For the matrices to commute, we need:
+
+```math
+AB=BA
+```
 
 Therefore:
 
@@ -102,9 +114,11 @@ c & c+d
 \end{pmatrix}
 ```
 
-Comparing the corresponding entries gives the following equations:
+Corresponding entries must be equal.
 
-First entry:
+This gives us the following equations:
+
+**First entry:**
 
 ```math
 a+c=a
@@ -113,30 +127,30 @@ a+c=a
 Therefore:
 
 ```math
-\boxed{c=0}
+c=0
 ```
 
-Second entry:
+**Second entry:**
 
 ```math
 b+d=a+b
 ```
 
-Subtracting $b$ from both sides:
+Therefore:
 
 ```math
-\boxed{d=a}
+d=a
 ```
 
-Third entry:
+**Third entry:**
 
 ```math
 c=c
 ```
 
-This equation is always true.
+This equation is always satisfied.
 
-Fourth entry:
+**Fourth entry:**
 
 ```math
 d=c+d
@@ -148,25 +162,27 @@ Therefore:
 c=0
 ```
 
-This confirms the first condition.
-
-### STEP 4 - Determine the Conditions
-
-The two required conditions are:
-
-```math
-\boxed{c=0,\qquad d=a}
-```
-
-There are no restrictions on $a$ and $b$.
-
-Both can be any real numbers.
+This confirms our first condition.
 
 ---
 
-## 3. GENERAL FORM OF MATRIX B
+## 5. FIND THE GENERAL FORM OF B
 
-Substituting the conditions $c=0$ and $d=a$ into the original matrix:
+We have obtained two conditions:
+
+```math
+c=0
+```
+
+and
+
+```math
+d=a
+```
+
+The variable $b$ is unrestricted.
+
+Substitute these conditions into the original matrix B:
 
 ```math
 B =
@@ -176,7 +192,7 @@ a & b \\
 \end{pmatrix}
 ```
 
-Therefore, the general form of all matrices B that commute with A is:
+Therefore, every matrix of this form commutes with A:
 
 ```math
 \boxed{
@@ -188,25 +204,15 @@ a & b \\
 }
 ```
 
-where $a,b\in\mathbb{R}$.
+where $a$ and $b$ can be any real numbers.
 
 ---
 
-## 4. VERIFICATION
+## 6. VERIFICATION
 
-We can verify that these conditions make $AB=BA$.
+To verify our result, substitute the general form of B into both products.
 
-Using the general form:
-
-```math
-B =
-\begin{pmatrix}
-a & b \\
-0 & a
-\end{pmatrix}
-```
-
-Calculate AB:
+First:
 
 ```math
 AB =
@@ -255,23 +261,26 @@ Both products are identical.
 Therefore:
 
 ```math
-\boxed{AB=BA}
+AB=BA
 ```
+
+Our general form is correct.
 
 ---
 
-## 5. CONCLUSION
+## 7. CONCLUSION
 
-Two matrices do not always commute, meaning that their multiplication order usually matters.
+Matrix multiplication is not generally commutative.
 
-In this exercise, we found the exact conditions under which $AB=BA$.
+However, for the given matrix A, we found a specific family of matrices B that satisfies $AB=BA$.
 
-These conditions are:
+The required conditions are:
 
 - $c=0$
 - $d=a$
+- $a$ and $b$ are unrestricted real numbers.
 
-The general form of matrix B is:
+The general form is:
 
 ```math
 \boxed{
@@ -283,6 +292,6 @@ a & b \\
 }
 ```
 
-where $a$ and $b$ can be any real numbers.
+This exercise demonstrates that although matrix multiplication is generally noncommutative, certain matrices can commute when their entries satisfy specific algebraic conditions.
 
 This demonstrates that matrix multiplication is not generally commutative, but certain matrices satisfy the commutative property.
