@@ -1,296 +1,244 @@
-# Exercise 13. Determinant by Elimination
 
-## Given
+# EXERCISE 13
+# DETERMINANT BY ELIMINATION
 
-A = ( 1  2  3 )
-    ( 2  5  7 )
-    ( 1  0  2 )
+---
 
+## 1. GIVEN
 
-We need to compute the determinant using elimination and record the effect of every row operation on the determinant.
+We are given the following 3×3 matrix:
 
-## 1. Write the determinant
+```math
+A =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 5 & 7 \\
+1 & 0 & 2
+\end{pmatrix}
+```
 
-The given matrix is:
+We need to compute the determinant using Gaussian elimination.
 
-A = ( 1  2  3 )
-    ( 2  5  7 )
-    ( 1  0  2 )
+During the calculation, we must record every row operation and explain its effect on the determinant.
 
+---
 
-Our goal is to transform the matrix into an upper triangular matrix by creating zeros below the main diagonal.
+## 2. IMPORTANT ROW OPERATION PROPERTIES
 
-Once the matrix is upper triangular, its determinant is the product of the diagonal entries.
+Before starting, we recall three important properties:
 
-We must also keep track of how each row operation affects the determinant.
+1. Swapping two rows changes the sign of the determinant.
+2. Multiplying a row by a non-zero constant multiplies the determinant by that constant.
+3. Adding a multiple of one row to another row does not change the determinant.
 
-## 2. Perform the first row operation
+In this exercise, we will use row replacement operations, so the determinant will remain unchanged throughout the elimination.
 
-We start with:
+---
 
-A = ( 1  2  3 )
-    ( 2  5  7 )
-    ( 1  0  2 )
+## 3. FIRST ROW OPERATION
 
+Start with the original matrix:
 
-The first entry of the second row is 2, and the first entry of the first row is 1.
+```math
+A =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 5 & 7 \\
+1 & 0 & 2
+\end{pmatrix}
+```
 
-To create a zero in the first column of the second row, perform:
+We want to create a zero below the first diagonal entry.
 
-R₂ ← R₂ − 2R₁
+Perform the operation:
 
+```math
+R_2 \leftarrow R_2-2R_1
+```
 
-First, multiply the first row by 2:
+Calculate the new second row:
 
-2R₁ = ( 2  4  6 )
+```math
+(2,5,7)-2(1,2,3)
+```
 
+```math
+=(2,5,7)-(2,4,6)
+```
 
-Now subtract it from the second row:
-
-R₂ = (2, 5, 7) − (2, 4, 6)
-
-
-Calculate each entry:
-
-2 − 2 = 0
-
-5 − 4 = 1
-
-7 − 6 = 1
-
-
-The new second row is:
-
-R₂ = (0, 1, 1)
-
+```math
+=(0,1,1)
+```
 
 The resulting matrix is:
 
-A₁ = ( 1  2  3 )
-     ( 0  1  1 )
-     ( 1  0  2 )
-
+```math
+A_1 =
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+1 & 0 & 2
+\end{pmatrix}
+```
 
 **Effect on the determinant:**
 
-Adding a multiple of one row to another row does not change the determinant.
+Adding a multiple of one row to another does not change the determinant.
 
 Therefore:
 
-det(A₁) = det(A)
+```math
+\det(A_1)=\det(A)
+```
 
+---
 
-## 3. Perform the second row operation
+## 4. SECOND ROW OPERATION
 
-The current matrix is:
+Next, we create a zero in the first column of the third row.
 
-A₁ = ( 1  2  3 )
-     ( 0  1  1 )
-     ( 1  0  2 )
+Perform the operation:
 
-
-The first entry of the third row is 1. We can create a zero by subtracting the first row from the third row.
-
-Perform:
-
-R₃ ← R₃ − R₁
-
+```math
+R_3 \leftarrow R_3-R_1
+```
 
 Calculate the new third row:
 
-First entry:
+```math
+(1,0,2)-(1,2,3)
+```
 
-1 − 1 = 0
-
-
-Second entry:
-
-0 − 2 = -2
-
-
-Third entry:
-
-2 − 3 = -1
-
-
-The new third row is:
-
-R₃ = (0, -2, -1)
-
+```math
+=(0,-2,-1)
+```
 
 The resulting matrix is:
 
-A₂ = ( 1   2   3 )
-     ( 0   1   1 )
-     ( 0  -2  -1 )
-
+```math
+A_2 =
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & -2 & -1
+\end{pmatrix}
+```
 
 **Effect on the determinant:**
 
-This operation also adds a multiple of one row to another row, so the determinant does not change.
+This is also a row replacement operation.
 
-Therefore:
+Therefore, the determinant does not change:
 
-det(A₂) = det(A₁)
+```math
+\det(A_2)=\det(A_1)
+```
 
+---
 
-Combining the first two operations:
+## 5. THIRD ROW OPERATION
 
-det(A₂) = det(A)
+Now we create a zero below the second diagonal entry.
 
+Perform the operation:
 
-## 4. Perform the third row operation
+```math
+R_3 \leftarrow R_3+2R_2
+```
 
-We now have:
+Calculate the new third row:
 
-A₂ = ( 1   2   3 )
-     ( 0   1   1 )
-     ( 0  -2  -1 )
+```math
+(0,-2,-1)+2(0,1,1)
+```
 
+```math
+=(0,-2,-1)+(0,2,2)
+```
 
-The second entry of the third row is -2. We want to make it zero by using the second row.
-
-Perform:
-
-R₃ ← R₃ + 2R₂
-
-
-First, multiply the second row by 2:
-
-2R₂ = (0, 2, 2)
-
-
-Now add this result to the third row:
-
-R₃ = (0, -2, -1) + (0, 2, 2)
-
-
-Calculate each entry:
-
-0 + 0 = 0
-
--2 + 2 = 0
-
--1 + 2 = 1
-
-
-The new third row is:
-
-R₃ = (0, 0, 1)
-
+```math
+=(0,0,1)
+```
 
 The resulting matrix is:
 
-U = ( 1  2  3 )
-    ( 0  1  1 )
-    ( 0  0  1 )
-
+```math
+A_3 =
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix}
+```
 
 **Effect on the determinant:**
 
-The operation R₃ ← R₃ + 2R₂ does not change the determinant because adding a multiple of one row to another row preserves the determinant.
+Adding twice the second row to the third row does not change the determinant.
 
 Therefore:
 
-det(U) = det(A₂)
+```math
+\det(A_3)=\det(A_2)
+```
 
+---
+
+## 6. CALCULATE THE FINAL DETERMINANT
+
+The resulting matrix is now upper triangular.
+
+For an upper triangular matrix, the determinant is equal to the product of its diagonal entries.
+
+Therefore:
+
+```math
+\det(A_3)=1\cdot1\cdot1
+```
+
+```math
+\det(A_3)=1
+```
 
 Since none of our row operations changed the determinant:
 
-det(U) = det(A)
+```math
+\det(A)=\det(A_3)
+```
 
+The final result is:
 
-## 5. Calculate the determinant of the upper triangular matrix
+```math
+\det(A)=1
+```
 
-We obtained:
+---
 
-U = ( 1  2  3 )
-    ( 0  1  1 )
-    ( 0  0  1 )
+## 7. SUMMARY OF ROW OPERATIONS
 
+| Step | Row operation | Effect on determinant |
+|---|---|---|
+| 1 | R₂ ← R₂ − 2R₁ | No change |
+| 2 | R₃ ← R₃ − R₁ | No change |
+| 3 | R₃ ← R₃ + 2R₂ | No change |
 
-This is an upper triangular matrix because all entries below the main diagonal are zero.
+All three operations are row replacement operations.
 
-For any triangular matrix, the determinant equals the product of the main diagonal entries.
+Therefore, the determinant remains unchanged throughout the entire elimination process.
 
-The diagonal entries are:
+---
 
-1, 1, and 1.
+## 8. CONCLUSION
 
+We calculated the determinant by transforming the original matrix into upper triangular form.
 
-Therefore:
+We used three elementary row operations, and none of them changed the determinant.
 
-det(U) = 1 × 1 × 1
+The determinant of the final triangular matrix is the product of its diagonal entries.
 
+Therefore, the determinant of the original matrix is:
 
-Calculate the product:
+```math
+\det(A)=1
+```
 
-det(U) = 1
-
-
-Since all row operations preserved the determinant:
-
-det(A) = det(U)
-
-
-Therefore, the final answer is:
-
-det(A) = 1
-
-
-## 6. Record the effect of each row operation
-
-The row operations used were:
-
-**First operation:**
-
-R₂ ← R₂ − 2R₁
-
-The determinant does not change.
-
-
-**Second operation:**
-
-R₃ ← R₃ − R₁
-
-The determinant does not change.
-
-
-**Third operation:**
-
-R₃ ← R₃ + 2R₂
-
-The determinant does not change.
-
-
-All three operations involve adding a multiple of one row to another row. Therefore, the determinant remains unchanged throughout the elimination process.
-
-No rows were interchanged, and no row was multiplied by a constant by itself.
-
-## Conclusion
-
-The original matrix was:
-
-A = ( 1  2  3 )
-    ( 2  5  7 )
-    ( 1  0  2 )
-
-
-After elimination, we obtained:
-
-U = ( 1  2  3 )
-    ( 0  1  1 )
-    ( 0  0  1 )
-
-
-The determinant of the upper triangular matrix is:
-
-det(U) = 1 × 1 × 1 = 1
-
-
-Since every row operation preserved the determinant, we conclude that:
-
-det(A) = 1
-
-
-This exercise demonstrates how elimination simplifies determinant calculations while allowing us to track the effect of every row operation.
+This exercise demonstrates how Gaussian elimination can simplify determinant calculations while preserving the determinant through appropriate row operations.
