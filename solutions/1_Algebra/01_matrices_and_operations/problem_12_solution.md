@@ -1,251 +1,303 @@
-# Exercise 12. Formula for a Matrix Power
 
-## Given
+# EXERCISE 12
+# FORMULA FOR A MATRIX POWER
 
-A = ( 1  1 )
-    ( 0  1 )
+---
 
+## 1. GIVEN
 
-We need to compute A², A³, and A⁴, find a general formula for Aⁿ, and prove the formula using mathematical induction.
+We are given the following matrix:
+
+$$
+A =
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+We need to:
+
+1. Calculate A², A³, and A⁴.
+2. Find a general formula for Aⁿ.
+3. Prove the formula using mathematical induction.
+
+---
+
+## 2. SOLUTION
 
-## 1. Compute A²
+### STEP 1 - Calculate A²
 
-The notation A² means multiplying A by itself.
+Multiply matrix A by itself:
 
-A² = A × A
+$$
+A^2 = A \cdot A
+$$
 
-A² = ( 1  1 ) ( 1  1 )
-     ( 0  1 ) ( 0  1 )
+$$
+A^2 =
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
+After multiplication:
 
-**Step 1: Calculate the first row, first column.**
+$$
+A^2 =
+\begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}
+$$
 
-1 × 1 + 1 × 0 = 1 + 0 = 1
+---
 
+### STEP 2 - Calculate A³
 
-**Step 2: Calculate the first row, second column.**
+Multiply A² by A:
 
-1 × 1 + 1 × 1 = 1 + 1 = 2
+$$
+A^3 = A^2 \cdot A
+$$
 
+$$
+A^3 =
+\begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
-**Step 3: Calculate the second row, first column.**
+After multiplication:
 
-0 × 1 + 1 × 0 = 0 + 0 = 0
+$$
+A^3 =
+\begin{pmatrix}
+1 & 3 \\
+0 & 1
+\end{pmatrix}
+$$
 
+---
 
-**Step 4: Calculate the second row, second column.**
+### STEP 3 - Calculate A⁴
 
-0 × 1 + 1 × 1 = 0 + 1 = 1
+Multiply A³ by A:
 
+$$
+A^4 = A^3 \cdot A
+$$
 
-Therefore:
-
-A² = ( 1  2 )
-     ( 0  1 )
-
-
-## 2. Compute A³
-
-The notation A³ means multiplying A² by A.
-
-A³ = A² × A
-
-A³ = ( 1  2 ) ( 1  1 )
-     ( 0  1 ) ( 0  1 )
-
-
-**Step 1: Calculate the first row, first column.**
-
-1 × 1 + 2 × 0 = 1 + 0 = 1
-
-
-**Step 2: Calculate the first row, second column.**
-
-1 × 1 + 2 × 1 = 1 + 2 = 3
-
-
-**Step 3: Calculate the second row, first column.**
-
-0 × 1 + 1 × 0 = 0 + 0 = 0
-
-
-**Step 4: Calculate the second row, second column.**
-
-0 × 1 + 1 × 1 = 0 + 1 = 1
-
-
-Therefore:
-
-A³ = ( 1  3 )
-     ( 0  1 )
-
-
-## 3. Compute A⁴
-
-The notation A⁴ means multiplying A³ by A.
-
-A⁴ = A³ × A
-
-A⁴ = ( 1  3 ) ( 1  1 )
-     ( 0  1 ) ( 0  1 )
-
-
-**Step 1: Calculate the first row, first column.**
-
-1 × 1 + 3 × 0 = 1 + 0 = 1
-
-
-**Step 2: Calculate the first row, second column.**
-
-1 × 1 + 3 × 1 = 1 + 3 = 4
-
-
-**Step 3: Calculate the second row, first column.**
-
-0 × 1 + 1 × 0 = 0 + 0 = 0
-
-
-**Step 4: Calculate the second row, second column.**
-
-0 × 1 + 1 × 1 = 0 + 1 = 1
-
-
-Therefore:
-
-A⁴ = ( 1  4 )
-     ( 0  1 )
-
-
-## 4. Formulate a conjecture for Aⁿ
-
-We have calculated the following powers:
-
-A² = ( 1  2 )
-     ( 0  1 )
-
-
-A³ = ( 1  3 )
-     ( 0  1 )
-
-
-A⁴ = ( 1  4 )
-     ( 0  1 )
-
-
-We can observe a pattern:
-
-- The top-left entry is always 1.
-- The bottom-left entry is always 0.
-- The bottom-right entry is always 1.
-- The top-right entry is equal to the exponent n.
-
-For A², the top-right entry is 2.
-
-For A³, the top-right entry is 3.
-
-For A⁴, the top-right entry is 4.
-
-Therefore, we conjecture that for every positive integer n:
-
-Aⁿ = ( 1  n )
-     ( 0  1 )
-
-
-## 5. Prove the formula using mathematical induction
-
-We want to prove that:
-
-Aⁿ = ( 1  n )
-     ( 0  1 )
-
-for every positive integer n.
-
-**Step 1: Base case**
-
-For n = 1, the formula gives:
-
-A¹ = ( 1  1 )
-     ( 0  1 )
-
-This is exactly the original matrix A.
+$$
+A^4 =
+\begin{pmatrix}
+1 & 3 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+After multiplication:
+
+$$
+A^4 =
+\begin{pmatrix}
+1 & 4 \\
+0 & 1
+\end{pmatrix}
+$$
+
+---
+
+## 3. FINDING THE PATTERN
+
+Looking at the results, we notice:
+
+- A² has 2 in the upper-right corner.
+- A³ has 3 in the upper-right corner.
+- A⁴ has 4 in the upper-right corner.
+
+All other entries remain unchanged.
+
+Therefore, we can guess the general formula:
+
+$$
+\boxed{
+A^n =
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}
+}
+$$
+
+for every integer n ≥ 1.
+
+---
+
+## 4. PROOF BY MATHEMATICAL INDUCTION
+
+### STEP 1 - Base Case
+
+For n = 1:
+
+$$
+A^1 =
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+This is exactly our original matrix.
 
 Therefore, the formula is true for n = 1.
 
+---
 
-**Step 2: Inductive hypothesis**
+### STEP 2 - Induction Hypothesis
 
-Assume that the formula is true for some positive integer n.
+Assume that the formula is true for some integer n ≥ 1.
 
-This means we assume:
+This means:
 
-Aⁿ = ( 1  n )
-     ( 0  1 )
+$$
+A^n =
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}
+$$
 
-We must show that the formula is also true for n + 1.
+We now need to prove that it is also true for n + 1.
 
+---
 
-**Step 3: Multiply Aⁿ by A**
+### STEP 3 - Induction Step
 
-By the definition of matrix powers:
+We know that:
 
-Aⁿ⁺¹ = Aⁿ × A
+$$
+A^{n+1} = A^n \cdot A
+$$
 
-Using the inductive hypothesis:
+Substitute the assumed formula:
 
-Aⁿ⁺¹ = ( 1  n ) ( 1  1 )
-       ( 0  1 ) ( 0  1 )
+$$
+A^{n+1} =
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
+Multiply the matrices:
 
-**Step 4: Calculate each entry**
+$$
+A^{n+1} =
+\begin{pmatrix}
+1 \cdot 1+n \cdot 0 & 1 \cdot 1+n \cdot 1 \\
+0 \cdot 1+1 \cdot 0 & 0 \cdot 1+1 \cdot 1
+\end{pmatrix}
+$$
 
-First row, first column:
+Simplify:
 
-1 × 1 + n × 0 = 1 + 0 = 1
-
-
-First row, second column:
-
-1 × 1 + n × 1 = 1 + n = n + 1
-
-
-Second row, first column:
-
-0 × 1 + 1 × 0 = 0 + 0 = 0
-
-
-Second row, second column:
-
-0 × 1 + 1 × 1 = 0 + 1 = 1
-
+$$
+A^{n+1} =
+\begin{pmatrix}
+1 & 1+n \\
+0 & 1
+\end{pmatrix}
+$$
 
 Therefore:
 
-Aⁿ⁺¹ = ( 1  n + 1 )
-       ( 0    1   )
+$$
+\boxed{
+A^{n+1} =
+\begin{pmatrix}
+1 & n+1 \\
+0 & 1
+\end{pmatrix}
+}
+$$
 
+This is exactly the required formula for n + 1.
 
-This is exactly the same formula with n replaced by n + 1.
+The induction step is complete.
 
+---
 
-**Step 5: Complete the proof**
+## 5. FINAL ANSWERS
 
-We have shown that the formula is true for n = 1.
+### Matrix A²
 
-We have also shown that if the formula is true for n, then it is true for n + 1.
+$$
+A^2 =
+\begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}
+$$
 
-Therefore, by mathematical induction, the formula holds for every positive integer n:
+### Matrix A³
 
-Aⁿ = ( 1  n )
-     ( 0  1 )
+$$
+A^3 =
+\begin{pmatrix}
+1 & 3 \\
+0 & 1
+\end{pmatrix}
+$$
 
+### Matrix A⁴
 
-## Conclusion
+$$
+A^4 =
+\begin{pmatrix}
+1 & 4 \\
+0 & 1
+\end{pmatrix}
+$$
 
-The calculations of A², A³, and A⁴ reveal a clear pattern in which the top-right entry equals the exponent n.
+### General Formula
 
-Using mathematical induction, we proved that this pattern continues for every positive integer n.
+$$
+\boxed{
+A^n =
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}
+}
+$$
 
-The general formula is:
+---
 
-Aⁿ = ( 1  n )
-     ( 0  1 )
+## 6. CONCLUSION
+
+By calculating A², A³, and A⁴, we found a pattern in the upper-right entry of the matrix.
+
+We then used mathematical induction to prove that the formula is valid for every positive integer n.
+
+The base case is true, and assuming the formula for n allows us to prove it for n + 1.
+
+Therefore, the general formula is proven.
