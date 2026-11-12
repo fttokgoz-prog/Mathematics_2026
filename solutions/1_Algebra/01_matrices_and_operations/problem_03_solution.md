@@ -1,154 +1,153 @@
-# Exercise 3. When Can Matrices Be Multiplied?
 
-## Given
+# EXERCISE 3
+# WHEN CAN MATRICES BE MULTIPLIED?
+
+---
+
+## 1. GIVEN
 
 The dimensions of the matrices are:
 
-- Matrix A: \(2 \times 3\)
-- Matrix B: \(3 \times 4\)
-- Matrix C: \(4 \times 2\)
-- Matrix D: \(2 \times 2\)
+| Matrix | Dimensions |
+|:------:|:----------:|
+| A | **2 × 3** |
+| B | **3 × 4** |
+| C | **4 × 2** |
+| D | **2 × 2** |
 
-## Questions
+---
 
-Determine whether the following matrix products are defined:
+## 2. MULTIPLICATION RULE
 
-1. \(AB\)
-2. \(BA\)
-3. \(BC\)
-4. \(CB\)
-5. \(AC\)
-6. \(CA\)
-7. \(AD\)
-8. \(DA\)
+Two matrices can be multiplied only if:
 
-If a product is defined, state the size of the resulting matrix. Justify each answer using the dimension compatibility condition.
+**Columns of the first matrix = Rows of the second matrix.**
 
-## Solution
+General rule:
 
-### Multiplication Rule
+**(m × n) · (n × p) = (m × p)**
 
-Two matrices can be multiplied if the number of columns in the first matrix equals the number of rows in the second matrix.
+The inner dimensions must be equal.
 
-For example:
+---
 
-$$
-(m \times n)(n \times p) = m \times p
-$$
+## 3. SOLUTIONS
 
-The inner dimensions must be equal. The result has the outer dimensions.
+### 3.1. Product AB
 
-### 1. Product AB
+- Matrix A: **2 × 3**
+- Matrix B: **3 × 4**
+- Compatibility: **3 = 3**
 
-$$
-A_{2 \times 3} \cdot B_{3 \times 4}
-$$
+**RESULT: DEFINED**
 
-The inner dimensions are equal (3 = 3).
+Resulting matrix size: **2 × 4**
 
-**Defined.** The result has size:
+---
 
-$$
-\boxed{AB: 2 \times 4}
-$$
+### 3.2. Product BA
 
-### 2. Product BA
+- Matrix B: **3 × 4**
+- Matrix A: **2 × 3**
+- Compatibility: **4 ≠ 2**
 
-$$
-B_{3 \times 4} \cdot A_{2 \times 3}
-$$
+**RESULT: NOT DEFINED**
 
-The inner dimensions are not equal (4 ≠ 2).
+The inner dimensions are different.
 
-**Not defined.**
+---
 
-### 3. Product BC
+### 3.3. Product BC
 
-$$
-B_{3 \times 4} \cdot C_{4 \times 2}
-$$
+- Matrix B: **3 × 4**
+- Matrix C: **4 × 2**
+- Compatibility: **4 = 4**
 
-The inner dimensions are equal (4 = 4).
+**RESULT: DEFINED**
 
-**Defined.** The result has size:
+Resulting matrix size: **3 × 2**
 
-$$
-\boxed{BC: 3 \times 2}
-$$
+---
 
-### 4. Product CB
+### 3.4. Product CB
 
-$$
-C_{4 \times 2} \cdot B_{3 \times 4}
-$$
+- Matrix C: **4 × 2**
+- Matrix B: **3 × 4**
+- Compatibility: **2 ≠ 3**
 
-The inner dimensions are not equal (2 ≠ 3).
+**RESULT: NOT DEFINED**
 
-**Not defined.**
+The inner dimensions are different.
 
-### 5. Product AC
+---
 
-$$
-A_{2 \times 3} \cdot C_{4 \times 2}
-$$
+### 3.5. Product AC
 
-The inner dimensions are not equal (3 ≠ 4).
+- Matrix A: **2 × 3**
+- Matrix C: **4 × 2**
+- Compatibility: **3 ≠ 4**
 
-**Not defined.**
+**RESULT: NOT DEFINED**
 
-### 6. Product CA
+The inner dimensions are different.
 
-$$
-C_{4 \times 2} \cdot A_{2 \times 3}
-$$
+---
 
-The inner dimensions are equal (2 = 2).
+### 3.6. Product CA
 
-**Defined.** The result has size:
+- Matrix C: **4 × 2**
+- Matrix A: **2 × 3**
+- Compatibility: **2 = 2**
 
-$$
-\boxed{CA: 4 \times 3}
-$$
+**RESULT: DEFINED**
 
-### 7. Product AD
+Resulting matrix size: **4 × 3**
 
-$$
-A_{2 \times 3} \cdot D_{2 \times 2}
-$$
+---
 
-The inner dimensions are not equal (3 ≠ 2).
+### 3.7. Product AD
 
-**Not defined.**
+- Matrix A: **2 × 3**
+- Matrix D: **2 × 2**
+- Compatibility: **3 ≠ 2**
 
-### 8. Product DA
+**RESULT: NOT DEFINED**
 
-$$
-D_{2 \times 2} \cdot A_{2 \times 3}
-$$
+The inner dimensions are different.
 
-The inner dimensions are equal (2 = 2).
+---
 
-**Defined.** The result has size:
+### 3.8. Product DA
 
-$$
-\boxed{DA: 2 \times 3}
-$$
+- Matrix D: **2 × 2**
+- Matrix A: **2 × 3**
+- Compatibility: **2 = 2**
 
-## Final Summary
+**RESULT: DEFINED**
 
-| Product | Defined? | Result Size |
-|---|---|---|
-| AB | Yes | \(2 \times 4\) |
-| BA | No | Not defined |
-| BC | Yes | \(3 \times 2\) |
-| CB | No | Not defined |
-| AC | No | Not defined |
-| CA | Yes | \(4 \times 3\) |
-| AD | No | Not defined |
-| DA | Yes | \(2 \times 3\) |
+Resulting matrix size: **2 × 3**
 
-## Conclusion
+---
 
-Matrix multiplication is possible only when the number of columns in the first matrix equals the number of rows in the second matrix.
+## 4. FINAL SUMMARY
 
-The order of multiplication matters because changing the order can make a product undefined or produce a different result size.
+| Product | Compatibility | Result | Size |
+|:-------:|:-------------:|:------:|:----:|
+| AB | 3 = 3 | Defined | 2 × 4 |
+| BA | 4 ≠ 2 | Not defined | — |
+| BC | 4 = 4 | Defined | 3 × 2 |
+| CB | 2 ≠ 3 | Not defined | — |
+| AC | 3 ≠ 4 | Not defined | — |
+| CA | 2 = 2 | Defined | 4 × 3 |
+| AD | 3 ≠ 2 | Not defined | — |
+| DA | 2 = 2 | Defined | 2 × 3 |
+
+---
+
+## 5. CONCLUSION
+
+Matrix multiplication depends on the compatibility of dimensions.
+
+The number of columns in the first matrix must equal the number of rows in the second matrix.
+
+The order of multiplication matters because changing the order can make a product undefined or produce a different matrix size.
