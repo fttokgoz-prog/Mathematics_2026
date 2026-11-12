@@ -26,9 +26,9 @@ D \in \mathbb{R}^{2\times2}
 
 ---
 
-## 2. QUESTIONS
+## 2. COMPLETE QUESTION
 
-Determine whether each of the following matrix products is defined:
+Consider the following eight matrix products:
 
 1. AB
 2. BA
@@ -39,20 +39,20 @@ Determine whether each of the following matrix products is defined:
 7. AD
 8. DA
 
-For every product:
+For each of these eight products:
 
 - Determine whether the multiplication is defined.
-- If it is defined, state the dimensions of the resulting matrix.
-- If it is not defined, explain why.
-- Justify each decision using the dimension compatibility condition.
+- If the product is defined, state the dimensions of the resulting matrix.
+- If the product is not defined, explain why the multiplication is impossible.
+- Justify every decision using the dimension compatibility condition.
+
+Remember that two matrices can be multiplied only when the number of columns in the first matrix equals the number of rows in the second matrix.
 
 ---
 
 ## 3. MATRIX MULTIPLICATION RULE
 
-Two matrices can be multiplied if the number of columns in the first matrix equals the number of rows in the second matrix.
-
-The general rule is:
+The general dimension compatibility condition is:
 
 ```math
 (m\times n)(n\times p)=m\times p
@@ -68,23 +68,25 @@ The outer dimensions determine the size of the resulting matrix.
 
 ### 4.1. Product AB
 
-Dimensions:
+The dimensions are:
 
 ```math
 (2\times3)(3\times4)
 ```
 
-The inner dimensions are both 3, so the multiplication is defined.
+The inner dimensions are both 3.
+
+Therefore, the multiplication is defined.
 
 The resulting matrix has dimensions:
 
 ```math
-\boxed{AB: 2\times4}
+AB: 2\times4
 ```
 
 ### 4.2. Product BA
 
-Dimensions:
+The dimensions are:
 
 ```math
 (3\times4)(2\times3)
@@ -95,28 +97,30 @@ The inner dimensions are 4 and 2.
 Since they are different, the multiplication is not defined.
 
 ```math
-\boxed{BA:\text{ Not defined}}
+BA:\text{ Not defined}
 ```
 
 ### 4.3. Product BC
 
-Dimensions:
+The dimensions are:
 
 ```math
 (3\times4)(4\times2)
 ```
 
-The inner dimensions are both 4, so the multiplication is defined.
+The inner dimensions are both 4.
+
+Therefore, the multiplication is defined.
 
 The resulting matrix has dimensions:
 
 ```math
-\boxed{BC: 3\times2}
+BC: 3\times2
 ```
 
 ### 4.4. Product CB
 
-Dimensions:
+The dimensions are:
 
 ```math
 (4\times2)(3\times4)
@@ -127,12 +131,12 @@ The inner dimensions are 2 and 3.
 Since they are different, the multiplication is not defined.
 
 ```math
-\boxed{CB:\text{ Not defined}}
+CB:\text{ Not defined}
 ```
 
 ### 4.5. Product AC
 
-Dimensions:
+The dimensions are:
 
 ```math
 (2\times3)(4\times2)
@@ -143,28 +147,30 @@ The inner dimensions are 3 and 4.
 Since they are different, the multiplication is not defined.
 
 ```math
-\boxed{AC:\text{ Not defined}}
+AC:\text{ Not defined}
 ```
 
 ### 4.6. Product CA
 
-Dimensions:
+The dimensions are:
 
 ```math
 (4\times2)(2\times3)
 ```
 
-The inner dimensions are both 2, so the multiplication is defined.
+The inner dimensions are both 2.
+
+Therefore, the multiplication is defined.
 
 The resulting matrix has dimensions:
 
 ```math
-\boxed{CA: 4\times3}
+CA: 4\times3
 ```
 
 ### 4.7. Product AD
 
-Dimensions:
+The dimensions are:
 
 ```math
 (2\times3)(2\times2)
@@ -175,23 +181,25 @@ The inner dimensions are 3 and 2.
 Since they are different, the multiplication is not defined.
 
 ```math
-\boxed{AD:\text{ Not defined}}
+AD:\text{ Not defined}
 ```
 
 ### 4.8. Product DA
 
-Dimensions:
+The dimensions are:
 
 ```math
 (2\times2)(2\times3)
 ```
 
-The inner dimensions are both 2, so the multiplication is defined.
+The inner dimensions are both 2.
+
+Therefore, the multiplication is defined.
 
 The resulting matrix has dimensions:
 
 ```math
-\boxed{DA: 2\times3}
+DA: 2\times3
 ```
 
 ---
@@ -213,13 +221,22 @@ The resulting matrix has dimensions:
 
 ## 6. CONCLUSION
 
-Matrix multiplication is possible only when the number of columns in the first matrix equals the number of rows in the second matrix.
+Out of the eight matrix products:
 
-Out of the eight products:
+Four products are defined:
 
-- Four products are defined: AB, BC, CA and DA.
-- Four products are not defined: BA, CB, AC and AD.
+- AB: 2×4
+- BC: 3×2
+- CA: 4×3
+- DA: 2×3
 
-The resulting matrix dimensions depend on the outer dimensions of the two matrices.
+Four products are not defined:
 
-This exercise demonstrates the importance of checking dimension compatibility before performing matrix multiplication.
+- BA
+- CB
+- AC
+- AD
+
+The reason is that matrix multiplication requires the number of columns in the first matrix to equal the number of rows in the second matrix.
+
+This condition must always be checked before multiplying matrices.
