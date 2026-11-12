@@ -1,135 +1,118 @@
-# Exercise 10. Detecting Dependence
 
-## Given
+# EXERCISE 10
+# DETECTING DEPENDENCE
 
-A = ( 1  2  3 )
-    ( 2  4  6 )
-    ( 0  1  5 )
+---
 
+## 1. GIVEN
 
-We need to explain why det(A) = 0 without performing a full determinant calculation, identify a specific dependence between the rows, and connect this dependence with the noninvertibility of the matrix.
+We are given the following 3×3 matrix:
 
-## 1. Examine the rows of the matrix
+```math
+A =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+0 & 1 & 5
+\end{pmatrix}
+```
 
-The matrix is:
+We need to:
 
-A = ( 1  2  3 )
-    ( 2  4  6 )
-    ( 0  1  5 )
+1. Explain why the determinant of A is zero without performing a full determinant calculation.
+2. Identify a specific linear dependence between the rows.
+3. Explain how this dependence is related to the invertibility of the matrix.
 
+---
 
-The three rows are:
+## 2. IDENTIFY THE ROWS
 
-First row: R₁ = (1, 2, 3)
+The three rows of matrix A are:
 
-Second row: R₂ = (2, 4, 6)
+```math
+R_1=(1,2,3)
+```
 
-Third row: R₃ = (0, 1, 5)
+```math
+R_2=(2,4,6)
+```
 
+```math
+R_3=(0,1,5)
+```
 
 We can observe that the second row is exactly twice the first row.
 
-R₂ = 2R₁
+In other words:
 
+```math
+R_2=2R_1
+```
 
-To verify this relationship, multiply every entry of the first row by 2:
+This means that the first and second rows are linearly dependent.
 
-2 × (1, 2, 3) = (2, 4, 6)
+---
 
+## 3. WHY IS THE DETERMINANT ZERO?
 
-This is exactly the second row of the matrix.
+A determinant is zero whenever the rows or columns of a square matrix are linearly dependent.
 
-Therefore:
+In our matrix:
 
-R₂ = 2R₁
+```math
+R_2=2R_1
+```
 
+Therefore, two rows are proportional.
 
-## 2. Explain why the determinant is zero
+This means that the rows cannot be linearly independent.
 
-An important property of determinants states that if two rows of a square matrix are proportional, its determinant is zero.
+As a result:
 
-In this matrix, the second row is twice the first row.
+```math
+\det(A)=0
+```
 
-R₂ = 2R₁
+We can conclude this directly from the structure of the matrix without calculating the full determinant.
 
+---
 
-This means that the rows are linearly dependent. One row can be obtained by multiplying another row by a constant.
+## 4. CONNECTION WITH INVERTIBILITY
 
-Therefore, the rows do not provide three independent directions.
+A square matrix is invertible if and only if its determinant is non-zero.
 
-As a result, the determinant must be zero:
+The condition is:
 
-det(A) = 0
+```math
+\det(A)\neq0
+```
 
+However, we have established that:
 
-We can reach this conclusion directly from the structure of the matrix without calculating the determinant using Sarrus' rule or cofactor expansion.
+```math
+\det(A)=0
+```
 
-## 3. Identify the linear dependence between the rows
+Therefore, matrix A is not invertible.
 
-The relationship between the first two rows is:
+In other words, the inverse matrix A⁻¹ does not exist.
 
-R₂ = 2R₁
+---
 
+## 5. CONCLUSION
 
-We can rewrite this equation as:
+The second row of matrix A is twice the first row.
 
-R₂ - 2R₁ = 0
+This creates a linear dependence between the rows.
 
+A square matrix with linearly dependent rows has a determinant equal to zero.
 
-This is a nontrivial linear relation between the rows because the coefficients are not all zero.
+Since the determinant is zero, the matrix is singular and cannot be inverted.
 
-Specifically:
+The final result is:
 
-- The coefficient of R₁ is -2.
-- The coefficient of R₂ is 1.
-- The coefficient of R₃ is 0.
+```math
+\det(A)=0
+```
 
-Therefore:
-
--2R₁ + R₂ + 0R₃ = 0
-
-
-This confirms that the rows of A are linearly dependent.
-
-## 4. Connect the zero determinant with noninvertibility
-
-A square matrix is invertible if and only if its determinant is nonzero.
-
-If the determinant is zero, the matrix does not have an inverse.
-
-For the given matrix, we established that:
-
-det(A) = 0
-
-
-Therefore, A is not invertible.
-
-The linear dependence between the rows explains why the matrix is singular: its rows are not linearly independent, so the matrix cannot have full rank.
-
-Consequently, there is no inverse matrix A⁻¹ satisfying:
-
-AA⁻¹ = I
-
-
-## Conclusion
-
-The given matrix is:
-
-A = ( 1  2  3 )
-    ( 2  4  6 )
-    ( 0  1  5 )
-
-
-The second row is twice the first row:
-
-R₂ = 2R₁
-
-
-Therefore, the rows are linearly dependent, which implies:
-
-det(A) = 0
-
-
-Since the determinant is zero, the matrix is not invertible.
-
-This example shows that we can identify a zero determinant by recognizing linear dependence between rows, without carrying out a full determinant calculation.
+Matrix A is not invertible because its rows are linearly dependent.
