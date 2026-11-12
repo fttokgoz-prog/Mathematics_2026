@@ -1,316 +1,362 @@
-# Exercise 13. A Recurrence Written in Matrix Form
 
-## Given
+# EXERCISE 13
+# A RECURRENCE WRITTEN IN MATRIX FORM
 
-F = ( 1  1 )
-    ( 1  0 )
+---
 
+## 1. GIVEN
 
-We need to compute F², F³, F⁴, and F⁵, compare the results with the sequence 0, 1, 1, 2, 3, 5, 8, ..., and explain how multiplying F by a vector performs one recurrence step.
+The following matrix is given:
 
-## 1. Compute F²
+$$
+F =
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
 
-The notation F² means multiplying F by itself.
+We need to:
 
-F² = F × F
+1. Calculate F², F³, F⁴, and F⁵.
+2. Compare the results with the Fibonacci sequence.
+3. Find the relationship between matrix powers and Fibonacci numbers.
+4. Calculate the product of F and a general vector.
 
-F² = ( 1  1 ) ( 1  1 )
-     ( 1  0 ) ( 1  0 )
+---
 
+## 2. CALCULATING MATRIX POWERS
 
-**First row, first column:**
+### STEP 1 - Calculate F²
 
-1 × 1 + 1 × 1 = 1 + 1 = 2
+$$
+F^2 = F \cdot F
+$$
 
+$$
+F^2 =
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
 
-**First row, second column:**
+Result:
 
-1 × 1 + 1 × 0 = 1 + 0 = 1
+$$
+\boxed{
+F^2 =
+\begin{pmatrix}
+2 & 1 \\
+1 & 1
+\end{pmatrix}
+}
+$$
 
+---
 
-**Second row, first column:**
+### STEP 2 - Calculate F³
 
-1 × 1 + 0 × 1 = 1 + 0 = 1
+$$
+F^3 = F^2 \cdot F
+$$
 
+$$
+F^3 =
+\begin{pmatrix}
+2 & 1 \\
+1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
 
-**Second row, second column:**
+Result:
 
-1 × 1 + 0 × 0 = 1 + 0 = 1
+$$
+\boxed{
+F^3 =
+\begin{pmatrix}
+3 & 2 \\
+2 & 1
+\end{pmatrix}
+}
+$$
 
+---
+
+### STEP 3 - Calculate F⁴
+
+$$
+F^4 = F^3 \cdot F
+$$
+
+$$
+F^4 =
+\begin{pmatrix}
+3 & 2 \\
+2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
+
+Result:
+
+$$
+\boxed{
+F^4 =
+\begin{pmatrix}
+5 & 3 \\
+3 & 2
+\end{pmatrix}
+}
+$$
+
+---
+
+### STEP 4 - Calculate F⁵
+
+$$
+F^5 = F^4 \cdot F
+$$
+
+$$
+F^5 =
+\begin{pmatrix}
+5 & 3 \\
+3 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
+
+Result:
+
+$$
+\boxed{
+F^5 =
+\begin{pmatrix}
+8 & 5 \\
+5 & 3
+\end{pmatrix}
+}
+$$
+
+---
+
+## 3. COMPARISON WITH THE FIBONACCI SEQUENCE
+
+The Fibonacci sequence is:
+
+**0, 1, 1, 2, 3, 5, 8, 13, ...**
+
+Each number is obtained by adding the two previous numbers.
+
+Comparing the matrix powers with the sequence:
+
+| Matrix Power | Upper-Left | Upper-Right | Lower-Left | Lower-Right |
+|:------------:|:----------:|:-----------:|:----------:|:-----------:|
+| F² | 2 | 1 | 1 | 1 |
+| F³ | 3 | 2 | 2 | 1 |
+| F⁴ | 5 | 3 | 3 | 2 |
+| F⁵ | 8 | 5 | 5 | 3 |
+
+We can observe that the entries of each matrix are consecutive Fibonacci numbers.
+
+The general formula is:
+
+$$
+\boxed{
+F^n =
+\begin{pmatrix}
+Fib(n+1) & Fib(n) \\
+Fib(n) & Fib(n-1)
+\end{pmatrix}
+}
+$$
+
+for n ≥ 1, where Fib(n) represents the nth Fibonacci number, with Fib(0) = 0 and Fib(1) = 1.
+
+---
+
+## 4. MULTIPLYING F BY A GENERAL VECTOR
+
+Let the vector be:
+
+$$
+v =
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+$$
+
+Multiply F by this vector:
+
+$$
+Fv =
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+$$
+
+Calculate each entry:
+
+$$
+Fv =
+\begin{pmatrix}
+1a+1b \\
+1a+0b
+\end{pmatrix}
+$$
 
 Therefore:
 
-F² = ( 2  1 )
-     ( 1  1 )
-
-
-## 2. Compute F³
-
-We multiply F² by F.
-
-F³ = F² × F
-
-F³ = ( 2  1 ) ( 1  1 )
-     ( 1  1 ) ( 1  0 )
-
-
-**First row, first column:**
-
-2 × 1 + 1 × 1 = 2 + 1 = 3
-
-
-**First row, second column:**
-
-2 × 1 + 1 × 0 = 2 + 0 = 2
-
-
-**Second row, first column:**
-
-1 × 1 + 1 × 1 = 1 + 1 = 2
-
-
-**Second row, second column:**
-
-1 × 1 + 1 × 0 = 1 + 0 = 1
-
-
-Therefore:
-
-F³ = ( 3  2 )
-     ( 2  1 )
-
-
-## 3. Compute F⁴
-
-We multiply F³ by F.
-
-F⁴ = F³ × F
-
-F⁴ = ( 3  2 ) ( 1  1 )
-     ( 2  1 ) ( 1  0 )
-
-
-**First row, first column:**
-
-3 × 1 + 2 × 1 = 3 + 2 = 5
-
-
-**First row, second column:**
-
-3 × 1 + 2 × 0 = 3 + 0 = 3
-
-
-**Second row, first column:**
-
-2 × 1 + 1 × 1 = 2 + 1 = 3
-
-
-**Second row, second column:**
-
-2 × 1 + 1 × 0 = 2 + 0 = 2
-
-
-Therefore:
-
-F⁴ = ( 5  3 )
-     ( 3  2 )
-
-
-## 4. Compute F⁵
-
-We multiply F⁴ by F.
-
-F⁵ = F⁴ × F
-
-F⁵ = ( 5  3 ) ( 1  1 )
-     ( 3  2 ) ( 1  0 )
-
-
-**First row, first column:**
-
-5 × 1 + 3 × 1 = 5 + 3 = 8
-
-
-**First row, second column:**
-
-5 × 1 + 3 × 0 = 5 + 0 = 5
-
-
-**Second row, first column:**
-
-3 × 1 + 2 × 1 = 3 + 2 = 5
-
-
-**Second row, second column:**
-
-3 × 1 + 2 × 0 = 3 + 0 = 3
-
-
-Therefore:
-
-F⁵ = ( 8  5 )
-     ( 5  3 )
-
-
-## 5. Compare the results with the sequence 0, 1, 1, 2, 3, 5, 8, ...
-
-The given sequence is:
-
-0, 1, 1, 2, 3, 5, 8, ...
-
-This is the Fibonacci sequence. Each term is obtained by adding the two previous terms.
-
-For example:
-
-0 + 1 = 1
-
-1 + 1 = 2
-
-1 + 2 = 3
-
-2 + 3 = 5
-
-3 + 5 = 8
-
-
-Now, compare the matrix powers:
-
-F² = ( 2  1 )
-     ( 1  1 )
-
-
-F³ = ( 3  2 )
-     ( 2  1 )
-
-
-F⁴ = ( 5  3 )
-     ( 3  2 )
-
-
-F⁵ = ( 8  5 )
-     ( 5  3 )
-
-
-The entries of these matrices are consecutive Fibonacci numbers.
-
-The top-left entries are:
-
-2, 3, 5, 8
-
-The top-right entries are:
-
-1, 2, 3, 5
-
-The bottom-left entries are:
-
-1, 2, 3, 5
-
-The bottom-right entries are:
-
-1, 1, 2, 3
-
-
-Therefore, the powers of F contain consecutive Fibonacci numbers, and the entries follow the same addition pattern as the sequence.
-
-In general, for n ≥ 1:
-
-Fⁿ = ( Fₙ₊₁  Fₙ   )
-     ( Fₙ     Fₙ₋₁ )
-
-Here, Fₙ denotes the nth Fibonacci number, using F₀ = 0 and F₁ = 1.
-
-
-## 6. Compute F multiplied by the vector (a, b)
-
-We are given the vector:
-
-v = ( a )
-    ( b )
-
-
-We multiply F by this vector:
-
-Fv = ( 1  1 ) ( a )
-     ( 1  0 ) ( b )
-
-
-**First entry:**
-
-1 × a + 1 × b = a + b
-
-
-**Second entry:**
-
-1 × a + 0 × b = a + 0 = a
-
-
-Therefore:
-
-Fv = ( a + b )
-     (   a   )
-
-
-## 7. Explain how this multiplication performs one recurrence step
-
-The original vector is:
-
-v = ( a )
-    ( b )
-
-
-After multiplying by F, we obtain:
-
-Fv = ( a + b )
-     (   a   )
-
-
-The first entry becomes a + b, which is the sum of the two original entries.
-
-The second entry becomes a, which is the previous first entry.
-
-Therefore, the transformation changes the pair (a, b) into (a + b, a).
-
-This is exactly one recurrence step: the next term is calculated by adding the two current terms, while the previous first term is retained as the second entry.
-
-For example, if the vector is:
-
-v = ( 3 )
-    ( 2 )
-
-
-Then:
-
-Fv = ( 3 + 2 )
-     (   3   )
-
-
-Fv = ( 5 )
-     ( 3 )
-
-
-The pair (3, 2) becomes (5, 3), following the Fibonacci recurrence.
-
-
-## Conclusion
-
-The matrix F generates consecutive Fibonacci numbers through its powers.
-
-We obtained:
-
-F² = ( 2  1 )
-     ( 1  1 )
-
-
-F³ = ( 3  2 )
-     ( 2  1 )
-
-
-F⁴ = ( 5  3 )
-     ( 3  2 )
-
-
-F⁵ = ( 8  5 )
-     ( 5  3 )
-
-
-We also showed that multiplying F by a vector (a, b) produces (a + b, a). This adds the two current terms and carries one term forward, performing exactly one step of the Fibonacci recurrence.
+$$
+\boxed{
+F
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+=
+\begin{pmatrix}
+a+b \\
+a
+\end{pmatrix}
+}
+$$
+
+---
+
+## 5. EXPLANATION OF THE RECURRENCE STEP
+
+The multiplication produces a new vector:
+
+$$
+\begin{pmatrix}
+a+b \\
+a
+\end{pmatrix}
+$$
+
+This means:
+
+- The first entry becomes the sum of the previous two entries.
+- The second entry becomes the previous first entry.
+
+For example, if:
+
+$$
+v =
+\begin{pmatrix}
+3 \\
+2
+\end{pmatrix}
+$$
+
+then:
+
+$$
+Fv =
+\begin{pmatrix}
+3+2 \\
+3
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 \\
+3
+\end{pmatrix}
+$$
+
+This is exactly one step in the Fibonacci sequence.
+
+---
+
+## 6. FINAL ANSWERS
+
+### Matrix Powers
+
+$$
+F^2 =
+\begin{pmatrix}
+2 & 1 \\
+1 & 1
+\end{pmatrix}
+$$
+
+$$
+F^3 =
+\begin{pmatrix}
+3 & 2 \\
+2 & 1
+\end{pmatrix}
+$$
+
+$$
+F^4 =
+\begin{pmatrix}
+5 & 3 \\
+3 & 2
+\end{pmatrix}
+$$
+
+$$
+F^5 =
+\begin{pmatrix}
+8 & 5 \\
+5 & 3
+\end{pmatrix}
+$$
+
+### General Formula
+
+$$
+F^n =
+\begin{pmatrix}
+Fib(n+1) & Fib(n) \\
+Fib(n) & Fib(n-1)
+\end{pmatrix}
+$$
+
+### Vector Multiplication
+
+$$
+F
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+=
+\begin{pmatrix}
+a+b \\
+a
+\end{pmatrix}
+$$
+
+---
+
+## 7. CONCLUSION
+
+The powers of matrix F generate consecutive Fibonacci numbers.
+
+Multiplying F by a vector containing two consecutive terms creates the next Fibonacci number while keeping the previous first term.
+
+Therefore, matrix multiplication provides a simple way to represent and calculate the Fibonacci recurrence.
