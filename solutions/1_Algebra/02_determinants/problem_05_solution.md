@@ -1,180 +1,230 @@
-# Exercise 5. Matrix Times Vector
 
-## Given
+# EXERCISE 5
+# ROW OPERATIONS
 
-A = ( 2  -1 )
-    ( 1   3 )
+---
 
+## 1. GIVEN
 
-x = ( 4 )
-    ( 2 )
+We are given the following matrix:
 
+```math
+A =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 1 & 0 \\
+-1 & 4 & 2
+\end{pmatrix}
+```
 
-We need to compute Ax and express the result as a linear combination of the columns of A, using the entries of vector x as coefficients.
+We need to calculate det(A) by simplifying the matrix using row operations and explain how each operation affects the determinant.
 
-## 1. Compute Ax
+---
 
-To multiply a matrix by a vector, we multiply each row of the matrix by the vector and add the products.
+## 2. INITIAL MATRIX
 
-Matrix A has 2 rows, and vector x has 2 entries. Therefore, the multiplication is defined, and the result will be a vector with 2 entries.
+The initial matrix is:
 
-Ax = ( 2  -1 ) ( 4 )
-     ( 1   3 ) ( 2 )
+```math
+A =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 1 & 0 \\
+-1 & 4 & 2
+\end{pmatrix}
+```
 
+We will use row replacement operations to transform the matrix into upper triangular form.
 
-**Step 1: Calculate the first entry.**
+Adding a multiple of one row to another row does not change the determinant.
 
-The first row of A is (2, -1), and the vector x is (4, 2).
+---
 
-Multiply the corresponding entries and add the results:
+## 3. FIRST ROW OPERATION
 
-2 × 4 + (-1) × 2
+We perform the following operation:
 
-= 8 - 2
+```math
+R_2 \leftarrow R_2-2R_1
+```
 
-= 6
+Calculate the new second row:
 
+```math
+(2,1,0)-2(1,2,3)
+```
 
-Therefore, the first entry of Ax is 6.
+```math
+=(2,1,0)-(2,4,6)
+```
 
+```math
+=(-3,-3,-6)
+```
 
-**Step 2: Calculate the second entry.**
+The resulting matrix is:
 
-The second row of A is (1, 3).
+```math
+A_1 =
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & -3 & -6 \\
+-1 & 4 & 2
+\end{pmatrix}
+```
 
-Multiply the corresponding entries and add the results:
+**Effect on the determinant:**
 
-1 × 4 + 3 × 2
-
-= 4 + 6
-
-= 10
-
-
-Therefore, the second entry of Ax is 10.
-
-
-**Step 3: Write the final result.**
-
-The first entry is 6, and the second entry is 10.
+Adding a multiple of one row to another row does not change the determinant.
 
 Therefore:
 
-Ax = (  6 )
-     ( 10 )
+```math
+\det(A_1)=\det(A)
+```
 
+---
 
-## 2. Express Ax as a linear combination of the columns of A
+## 4. SECOND ROW OPERATION
 
-A linear combination means multiplying each column of a matrix by a number and then adding the resulting vectors.
+We perform the following operation:
 
-The entries of vector x provide the coefficients for the columns of A.
+```math
+R_3 \leftarrow R_3+R_1
+```
 
-### Step 1: Identify the columns of A
+Calculate the new third row:
 
-The first column of A is:
+```math
+(-1,4,2)+(1,2,3)
+```
 
-c₁ = ( 2 )
-     ( 1 )
+```math
+=(0,6,5)
+```
 
+The resulting matrix is:
 
-The second column of A is:
+```math
+A_2 =
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & -3 & -6 \\
+0 & 6 & 5
+\end{pmatrix}
+```
 
-c₂ = ( -1 )
-     (  3 )
+**Effect on the determinant:**
 
+This is also a row replacement operation.
 
-### Step 2: Identify the coefficients
+Therefore, the determinant does not change:
 
-The vector x is:
+```math
+\det(A_2)=\det(A_1)
+```
 
-x = ( 4 )
-    ( 2 )
+---
 
+## 5. THIRD ROW OPERATION
 
-The first entry is 4, so the first column is multiplied by 4.
+We perform the following operation:
 
-The second entry is 2, so the second column is multiplied by 2.
+```math
+R_3 \leftarrow R_3+2R_2
+```
 
-Therefore, the linear combination is:
+Calculate the new third row:
 
-Ax = 4c₁ + 2c₂
+```math
+(0,6,5)+2(0,-3,-6)
+```
 
+```math
+=(0,6,5)+(0,-6,-12)
+```
 
-### Step 3: Multiply each column by its coefficient
+```math
+=(0,0,-7)
+```
 
-First column:
+The resulting upper triangular matrix is:
 
-4c₁ = 4 × ( 2 )
-             ( 1 )
+```math
+A_3 =
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & -3 & -6 \\
+0 & 0 & -7
+\end{pmatrix}
+```
 
-4c₁ = ( 8 )
-      ( 4 )
+**Effect on the determinant:**
 
-
-Second column:
-
-2c₂ = 2 × ( -1 )
-             (  3 )
-
-2c₂ = ( -2 )
-      (  6 )
-
-
-### Step 4: Add the resulting vectors
-
-Ax = (  8 ) + ( -2 )
-     (  4 )   (  6 )
-
-
-Add the first entries:
-
-8 + (-2) = 6
-
-
-Add the second entries:
-
-4 + 6 = 10
-
+Adding a multiple of one row to another does not change the determinant.
 
 Therefore:
 
-Ax = (  6 )
-     ( 10 )
+```math
+\det(A_3)=\det(A_2)
+```
 
+---
 
-## 3. Compare the two methods
+## 6. CALCULATE THE FINAL DETERMINANT
 
-Using direct matrix-vector multiplication, we obtained:
+The matrix is now in upper triangular form.
 
-Ax = (  6 )
-     ( 10 )
+The determinant of a triangular matrix is equal to the product of its main diagonal entries.
 
+Therefore:
 
-Using a linear combination of the columns of A, we obtained:
+```math
+\det(A_3)=1\cdot(-3)\cdot(-7)
+```
 
-Ax = 4c₁ + 2c₂
+Calculate:
 
-Ax = (  6 )
-     ( 10 )
+```math
+\det(A_3)=21
+```
 
+Since none of our row operations changed the determinant:
 
-Both methods give the same result.
+```math
+\det(A)=\det(A_3)
+```
 
-This confirms that multiplying a matrix by a vector is equivalent to taking a linear combination of the matrix's columns, using the entries of the vector as coefficients.
+The final answer is:
 
+```math
+\boxed{\det(A)=21}
+```
 
-## Conclusion
+---
 
-The final result is:
+## 7. SUMMARY OF ROW OPERATIONS
 
-Ax = (  6 )
-     ( 10 )
+| Step | Row Operation | Effect on Determinant |
+|---|---|---|
+| 1 | R₂ ← R₂ − 2R₁ | No change |
+| 2 | R₃ ← R₃ + R₁ | No change |
+| 3 | R₃ ← R₃ + 2R₂ | No change |
 
+All three operations are row replacements, so the determinant remains unchanged throughout the calculation.
 
-The linear combination is:
+---
 
-Ax = 4c₁ + 2c₂
+## 8. CONCLUSION
 
+We simplified the original matrix into upper triangular form using three row replacement operations.
 
-The first column of A is multiplied by 4, and the second column is multiplied by 2. Adding these vectors produces the same result as direct matrix-vector multiplication.
+None of these operations changed the determinant.
+
+By multiplying the entries on the main diagonal, we obtained:
+
+```math
+\boxed{\det(A)=21}
+```
+
+This demonstrates how row operations can simplify determinant calculations while preserving the determinant's value.
