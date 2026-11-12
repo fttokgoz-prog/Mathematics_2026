@@ -1,162 +1,186 @@
-# Exercise 14. Rotation Matrices
 
-## Given
+# EXERCISE 14
+# ROTATION MATRICES
 
-The matrix for a rotation through an angle θ is:
+---
 
-R(θ) = ( cos θ   -sin θ )
-       ( sin θ    cos θ )
+## 1. GIVEN
 
+The matrix representing a rotation through an angle θ is:
 
-We need to compute R(α)R(β) and use the angle-sum formulas for sine and cosine to show that:
+```math
+R(\theta)=
+\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{pmatrix}
+```
 
-R(α)R(β) = R(α + β)
+We need to calculate R(α)R(β), prove that it equals R(α + β), and explain the result geometrically.
 
-We will also explain the geometrical meaning of this result.
+---
 
-## 1. Write the rotation matrices
+## 2. SOLUTION
 
-For an angle α:
+### STEP 1 - Write Both Rotation Matrices
 
-R(α) = ( cos α   -sin α )
-       ( sin α    cos α )
+The first rotation matrix is:
 
+```math
+R(\alpha)=
+\begin{pmatrix}
+\cos\alpha & -\sin\alpha \\
+\sin\alpha & \cos\alpha
+\end{pmatrix}
+```
 
-For an angle β:
+The second rotation matrix is:
 
-R(β) = ( cos β   -sin β )
-       ( sin β    cos β )
+```math
+R(\beta)=
+\begin{pmatrix}
+\cos\beta & -\sin\beta \\
+\sin\beta & \cos\beta
+\end{pmatrix}
+```
 
+### STEP 2 - Multiply the Matrices
 
-## 2. Compute R(α)R(β)
+We calculate:
 
-We multiply the two matrices using the row-by-column method.
+```math
+R(\alpha)R(\beta)
+```
 
-R(α)R(β) = ( cos α   -sin α ) ( cos β   -sin β )
-           ( sin α    cos α ) ( sin β    cos β )
+The upper-left entry is:
 
+```math
+\cos\alpha\cos\beta-\sin\alpha\sin\beta
+```
 
-**Step 1: Calculate the first row, first column.**
+The upper-right entry is:
 
-Multiply the first row of R(α) by the first column of R(β).
+```math
+-\cos\alpha\sin\beta-\sin\alpha\cos\beta
+```
 
-cos α × cos β + (-sin α) × sin β
+The lower-left entry is:
 
-= cos α cos β - sin α sin β
+```math
+\sin\alpha\cos\beta+\cos\alpha\sin\beta
+```
 
+The lower-right entry is:
 
-**Step 2: Calculate the first row, second column.**
+```math
+-\sin\alpha\sin\beta+\cos\alpha\cos\beta
+```
 
-Multiply the first row of R(α) by the second column of R(β).
+Therefore, the resulting matrix is:
 
-cos α × (-sin β) + (-sin α) × cos β
+```math
+R(\alpha)R(\beta)=
+\begin{pmatrix}
+\cos\alpha\cos\beta-\sin\alpha\sin\beta &
+-\cos\alpha\sin\beta-\sin\alpha\cos\beta \\
+\sin\alpha\cos\beta+\cos\alpha\sin\beta &
+-\sin\alpha\sin\beta+\cos\alpha\cos\beta
+\end{pmatrix}
+```
 
-= -cos α sin β - sin α cos β
+---
 
-= -(cos α sin β + sin α cos β)
+## 3. APPLY THE ANGLE-SUM FORMULAS
 
+We use two important trigonometric identities.
 
-**Step 3: Calculate the second row, first column.**
+### 3.1. Cosine Addition Formula
 
-Multiply the second row of R(α) by the first column of R(β).
+```math
+\cos(\alpha+\beta)
+=
+\cos\alpha\cos\beta
+-
+\sin\alpha\sin\beta
+```
 
-sin α × cos β + cos α × sin β
+### 3.2. Sine Addition Formula
 
-= sin α cos β + cos α sin β
+```math
+\sin(\alpha+\beta)
+=
+\sin\alpha\cos\beta
++
+\cos\alpha\sin\beta
+```
 
+### 3.3. Simplifying the Matrix
 
-**Step 4: Calculate the second row, second column.**
+Using these identities, the four entries become:
 
-Multiply the second row of R(α) by the second column of R(β).
+- Upper-left: cos(α + β)
+- Upper-right: -sin(α + β)
+- Lower-left: sin(α + β)
+- Lower-right: cos(α + β)
 
-sin α × (-sin β) + cos α × cos β
+---
 
-= -sin α sin β + cos α cos β
+## 4. FINAL MATRIX RESULT
 
-= cos α cos β - sin α sin β
+After applying the angle-sum formulas, we obtain:
 
+```math
+R(\alpha)R(\beta)=
+\begin{pmatrix}
+\cos(\alpha+\beta) & -\sin(\alpha+\beta) \\
+\sin(\alpha+\beta) & \cos(\alpha+\beta)
+\end{pmatrix}
+```
 
-Therefore, the product is:
-
-R(α)R(β) = ( cos α cos β - sin α sin β        -(cos α sin β + sin α cos β) )
-           ( sin α cos β + cos α sin β          cos α cos β - sin α sin β    )
-
-
-## 3. Use the angle-sum formulas
-
-To simplify the result, we use the standard trigonometric identities.
-
-The cosine angle-sum formula is:
-
-cos(α + β) = cos α cos β - sin α sin β
-
-
-The sine angle-sum formula is:
-
-sin(α + β) = sin α cos β + cos α sin β
-
-
-Now, we substitute these identities into the matrix obtained above.
-
-**First row, first column:**
-
-cos α cos β - sin α sin β = cos(α + β)
-
-
-**First row, second column:**
-
--(cos α sin β + sin α cos β) = -sin(α + β)
-
-
-**Second row, first column:**
-
-sin α cos β + cos α sin β = sin(α + β)
-
-
-**Second row, second column:**
-
-cos α cos β - sin α sin β = cos(α + β)
-
-
-After substitution, the matrix becomes:
-
-R(α)R(β) = ( cos(α + β)   -sin(α + β) )
-           ( sin(α + β)    cos(α + β) )
-
-
-This is exactly the definition of the rotation matrix R(α + β).
+This is exactly the rotation matrix for the angle α + β.
 
 Therefore:
 
-R(α)R(β) = R(α + β)
+```math
+\boxed{R(\alpha)R(\beta)=R(\alpha+\beta)}
+```
 
+The required identity is proven.
 
-## 4. Explain the result geometrically
+---
 
-A rotation matrix rotates a vector around the origin by a specified angle.
+## 5. GEOMETRICAL EXPLANATION
 
-First, applying R(β) rotates a vector by angle β.
+A rotation matrix changes the direction of a vector without changing its length.
 
-Then, applying R(α) rotates the resulting vector by angle α.
+When we apply two rotations one after another:
 
-The total rotation is the sum of the two angles:
+1. First, we rotate the vector by angle β.
+2. Then, we rotate it by angle α.
+3. The total rotation is the sum of both angles.
 
-β + α = α + β
+For example:
 
+```math
+30^\circ+60^\circ=90^\circ
+```
 
-Therefore, performing two consecutive rotations is equivalent to performing one rotation through the combined angle α + β.
+Rotating a vector by 30 degrees and then by 60 degrees gives the same result as rotating it directly by 90 degrees.
 
-The matrix product represents these two consecutive transformations, which explains why:
+Therefore, two consecutive rotations can be combined into one rotation.
 
-R(α)R(β) = R(α + β)
+---
 
+## 6. CONCLUSION
 
-## Conclusion
+We calculated the product of two rotation matrices and used the angle-sum formulas for sine and cosine.
 
-By multiplying the two rotation matrices and applying the angle-sum formulas for sine and cosine, we obtain:
+We proved that:
 
-R(α)R(β) = R(α + β)
+```math
+\boxed{R(\alpha)R(\beta)=R(\alpha+\beta)}
+```
 
-This shows that the product of two rotation matrices represents a rotation through the sum of their angles.
+Geometrically, this means that two consecutive rotations are equivalent to one rotation through the sum of their angles.
 
-Geometrically, two consecutive rotations around the same origin are equivalent to a single rotation by the combined angle.
+The matrix result is consistent with the geometric properties of rotations.
