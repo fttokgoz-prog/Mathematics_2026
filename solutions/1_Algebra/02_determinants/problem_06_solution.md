@@ -1,168 +1,161 @@
-# Exercise 6. Parameter and Invertibility
 
-## Given
+# EXERCISE 6
+# PARAMETER AND INVERTIBILITY
 
-A(t) = ( t  1 )
-       ( 2  t )
+---
 
+## 1. GIVEN
 
-We need to find all values of t for which the matrix is not invertible and explain how this relates to the determinant being zero.
+We are given a matrix depending on the parameter t:
 
-## 1. Calculate the determinant of A(t)
+```math
+A(t)=
+\begin{pmatrix}
+t & 1 \\
+2 & t
+\end{pmatrix}
+```
 
-For a 2×2 matrix, the determinant is calculated using the formula:
+We need to find all values of t for which the matrix is not invertible and explain the relationship with its determinant.
 
-det(A) = ad - bc
+---
 
-For the given matrix:
+## 2. DETERMINANT FORMULA
 
-A(t) = ( t  1 )
-       ( 2  t )
+For a 2×2 matrix:
 
+```math
+M=
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+```
 
-The entries are:
+The determinant is:
 
-a = t
+```math
+\det(M)=ad-bc
+```
 
-b = 1
+A square matrix is not invertible if and only if its determinant equals zero.
 
-c = 2
+---
 
-d = t
+## 3. CALCULATE THE DETERMINANT
 
+For our matrix:
 
-Substituting these values into the determinant formula:
+```math
+A(t)=
+\begin{pmatrix}
+t & 1 \\
+2 & t
+\end{pmatrix}
+```
 
-det(A(t)) = t × t - 1 × 2
+Using the determinant formula:
 
+```math
+\det(A(t))=t\cdot t-1\cdot2
+```
 
-**Step 1: Multiply the entries on the main diagonal.**
+Simplifying:
 
-t × t = t²
+```math
+\det(A(t))=t^2-2
+```
 
+Therefore:
 
-**Step 2: Multiply the entries on the other diagonal.**
+```math
+\boxed{\det(A(t))=t^2-2}
+```
 
-1 × 2 = 2
+---
 
+## 4. FIND THE VALUES OF t
 
-**Step 3: Subtract the second product from the first product.**
+The matrix is not invertible when its determinant is zero.
 
-det(A(t)) = t² - 2
+Therefore, we solve:
 
+```math
+t^2-2=0
+```
 
-Therefore, the determinant is:
+Move 2 to the other side:
 
-det(A(t)) = t² - 2
+```math
+t^2=2
+```
 
+Take the square root of both sides:
 
-## 2. Find the values of t for which the matrix is not invertible
+```math
+t=\pm\sqrt{2}
+```
 
-A square matrix is not invertible if and only if its determinant is equal to zero.
+Therefore, the required values are:
 
-Therefore, we set the determinant equal to zero:
+```math
+\boxed{t=\sqrt{2}\quad\text{or}\quad t=-\sqrt{2}}
+```
 
-det(A(t)) = 0
+---
 
+## 5. CHECK THE RESULT
 
-Substitute the determinant expression:
+When t = √2:
 
-t² - 2 = 0
+```math
+\det(A(\sqrt{2}))=(\sqrt{2})^2-2
+```
 
+```math
+=2-2=0
+```
 
-**Step 1: Add 2 to both sides.**
+When t = -√2:
 
-t² - 2 + 2 = 0 + 2
+```math
+\det(A(-\sqrt{2}))=(-\sqrt{2})^2-2
+```
 
-t² = 2
+```math
+=2-2=0
+```
 
+In both cases, the determinant is zero.
 
-**Step 2: Take the square root of both sides.**
+Therefore, the matrix is not invertible for both values.
 
-t = ±√2
+---
 
-
-This gives two possible values:
-
-t = √2
-
-t = -√2
-
-
-Therefore, the matrix is not invertible when:
-
-t = √2 or t = -√2
-
-
-## 3. Verify the result
-
-We can substitute both values into the determinant formula to check that the determinant is zero.
-
-**Case 1: t = √2**
-
-det(A(√2)) = (√2)² - 2
-
-det(A(√2)) = 2 - 2
-
-det(A(√2)) = 0
-
-
-Therefore, the matrix is not invertible when t = √2.
-
-
-**Case 2: t = -√2**
-
-det(A(-√2)) = (-√2)² - 2
-
-det(A(-√2)) = 2 - 2
-
-det(A(-√2)) = 0
-
-
-Therefore, the matrix is also not invertible when t = -√2.
-
-
-## 4. Explain the relationship between the determinant and invertibility
-
-The determinant tells us whether a square matrix is invertible.
-
-If the determinant is nonzero, the matrix is invertible and has an inverse.
-
-If the determinant is zero, the matrix is not invertible and has no inverse.
-
-For this matrix:
-
-det(A(t)) = t² - 2
-
-
-When t² - 2 is not zero, the matrix is invertible.
-
-When t² - 2 equals zero, the matrix is not invertible.
-
-Solving t² - 2 = 0 gives t = √2 and t = -√2.
-
-These are exactly the values for which the determinant is zero.
-
-
-## Conclusion
+## 6. FINAL ANSWER
 
 The determinant of the matrix is:
 
-det(A(t)) = t² - 2
+```math
+\boxed{\det(A(t))=t^2-2}
+```
 
+The matrix is not invertible when:
 
-Setting the determinant equal to zero gives:
+```math
+\boxed{t\in\{-\sqrt{2},\sqrt{2}\}}
+```
 
-t² - 2 = 0
+For all other real values of t, the matrix is invertible.
 
-t² = 2
+---
 
-t = ±√2
+## 7. CONCLUSION
 
+The determinant determines whether a square matrix is invertible.
 
-Therefore, the matrix A(t) is not invertible for:
+If the determinant is zero, the matrix has no inverse.
 
-t = √2 and t = -√2
+In this exercise, the determinant equals zero when t is either √2 or -√2.
 
-
-A square matrix is not invertible exactly when its determinant is zero.
+Therefore, these are exactly the two values for which the given matrix is not invertible.
