@@ -1,257 +1,220 @@
-# Exercise 12. A Parameter Revealed by a Row Operation
 
-## Given
+# EXERCISE 12
+# A PARAMETER REVEALED BY A ROW OPERATION
 
-A(t) = ( 1  2  3 )
-       ( 2  4  t )
-       ( 0  1  1 )
+---
 
+## 1. GIVEN
+
+We are given a matrix depending on the parameter t:
+
+```math
+A(t)=
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & t \\
+0 & 1 & 1
+\end{pmatrix}
+```
 
 We need to find all values of t for which the matrix is not invertible.
 
-Before calculating the determinant, we must perform the row operation:
+Before calculating the determinant, we must perform the following row operation:
 
-R₂ ← R₂ − 2R₁
+```math
+R_2 \leftarrow R_2-2R_1
+```
 
+We must use the resulting matrix to identify the required value of t.
 
-We will use the resulting matrix to simplify the determinant calculation and explain what happens to the rows for the value of t we find.
+Finally, we must explain what special relationship appears between the rows for this value.
 
-## 1. Perform the row operation
+---
+
+## 2. APPLY THE ROW OPERATION
 
 The original matrix is:
 
-A(t) = ( 1  2  3 )
-       ( 2  4  t )
-       ( 0  1  1 )
+```math
+A(t)=
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & t \\
+0 & 1 & 1
+\end{pmatrix}
+```
 
+We perform the operation:
 
-The row operation is:
+```math
+R_2 \leftarrow R_2-2R_1
+```
 
-R₂ ← R₂ − 2R₁
+The first row remains unchanged:
 
+```math
+R_1=(1,2,3)
+```
 
-This means that we multiply the first row by 2 and subtract the result from the second row.
+Calculate the new second row:
 
-The first row is:
+```math
+R_2=(2,4,t)-2(1,2,3)
+```
 
-R₁ = (1, 2, 3)
+Distribute the multiplication:
 
+```math
+R_2=(2,4,t)-(2,4,6)
+```
 
-Multiply each entry by 2:
+Therefore:
 
-2R₁ = (2, 4, 6)
+```math
+R_2=(0,0,t-6)
+```
 
+The third row remains unchanged:
 
-The original second row is:
-
-R₂ = (2, 4, t)
-
-
-Now subtract 2R₁ from R₂, entry by entry.
-
-**First entry:**
-
-2 − 2 = 0
-
-
-**Second entry:**
-
-4 − 4 = 0
-
-
-**Third entry:**
-
-t − 6 = t − 6
-
-
-Therefore, the new second row is:
-
-R₂ = (0, 0, t − 6)
-
+```math
+R_3=(0,1,1)
+```
 
 The resulting matrix is:
 
-A₁(t) = ( 1  2  3 )
-        ( 0  0  t − 6 )
-        ( 0  1  1 )
+```math
+A_1(t)=
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 0 & t-6 \\
+0 & 1 & 1
+\end{pmatrix}
+```
 
+---
 
-## 2. Explain the effect of the row operation on the determinant
-
-The operation R₂ ← R₂ − 2R₁ adds a multiple of one row to another row.
-
-This type of row operation does not change the determinant.
-
-Therefore:
-
-det(A₁(t)) = det(A(t))
-
-
-We can calculate the determinant using the new matrix because it has simpler entries.
-
-A₁(t) = ( 1  2  3 )
-        ( 0  0  t − 6 )
-        ( 0  1  1 )
-
-
-## 3. Calculate the determinant of the new matrix
-
-We expand the determinant along the first column.
-
-The entries in the first column are 1, 0, and 0.
-
-Because the last two entries are zero, only the first entry contributes to the determinant.
-
-Therefore:
-
-det(A₁(t)) = 1 × det ( 0  t − 6 )
-                        ( 1    1    )
-
-
-For a 2 × 2 matrix, the determinant is calculated using the formula:
-
-det = ad − bc
-
-
-Applying the formula to the 2 × 2 matrix:
-
-det ( 0  t − 6 )
-    ( 1    1    )
-
-
-We obtain:
-
-0 × 1 − (t − 6) × 1
-
-= 0 − (t − 6)
-
-= 6 − t
-
-
-Therefore:
-
-det(A(t)) = 6 − t
-
-
-## 4. Find the value of t for which the matrix is not invertible
+## 3. FIND THE VALUE OF t
 
 A square matrix is not invertible if and only if its determinant is zero.
 
-Therefore, we set the determinant equal to zero:
-
-det(A(t)) = 0
-
-
-Substitute the determinant expression:
-
-6 − t = 0
-
-
-Subtract 6 from both sides:
-
-−t = −6
-
-
-Multiply both sides by −1:
-
-t = 6
-
-
-Therefore, the matrix is not invertible when:
-
-t = 6
-
-
-## 5. Explain what happens to the rows when t = 6
-
-We found that:
-
-t = 6
-
-
-Substitute this value into the matrix obtained after the row operation:
-
-A₁(6) = ( 1  2  3 )
-        ( 0  0  6 − 6 )
-        ( 0  1  1 )
-
-
-Simplify the second row:
-
-6 − 6 = 0
-
-
-The matrix becomes:
-
-A₁(6) = ( 1  2  3 )
-        ( 0  0  0 )
-        ( 0  1  1 )
-
-
-The second row is now a zero row:
-
-R₂ = (0, 0, 0)
-
-
-A matrix with a zero row has determinant zero.
+The row operation we performed does not change the determinant because we only subtracted a multiple of one row from another.
 
 Therefore:
 
-det(A(6)) = 0
+```math
+\det(A(t))=\det(A_1(t))
+```
 
+We calculate the determinant of the resulting matrix by expanding along the first column:
 
-This confirms that the matrix is not invertible when t = 6.
+```math
+\det(A_1(t))=
+1\begin{vmatrix}
+0 & t-6 \\
+1 & 1
+\end{vmatrix}
+```
 
+Calculate the 2×2 determinant:
 
-## 6. Explain the special relationship between the rows
+```math
+\det(A_1(t))=1(0\cdot1-(t-6)\cdot1)
+```
 
-When t = 6, the original matrix becomes:
+Simplifying:
 
-A(6) = ( 1  2  3 )
-       ( 2  4  6 )
-       ( 0  1  1 )
+```math
+\det(A_1(t))=6-t
+```
 
+For the matrix to be non-invertible, its determinant must equal zero:
+
+```math
+6-t=0
+```
+
+Solving for t:
+
+```math
+t=6
+```
+
+Therefore, the matrix is not invertible when t equals 6.
+
+---
+
+## 4. WHAT HAPPENS WHEN t = 6?
+
+Substitute t = 6 into the resulting matrix:
+
+```math
+A_1(6)=
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 0 & 0 \\
+0 & 1 & 1
+\end{pmatrix}
+```
+
+The second row becomes a zero row.
+
+This means that the rows are linearly dependent.
+
+We can also examine the original matrix when t = 6:
+
+```math
+A(6)=
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+0 & 1 & 1
+\end{pmatrix}
+```
 
 Notice that the second row is exactly twice the first row:
 
-R₂ = 2R₁
+```math
+R_2=2R_1
+```
 
+Therefore, the original matrix has linearly dependent rows.
 
-This means that the first two rows are linearly dependent. The second row does not provide any new independent information because it is a multiple of the first row.
+A square matrix with linearly dependent rows has a determinant equal to zero and cannot be inverted.
 
-After performing the row operation R₂ ← R₂ − 2R₁, the second row becomes zero.
+---
 
-This dependence between the rows explains why the determinant is zero and why the matrix has no inverse.
+## 5. SUMMARY OF THE RESULTS
 
+| Condition | Result |
+|---|---|
+| Row operation | R₂ ← R₂ − 2R₁ |
+| New second row | (0, 0, t − 6) |
+| Determinant | 6 − t |
+| Non-invertible value | t = 6 |
+| Special property | Second row becomes twice the first row in the original matrix |
 
-## Conclusion
+---
 
-We started with:
+## 6. CONCLUSION
 
-A(t) = ( 1  2  3 )
-       ( 2  4  t )
-       ( 0  1  1 )
+We used an elementary row operation to simplify the matrix and identify the value of the parameter.
 
+The determinant of the matrix is:
 
-After performing the row operation R₂ ← R₂ − 2R₁, we obtained:
+```math
+\det(A(t))=6-t
+```
 
-A₁(t) = ( 1  2  3 )
-        ( 0  0  t − 6 )
-        ( 0  1  1 )
+The matrix is not invertible when its determinant is zero.
 
+Therefore, the only required value is:
 
-The determinant is:
+```math
+t=6
+```
 
-det(A(t)) = 6 − t
+For this value, the second row of the original matrix is twice the first row.
 
+After the row operation, the second row becomes a zero row.
 
-Setting the determinant equal to zero gives:
-
-6 − t = 0
-
-t = 6
-
-
-Therefore, the matrix is not invertible when t = 6.
-
-For this value, the second row of the original matrix is twice the first row. The rows are linearly dependent, and the row operation produces a zero row. This is why the determinant is zero and the matrix is not invertible.
+This demonstrates that linear dependence between rows causes the determinant to be zero, making the matrix non-invertible.
