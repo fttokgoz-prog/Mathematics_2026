@@ -1,3 +1,4 @@
+
 # EXERCISE 11
 # WHEN DO MATRICES COMMUTE?
 
@@ -5,47 +6,37 @@
 
 ## 1. GIVEN
 
-The following matrices are given:
+We are given two matrices:
 
-Matrix A:
-
-$$
+```math
 A =
 \begin{pmatrix}
 1 & 1 \\
 0 & 1
 \end{pmatrix}
-$$
+```
 
-Matrix B:
-
-$$
+```math
 B =
 \begin{pmatrix}
 a & b \\
 c & d
 \end{pmatrix}
-$$
+```
 
-## 2. QUESTION
+Find the conditions on $a$, $b$, $c$, and $d$ under which $AB=BA$.
 
-Find the conditions on \(a, b, c, d\) under which:
-
-$$
-AB = BA
-$$
-
-Describe the general form of all such matrices B.
+Describe the general form of all matrices $B$ satisfying this condition.
 
 ---
 
-## 3. SOLUTION
+## 2. SOLUTION
 
-### STEP 1 – Calculate AB
+### STEP 1 - Calculate AB
 
 Multiply matrix A by matrix B:
 
-$$
+```math
 AB =
 \begin{pmatrix}
 1 & 1 \\
@@ -55,21 +46,23 @@ AB =
 a & b \\
 c & d
 \end{pmatrix}
-$$
+```
 
-$$
+Multiply the corresponding rows and columns:
+
+```math
 AB =
 \begin{pmatrix}
 a+c & b+d \\
 c & d
 \end{pmatrix}
-$$
+```
 
-### STEP 2 – Calculate BA
+### STEP 2 - Calculate BA
 
 Now multiply matrix B by matrix A:
 
-$$
+```math
 BA =
 \begin{pmatrix}
 a & b \\
@@ -79,84 +72,113 @@ c & d
 1 & 1 \\
 0 & 1
 \end{pmatrix}
-$$
+```
 
-$$
+The result is:
+
+```math
 BA =
 \begin{pmatrix}
 a & a+b \\
 c & c+d
 \end{pmatrix}
-$$
+```
 
-### STEP 3 – Compare AB and BA
+### STEP 3 - Apply the Condition AB = BA
 
 For the matrices to commute, their corresponding entries must be equal.
 
 Therefore:
 
-$$
-\begin{aligned}
-a+c &= a \\
-b+d &= a+b \\
-c &= c \\
-d &= c+d
-\end{aligned}
-$$
+```math
+\begin{pmatrix}
+a+c & b+d \\
+c & d
+\end{pmatrix}
+=
+\begin{pmatrix}
+a & a+b \\
+c & c+d
+\end{pmatrix}
+```
 
-Simplifying these equations:
+Comparing the corresponding entries gives the following equations:
 
-From the first equation:
+First entry:
 
-$$
+```math
+a+c=a
+```
+
+Therefore:
+
+```math
+\boxed{c=0}
+```
+
+Second entry:
+
+```math
+b+d=a+b
+```
+
+Subtracting $b$ from both sides:
+
+```math
+\boxed{d=a}
+```
+
+Third entry:
+
+```math
+c=c
+```
+
+This equation is always true.
+
+Fourth entry:
+
+```math
+d=c+d
+```
+
+Therefore:
+
+```math
 c=0
-$$
+```
 
-From the second equation:
+This confirms the first condition.
 
-$$
-d=a
-$$
+### STEP 4 - Determine the Conditions
 
-The remaining equations give the same condition or are automatically satisfied.
+The two required conditions are:
 
-Therefore, the required conditions are:
+```math
+\boxed{c=0,\qquad d=a}
+```
 
-$$
-\boxed{c=0,\quad d=a}
-$$
+There are no restrictions on $a$ and $b$.
+
+Both can be any real numbers.
 
 ---
 
-## 4. GENERAL FORM OF MATRIX B
+## 3. GENERAL FORM OF MATRIX B
 
-Substitute the conditions \(c=0\) and \(d=a\) into matrix B:
+Substituting the conditions $c=0$ and $d=a$ into the original matrix:
 
-$$
+```math
 B =
 \begin{pmatrix}
 a & b \\
 0 & a
 \end{pmatrix}
-$$
+```
 
-Here, \(a\) and \(b\) can be any real numbers.
+Therefore, the general form of all matrices B that commute with A is:
 
-This is the general form of all matrices B that commute with A.
-
----
-
-## 5. FINAL ANSWER
-
-The matrices A and B commute when:
-
-$$
-\boxed{c=0,\quad d=a}
-$$
-
-The general form of matrix B is:
-
-$$
+```math
 \boxed{
 B =
 \begin{pmatrix}
@@ -164,16 +186,103 @@ a & b \\
 0 & a
 \end{pmatrix}
 }
-$$
+```
 
-where \(a,b \in \mathbb{R}\).
+where $a,b\in\mathbb{R}$.
 
 ---
 
-## 6. CONCLUSION
+## 4. VERIFICATION
 
-Two matrices commute when multiplying them in either order gives the same result.
+We can verify that these conditions make $AB=BA$.
 
-In this exercise, the condition \(AB=BA\) requires the lower-left entry of B to be zero and both diagonal entries to be equal.
+Using the general form:
 
-Therefore, not every matrix B commutes with A. Only matrices with the form shown above satisfy this condition.
+```math
+B =
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+```
+
+Calculate AB:
+
+```math
+AB =
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+```
+
+```math
+AB =
+\begin{pmatrix}
+a & a+b \\
+0 & a
+\end{pmatrix}
+```
+
+Now calculate BA:
+
+```math
+BA =
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+```
+
+```math
+BA =
+\begin{pmatrix}
+a & a+b \\
+0 & a
+\end{pmatrix}
+```
+
+Both products are identical.
+
+Therefore:
+
+```math
+\boxed{AB=BA}
+```
+
+---
+
+## 5. CONCLUSION
+
+Two matrices do not always commute, meaning that their multiplication order usually matters.
+
+In this exercise, we found the exact conditions under which $AB=BA$.
+
+These conditions are:
+
+- $c=0$
+- $d=a$
+
+The general form of matrix B is:
+
+```math
+\boxed{
+B =
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+}
+```
+
+where $a$ and $b$ can be any real numbers.
+
+This demonstrates that matrix multiplication is not generally commutative, but certain matrices satisfy the commutative property.
