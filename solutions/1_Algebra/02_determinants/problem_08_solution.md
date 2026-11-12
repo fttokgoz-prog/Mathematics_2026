@@ -1,202 +1,233 @@
-# Exercise 8. Determinant of a Product
 
-## Given
+# EXERCISE 8
+# DETERMINANT OF A PRODUCT
 
-A and B are square matrices such that:
+---
 
-det(A) = 3
+## 1. GIVEN
 
-det(B) = -5
+Let A and B be square matrices of the same size, with the following determinants:
 
+```math
+\det(A)=3
+```
 
-We need to compute det(AB), det(BA), and det(A⁴B⁻¹), if it exists. We must also explain why the first two results are equal even though AB is not necessarily equal to BA.
+```math
+\det(B)=-5
+```
 
-## 1. Compute det(AB)
+We need to calculate:
 
-An important property of determinants states that the determinant of a product of two square matrices is equal to the product of their determinants.
+1. $\det(AB)$
+2. $\det(BA)$
+3. $\det(A^{-1}B)$, if it exists.
 
-The formula is:
+We must also explain why the first two determinants are equal, even though matrix multiplication is generally not commutative.
 
-det(AB) = det(A) × det(B)
+---
 
+## 2. IMPORTANT DETERMINANT PROPERTIES
 
-We are given:
+We will use three important properties.
 
-det(A) = 3
+### Property 1 - Determinant of a Product
 
-det(B) = -5
+For two square matrices of the same size:
 
+```math
+\det(AB)=\det(A)\det(B)
+```
 
-Substitute these values into the formula:
+### Property 2 - Determinant of an Inverse
 
-det(AB) = 3 × (-5)
+If a matrix A is invertible, then:
 
+```math
+\det(A^{-1})=\frac{1}{\det(A)}
+```
 
-Multiply the two numbers:
+### Property 3 - Determinant of a Matrix Product
 
-det(AB) = -15
+The determinant of a product is equal to the product of the individual determinants.
 
+These properties allow us to calculate the required results without knowing the actual entries of A and B.
 
-Therefore:
+---
 
-det(AB) = -15
+## 3. CALCULATE THE DETERMINANT OF AB
 
+Using the determinant of a product:
 
-## 2. Compute det(BA)
-
-We use the same determinant property:
-
-det(BA) = det(B) × det(A)
-
+```math
+\det(AB)=\det(A)\det(B)
+```
 
 Substitute the given values:
 
-det(BA) = (-5) × 3
-
-
-Multiply the two numbers:
-
-det(BA) = -15
-
+```math
+\det(AB)=3\cdot(-5)
+```
 
 Therefore:
 
-det(BA) = -15
+```math
+\det(AB)=-15
+```
 
+---
 
-## 3. Explain why det(AB) = det(BA), even though AB is not necessarily equal to BA
+## 4. CALCULATE THE DETERMINANT OF BA
 
-From our calculations, we obtained:
+Using the same determinant property:
 
-det(AB) = -15
+```math
+\det(BA)=\det(B)\det(A)
+```
 
-det(BA) = -15
+Substitute the given values:
 
+```math
+\det(BA)=(-5)\cdot3
+```
 
 Therefore:
 
-det(AB) = det(BA)
+```math
+\det(BA)=-15
+```
 
+---
 
-This happens because ordinary multiplication of numbers is commutative.
+## 5. WHY ARE THE FIRST TWO RESULTS EQUAL?
+
+We have calculated:
+
+```math
+\det(AB)=-15
+```
+
+```math
+\det(BA)=-15
+```
+
+Therefore:
+
+```math
+\det(AB)=\det(BA)
+```
+
+This happens because multiplication of real numbers is commutative:
+
+```math
+\det(A)\det(B)=\det(B)\det(A)
+```
+
+However, matrix multiplication itself is generally not commutative.
 
 In other words:
 
-det(A) × det(B) = det(B) × det(A)
+```math
+AB\neq BA
+```
 
+does not necessarily mean that:
 
-However, matrix multiplication itself is not generally commutative. This means that AB and BA can be different matrices even when their determinants are equal.
+```math
+\det(AB)\neq\det(BA)
+```
 
-Therefore, equal determinants do not necessarily mean that two matrices are equal.
+The matrices AB and BA can be different matrices while having the same determinant.
 
-## 4. Compute det(A⁴B⁻¹)
+---
 
-We need to calculate the determinant of the product A⁴B⁻¹.
+## 6. CALCULATE THE DETERMINANT OF A INVERSE TIMES B
 
-First, we use the determinant property for products:
+We need to calculate:
 
-det(A⁴B⁻¹) = det(A⁴) × det(B⁻¹)
+```math
+\det(A^{-1}B)
+```
 
+### STEP 1 - Check Whether A Is Invertible
 
-We will calculate each determinant separately.
-
-### Step 1: Calculate det(A⁴)
-
-For a square matrix A, the determinant of a power satisfies:
-
-det(Aⁿ) = (det(A))ⁿ
-
-
-For n = 4:
-
-det(A⁴) = (det(A))⁴
-
-
-Since det(A) = 3:
-
-det(A⁴) = 3⁴
-
-det(A⁴) = 3 × 3 × 3 × 3
-
-det(A⁴) = 81
-
-
-Therefore:
-
-det(A⁴) = 81
-
-
-### Step 2: Calculate det(B⁻¹)
-
-Since det(B) = -5 and -5 is not zero, matrix B is invertible.
-
-For any invertible square matrix B, the determinant of its inverse is:
-
-det(B⁻¹) = 1 / det(B)
-
-
-Substitute det(B) = -5:
-
-det(B⁻¹) = 1 / (-5)
-
-
-Therefore:
-
-det(B⁻¹) = -1/5
-
-
-### Step 3: Calculate det(A⁴B⁻¹)
-
-Now, multiply the two determinants:
-
-det(A⁴B⁻¹) = det(A⁴) × det(B⁻¹)
-
-
-Substitute the results:
-
-det(A⁴B⁻¹) = 81 × (-1/5)
-
-
-Multiply:
-
-det(A⁴B⁻¹) = -81/5
-
-
-Therefore:
-
-det(A⁴B⁻¹) = -81/5
-
-
-## 5. Check whether the inverse exists
-
-The inverse B⁻¹ exists if and only if det(B) is not zero.
+A square matrix is invertible if its determinant is not zero.
 
 We are given:
 
-det(B) = -5
+```math
+\det(A)=3
+```
 
+Since 3 is not zero, A is invertible.
 
-Since:
+Therefore, $A^{-1}$ exists.
 
--5 ≠ 0
+### STEP 2 - Calculate the Determinant of A Inverse
 
+Using the inverse determinant property:
 
-Matrix B is invertible, so B⁻¹ exists.
+```math
+\det(A^{-1})=\frac{1}{\det(A)}
+```
 
-Therefore, the determinant det(A⁴B⁻¹) is defined.
+Substitute the given value:
 
+```math
+\det(A^{-1})=\frac{1}{3}
+```
 
-## Conclusion
+### STEP 3 - Calculate the Determinant of A Inverse Times B
 
-The final results are:
+Using the product property:
 
-det(AB) = -15
+```math
+\det(A^{-1}B)=\det(A^{-1})\det(B)
+```
 
-det(BA) = -15
+Substitute the known values:
 
-det(A⁴B⁻¹) = -81/5
+```math
+\det(A^{-1}B)=\frac{1}{3}\cdot(-5)
+```
 
+Therefore:
 
-The first two determinants are equal because det(AB) = det(A)det(B) and det(BA) = det(B)det(A). Ordinary multiplication of numbers is commutative, even though matrix multiplication is not generally commutative.
+```math
+\det(A^{-1}B)=-\frac{5}{3}
+```
 
-The inverse B⁻¹ exists because det(B) = -5 is nonzero. This allows us to calculate det(A⁴B⁻¹) using the determinant properties for powers, inverses, and products.
+---
+
+## 7. SUMMARY OF THE RESULTS
+
+| Expression | Determinant |
+|---|---:|
+| $\det(AB)$ | -15 |
+| $\det(BA)$ | -15 |
+| $\det(A^{-1}B)$ | -5/3 |
+
+All three determinants are defined because A and B are square matrices of the same size, and A is invertible.
+
+---
+
+## 8. CONCLUSION
+
+Using the properties of determinants, we obtained the following results:
+
+```math
+\det(AB)=-15
+```
+
+```math
+\det(BA)=-15
+```
+
+```math
+\det(A^{-1}B)=-\frac{5}{3}
+```
+
+The first two determinants are equal because multiplication of real numbers is commutative.
+
+Although matrix multiplication is generally not commutative, the determinant of AB is always equal to the determinant of BA for square matrices of the same size.
+
+Finally, since $\det(A)=3$ is non-zero, the inverse of A exists, allowing us to calculate the determinant of $A^{-1}B$.
