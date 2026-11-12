@@ -6,46 +6,52 @@
 
 ## 1. GIVEN
 
-We are given the following Fibonacci matrix:
+We are given the Fibonacci matrix:
 
-```math
-F =
+$$
+F=
 \begin{pmatrix}
 1 & 1 \\
 1 & 0
 \end{pmatrix}
-```
+$$
 
 The Fibonacci sequence is:
 
-```math
+$$
 0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ldots
-```
+$$
 
-We need to:
+Each term after the first two is obtained by adding the two previous terms.
 
-1. Calculate F², F³, F⁴ and F⁵.
-2. Compare the entries with the Fibonacci sequence.
+The recurrence relation is:
+
+$$
+F_{n+2}=F_{n+1}+F_n
+$$
+
+We are asked to:
+
+1. Compute $F^2$, $F^3$, $F^4$, and $F^5$.
+2. Compare the resulting matrix entries with the Fibonacci sequence.
 3. Describe the relationship between matrix powers and Fibonacci numbers.
-4. Calculate the product of F and the vector (a,b)ᵀ.
-5. Explain how this multiplication performs one recurrence step.
+4. Compute the product of F with a general column vector.
+5. Explain how this multiplication performs one step of the Fibonacci recurrence.
 
 ---
 
-## 2. CALCULATE THE MATRIX POWERS
-
-### STEP 1 - Calculate F²
+## 2. CALCULATE F²
 
 By definition:
 
-```math
+$$
 F^2=F\cdot F
-```
+$$
 
 Substitute the matrix:
 
-```math
-F^2 =
+$$
+F^2=
 \begin{pmatrix}
 1 & 1 \\
 1 & 0
@@ -54,184 +60,260 @@ F^2 =
 1 & 1 \\
 1 & 0
 \end{pmatrix}
-```
+$$
 
-Multiply the matrices:
+Multiply the rows and columns:
 
-```math
-F^2 =
+$$
+F^2=
+\begin{pmatrix}
+1\cdot1+1\cdot1 & 1\cdot1+1\cdot0 \\
+1\cdot1+0\cdot1 & 1\cdot1+0\cdot0
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+F^2=
 \begin{pmatrix}
 2 & 1 \\
 1 & 1
 \end{pmatrix}
-```
-
-### STEP 2 - Calculate F³
-
-We multiply F² by F:
-
-```math
-F^3=F^2\cdot F
-```
-
-```math
-F^3 =
-\begin{pmatrix}
-2 & 1 \\
-1 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-1 & 0
-\end{pmatrix}
-```
-
-The result is:
-
-```math
-F^3 =
-\begin{pmatrix}
-3 & 2 \\
-2 & 1
-\end{pmatrix}
-```
-
-### STEP 3 - Calculate F⁴
-
-We multiply F³ by F:
-
-```math
-F^4=F^3\cdot F
-```
-
-```math
-F^4 =
-\begin{pmatrix}
-3 & 2 \\
-2 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-1 & 0
-\end{pmatrix}
-```
-
-The result is:
-
-```math
-F^4 =
-\begin{pmatrix}
-5 & 3 \\
-3 & 2
-\end{pmatrix}
-```
-
-### STEP 4 - Calculate F⁵
-
-We multiply F⁴ by F:
-
-```math
-F^5=F^4\cdot F
-```
-
-```math
-F^5 =
-\begin{pmatrix}
-5 & 3 \\
-3 & 2
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-1 & 0
-\end{pmatrix}
-```
-
-The result is:
-
-```math
-F^5 =
-\begin{pmatrix}
-8 & 5 \\
-5 & 3
-\end{pmatrix}
-```
+$$
 
 ---
 
-## 3. COMPARISON WITH THE FIBONACCI SEQUENCE
+## 3. CALCULATE F³
 
-The Fibonacci sequence is:
+We use the previous result:
 
-```math
-0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ldots
-```
+$$
+F^3=F^2\cdot F
+$$
 
-Our calculated matrices are:
+Substitute the matrices:
 
-```math
-F^2 =
+$$
+F^3=
 \begin{pmatrix}
 2 & 1 \\
 1 & 1
 \end{pmatrix}
-```
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
 
-```math
-F^3 =
+Multiply the matrices:
+
+$$
+F^3=
+\begin{pmatrix}
+2\cdot1+1\cdot1 & 2\cdot1+1\cdot0 \\
+1\cdot1+1\cdot1 & 1\cdot1+1\cdot0
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+F^3=
 \begin{pmatrix}
 3 & 2 \\
 2 & 1
 \end{pmatrix}
-```
+$$
 
-```math
-F^4 =
+---
+
+## 4. CALCULATE F⁴
+
+Using the previous result:
+
+$$
+F^4=F^3\cdot F
+$$
+
+Substitute:
+
+$$
+F^4=
+\begin{pmatrix}
+3 & 2 \\
+2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
+
+Multiply the matrices:
+
+$$
+F^4=
+\begin{pmatrix}
+3\cdot1+2\cdot1 & 3\cdot1+2\cdot0 \\
+2\cdot1+1\cdot1 & 2\cdot1+1\cdot0
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+F^4=
 \begin{pmatrix}
 5 & 3 \\
 3 & 2
 \end{pmatrix}
-```
+$$
 
-```math
-F^5 =
+---
+
+## 5. CALCULATE F⁵
+
+Again, use the previous result:
+
+$$
+F^5=F^4\cdot F
+$$
+
+Substitute:
+
+$$
+F^5=
+\begin{pmatrix}
+5 & 3 \\
+3 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
+
+Multiply the matrices:
+
+$$
+F^5=
+\begin{pmatrix}
+5\cdot1+3\cdot1 & 5\cdot1+3\cdot0 \\
+3\cdot1+2\cdot1 & 3\cdot1+2\cdot0
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+F^5=
 \begin{pmatrix}
 8 & 5 \\
 5 & 3
 \end{pmatrix}
-```
+$$
 
-We can observe that the entries of these matrices are consecutive Fibonacci numbers.
+---
+
+## 6. OBSERVE THE FIBONACCI PATTERN
+
+We have calculated:
+
+$$
+F^1=
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+$$
+
+$$
+F^2=
+\begin{pmatrix}
+2 & 1 \\
+1 & 1
+\end{pmatrix}
+$$
+
+$$
+F^3=
+\begin{pmatrix}
+3 & 2 \\
+2 & 1
+\end{pmatrix}
+$$
+
+$$
+F^4=
+\begin{pmatrix}
+5 & 3 \\
+3 & 2
+\end{pmatrix}
+$$
+
+$$
+F^5=
+\begin{pmatrix}
+8 & 5 \\
+5 & 3
+\end{pmatrix}
+$$
+
+We can observe that the entries correspond to consecutive Fibonacci numbers.
 
 The general pattern is:
 
-```math
-F^n =
+$$
+F^n=
 \begin{pmatrix}
 F_{n+1} & F_n \\
 F_n & F_{n-1}
 \end{pmatrix}
-```
+$$
 
-Here, Fₙ represents the nth Fibonacci number, with F₀ = 0 and F₁ = 1.
+for every positive integer $n$, where $F_0=0$ and $F_1=1$.
+
+For example, when $n=5$:
+
+$$
+F^5=
+\begin{pmatrix}
+F_6 & F_5 \\
+F_5 & F_4
+\end{pmatrix}
+$$
+
+Substituting the Fibonacci numbers:
+
+$$
+F^5=
+\begin{pmatrix}
+8 & 5 \\
+5 & 3
+\end{pmatrix}
+$$
+
+This matches our calculation.
 
 ---
 
-## 4. MULTIPLY THE MATRIX BY A VECTOR
+## 7. MULTIPLY F BY A GENERAL VECTOR
 
-We now calculate the product of F and a general vector:
+Consider an arbitrary column vector:
 
-```math
-F
+$$
+v=
 \begin{pmatrix}
 a \\
 b
 \end{pmatrix}
-```
+$$
 
-Substitute the matrix:
+Multiply it by the Fibonacci matrix:
 
-```math
-=
+$$
+Fv=
 \begin{pmatrix}
 1 & 1 \\
 1 & 0
@@ -240,31 +322,31 @@ Substitute the matrix:
 a \\
 b
 \end{pmatrix}
-```
+$$
 
-Multiply the rows by the column:
+Multiply each row by the column:
 
-```math
-=
+$$
+Fv=
 \begin{pmatrix}
 1\cdot a+1\cdot b \\
 1\cdot a+0\cdot b
 \end{pmatrix}
-```
+$$
 
-Simplifying gives:
+Simplifying:
 
-```math
-=
+$$
+Fv=
 \begin{pmatrix}
 a+b \\
 a
 \end{pmatrix}
-```
+$$
 
-Therefore, the final result is:
+Therefore, the result is:
 
-```math
+$$
 F
 \begin{pmatrix}
 a \\
@@ -275,83 +357,95 @@ b
 a+b \\
 a
 \end{pmatrix}
-```
+$$
 
 ---
 
-## 5. EXPLANATION OF THE RECURRENCE STEP
+## 8. EXPLAIN THE RECURRENCE STEP
 
-The Fibonacci recurrence is defined by adding the two previous consecutive terms.
+The multiplication produces the vector:
 
-The rule is:
-
-```math
-F_{n+1}=F_n+F_{n-1}
-```
-
-The matrix multiplication produces:
-
-```math
-\begin{pmatrix}
-a \\
-b
-\end{pmatrix}
-\longrightarrow
+$$
 \begin{pmatrix}
 a+b \\
 a
 \end{pmatrix}
-```
+$$
 
-This means:
+This represents one step of the Fibonacci recurrence.
 
 - The new first entry is the sum of the previous two entries.
 - The new second entry is the previous first entry.
 
-For example, if:
+For example, start with:
 
-```math
+$$
+v=
+\begin{pmatrix}
+5 \\
+3
+\end{pmatrix}
+$$
+
+Multiply by F:
+
+$$
+Fv=
+\begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+5 \\
+3
+\end{pmatrix}
+$$
+
+The result is:
+
+$$
+Fv=
+\begin{pmatrix}
+8 \\
+5
+\end{pmatrix}
+$$
+
+We obtain the next Fibonacci number, 8, while keeping 5 as the second entry.
+
+This is exactly the same process used to generate the Fibonacci sequence.
+
+---
+
+## 9. CONCLUSION
+
+We calculated the first five powers of the Fibonacci matrix and identified the relationship between matrix powers and Fibonacci numbers.
+
+The general formula is:
+
+$$
+F^n=
+\begin{pmatrix}
+F_{n+1} & F_n \\
+F_n & F_{n-1}
+\end{pmatrix}
+$$
+
+We also demonstrated that multiplying the Fibonacci matrix by a general column vector gives:
+
+$$
+F
 \begin{pmatrix}
 a \\
 b
 \end{pmatrix}
 =
 \begin{pmatrix}
-3 \\
-2
+a+b \\
+a
 \end{pmatrix}
-```
+$$
 
-Then:
+This multiplication performs exactly one step of the Fibonacci recurrence.
 
-```math
-F
-\begin{pmatrix}
-3 \\
-2
-\end{pmatrix}
-=
-\begin{pmatrix}
-3+2 \\
-3
-\end{pmatrix}
-=
-\begin{pmatrix}
-5 \\
-3
-\end{pmatrix}
-```
-
-This is exactly one step of the Fibonacci recurrence.
-
----
-
-## 6. CONCLUSION
-
-The powers of the Fibonacci matrix generate consecutive Fibonacci numbers.
-
-We calculated F², F³, F⁴ and F⁵ and identified the general pattern.
-
-The matrix multiplication also performs one recurrence step by adding two consecutive terms and keeping the previous first term.
-
-Therefore, matrix multiplication provides a convenient way to represent and calculate the Fibonacci sequence.
+Therefore, matrix multiplication provides a convenient way to represent and generate the Fibonacci sequence.
