@@ -8,34 +8,39 @@
 
 We are given the following matrix:
 
-```math
-A =
+$$
+A=
 \begin{pmatrix}
 1 & 1 \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
-We need to calculate A², A³ and A⁴.
+Compute $A^2$, $A^3$, and $A^4$.
 
-Then, we must formulate a conjecture for Aⁿ and prove it using mathematical induction.
+Use the results to formulate a conjecture for $A^n$.
+
+Then prove the formula using mathematical induction:
+
+1. Verify the formula for the initial case.
+2. Assume the formula is true for an arbitrary positive integer $n$.
+3. Multiply both sides by A.
+4. Show that the resulting expression is exactly the formula for $n+1$.
 
 ---
 
-## 2. CALCULATE THE FIRST MATRIX POWERS
-
-### STEP 1 - Calculate A²
+## 2. CALCULATE A²
 
 By definition:
 
-```math
+$$
 A^2=A\cdot A
-```
+$$
 
 Substitute the matrix:
 
-```math
-A^2 =
+$$
+A^2=
 \begin{pmatrix}
 1 & 1 \\
 0 & 1
@@ -44,261 +49,307 @@ A^2 =
 1 & 1 \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
-Multiply the matrices:
+Multiply the rows and columns:
 
-```math
-A^2 =
+$$
+A^2=
+\begin{pmatrix}
+1\cdot1+1\cdot0 & 1\cdot1+1\cdot1 \\
+0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+A^2=
 \begin{pmatrix}
 1 & 2 \\
 0 & 1
 \end{pmatrix}
-```
-
-### STEP 2 - Calculate A³
-
-We use the result of A²:
-
-```math
-A^3=A^2\cdot A
-```
-
-Substitute:
-
-```math
-A^3 =
-\begin{pmatrix}
-1 & 2 \\
-0 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-0 & 1
-\end{pmatrix}
-```
-
-The result is:
-
-```math
-A^3 =
-\begin{pmatrix}
-1 & 3 \\
-0 & 1
-\end{pmatrix}
-```
-
-### STEP 3 - Calculate A⁴
-
-We multiply A³ by A:
-
-```math
-A^4=A^3\cdot A
-```
-
-Substitute:
-
-```math
-A^4 =
-\begin{pmatrix}
-1 & 3 \\
-0 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-0 & 1
-\end{pmatrix}
-```
-
-The result is:
-
-```math
-A^4 =
-\begin{pmatrix}
-1 & 4 \\
-0 & 1
-\end{pmatrix}
-```
+$$
 
 ---
 
-## 3. OBSERVE THE PATTERN
+## 3. CALCULATE A³
 
-The first four powers are:
+We use the previous result:
 
-```math
-A^1 =
-\begin{pmatrix}
-1 & 1 \\
-0 & 1
-\end{pmatrix}
-```
+$$
+A^3=A^2\cdot A
+$$
 
-```math
-A^2 =
+Substitute the matrices:
+
+$$
+A^3=
 \begin{pmatrix}
 1 & 2 \\
 0 & 1
 \end{pmatrix}
-```
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
-```math
-A^3 =
+Multiply the matrices:
+
+$$
+A^3=
+\begin{pmatrix}
+1\cdot1+2\cdot0 & 1\cdot1+2\cdot1 \\
+0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+A^3=
 \begin{pmatrix}
 1 & 3 \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
-```math
-A^4 =
+---
+
+## 4. CALCULATE A⁴
+
+Again, use the previous result:
+
+$$
+A^4=A^3\cdot A
+$$
+
+Substitute the matrices:
+
+$$
+A^4=
+\begin{pmatrix}
+1 & 3 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+Multiply the matrices:
+
+$$
+A^4=
+\begin{pmatrix}
+1\cdot1+3\cdot0 & 1\cdot1+3\cdot1 \\
+0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+A^4=
 \begin{pmatrix}
 1 & 4 \\
 0 & 1
 \end{pmatrix}
-```
+$$
+
+---
+
+## 5. OBSERVE THE PATTERN
+
+We have calculated:
+
+$$
+A^1=
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+$$
+A^2=
+\begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}
+$$
+
+$$
+A^3=
+\begin{pmatrix}
+1 & 3 \\
+0 & 1
+\end{pmatrix}
+$$
+
+$$
+A^4=
+\begin{pmatrix}
+1 & 4 \\
+0 & 1
+\end{pmatrix}
+$$
 
 We observe that:
 
-- The diagonal entries always remain equal to 1.
-- The lower-left entry always remains 0.
-- The upper-right entry increases by 1 with every multiplication.
+- The top-left entry is always 1.
+- The bottom-left entry is always 0.
+- The bottom-right entry is always 1.
+- The top-right entry increases by 1 with each multiplication.
 
-Therefore, we conjecture that the general formula is:
+This suggests the following general formula:
 
-```math
-A^n =
+$$
+A^n=
 \begin{pmatrix}
 1 & n \\
 0 & 1
 \end{pmatrix}
-```
+$$
+
+We will now prove this formula using mathematical induction.
 
 ---
 
-## 4. MATHEMATICAL INDUCTION PROOF
+## 6. PROOF BY MATHEMATICAL INDUCTION
 
-We will prove that the formula is true for every positive integer n.
+### Step 1 - Base Case
 
-### STEP 1 - Base Case
+For $n=1$, the formula gives:
 
-For n = 1, the formula gives:
-
-```math
-A^1 =
+$$
+A^1=
 \begin{pmatrix}
 1 & 1 \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
 This is exactly the original matrix A.
 
-Therefore, the formula is true for n = 1.
+Therefore, the formula is true for $n=1$.
 
-### STEP 2 - Induction Hypothesis
+### Step 2 - Induction Hypothesis
 
-Assume that the formula is true for some positive integer n.
+Assume that the formula is true for some positive integer $n$.
 
-In other words, assume:
+Thus, we assume:
 
-```math
-A^n =
+$$
+A^n=
 \begin{pmatrix}
 1 & n \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
-We must now prove that the formula is also true for n + 1.
+This is our induction hypothesis.
 
-### STEP 3 - Induction Step
+### Step 3 - Prove the Formula for n+1
 
-By the definition of matrix powers:
+We need to show that:
 
-```math
-A^{n+1}=A^n\cdot A
-```
-
-Using our induction hypothesis:
-
-```math
-A^{n+1} =
-\begin{pmatrix}
-1 & n \\
-0 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-0 & 1
-\end{pmatrix}
-```
-
-Multiply the matrices:
-
-```math
-A^{n+1} =
-\begin{pmatrix}
-1\cdot1+n\cdot0 & 1\cdot1+n\cdot1 \\
-0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
-\end{pmatrix}
-```
-
-Simplifying each entry gives:
-
-```math
-A^{n+1} =
+$$
+A^{n+1}=
 \begin{pmatrix}
 1 & n+1 \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
-This is exactly the same formula with n replaced by n + 1.
+Using the definition of matrix powers:
 
-Therefore, if the formula is true for n, it is also true for n + 1.
+$$
+A^{n+1}=A^n\cdot A
+$$
 
-### STEP 4 - Induction Conclusion
+Substitute the induction hypothesis:
 
-We have shown that:
-
-1. The formula is true for n = 1.
-2. If it is true for n, it is also true for n + 1.
-
-By mathematical induction, the formula is true for every positive integer n.
-
----
-
-## 5. FINAL FORMULA
-
-The general formula for the powers of matrix A is:
-
-```math
-A^n =
+$$
+A^{n+1}=
 \begin{pmatrix}
 1 & n \\
 0 & 1
 \end{pmatrix}
-```
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$$
 
-This formula is valid for every positive integer n.
+Multiply the matrices:
+
+$$
+A^{n+1}=
+\begin{pmatrix}
+1\cdot1+n\cdot0 & 1\cdot1+n\cdot1 \\
+0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
+\end{pmatrix}
+$$
+
+Simplify each entry:
+
+$$
+A^{n+1}=
+\begin{pmatrix}
+1 & 1+n \\
+0 & 1
+\end{pmatrix}
+$$
+
+Since $1+n=n+1$, we obtain:
+
+$$
+A^{n+1}=
+\begin{pmatrix}
+1 & n+1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+This is exactly the required formula.
+
+Therefore, the induction step is complete.
 
 ---
 
-## 6. CONCLUSION
+## 7. FINAL FORMULA
 
-By calculating the first four powers, we identified a clear pattern in the matrix.
+By mathematical induction, the formula holds for every positive integer $n$:
 
-We observed that the upper-right entry increases by one with each multiplication, while the other entries remain unchanged.
-
-Using mathematical induction, we proved that the general formula is:
-
-```math
-A^n =
+$$
+A^n=
 \begin{pmatrix}
 1 & n \\
 0 & 1
 \end{pmatrix}
-```
+$$
 
-This exercise demonstrates how repeated matrix multiplication can produce a general formula and how mathematical induction can be used to prove it.
+---
+
+## 8. CONCLUSION
+
+We calculated the first four powers of matrix A and identified a clear pattern.
+
+The top-right entry increases by one with each multiplication, while the other three entries remain unchanged.
+
+We then used mathematical induction to prove that the pattern continues for every positive integer n.
+
+The final result is:
+
+$$
+A^n=
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}
+$$
+
+This exercise demonstrates how repeated matrix multiplication can reveal a general formula and how mathematical induction can be used to prove that formula for all positive integers.
