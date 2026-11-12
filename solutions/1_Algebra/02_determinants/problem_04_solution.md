@@ -1,104 +1,124 @@
-# Exercise 4. Triangular Matrix
 
-## Given
+# EXERCISE 4
+# TRIANGULAR MATRIX
 
-A = ( 2   4   1 )
-    ( 0  -3   5 )
-    ( 0   0   7 )
+---
 
+## 1. GIVEN
 
-We need to compute the determinant without expanding it and explain the determinant rule for triangular matrices.
+We are given the following upper triangular matrix:
 
-## 1. Identify the type of matrix
+```math id="a1b2c3"
+A =
+\begin{pmatrix}
+2 & 4 & 1 \\
+0 & -3 & 5 \\
+0 & 0 & 7
+\end{pmatrix}
+```
 
-The given matrix is an upper triangular matrix.
+We need to calculate the determinant without expanding it and explain the general rule for triangular matrices.
 
-A matrix is upper triangular when all entries below the main diagonal are zero.
+---
 
-In this matrix, the entries below the main diagonal are:
+## 2. PROPERTY OF A TRIANGULAR MATRIX
 
-0, 0, and 0.
+An important property of triangular matrices is that their determinant is equal to the product of the entries on the main diagonal.
 
-Therefore, A is an upper triangular matrix.
+For a 3×3 upper triangular matrix:
 
-## 2. Compute the determinant without expanding
-
-For a triangular matrix, the determinant is equal to the product of the entries on the main diagonal.
-
-The main diagonal entries are:
-
-First diagonal entry: 2
-
-Second diagonal entry: -3
-
-Third diagonal entry: 7
-
-
-Therefore:
-
-det(A) = 2 × (-3) × 7
-
-
-**Step 1: Multiply the first two entries.**
-
-2 × (-3) = -6
-
-
-**Step 2: Multiply the result by the third entry.**
-
--6 × 7 = -42
-
-
-Therefore, the determinant is:
-
-det(A) = -42
-
-
-## 3. State the rule for an arbitrary triangular matrix
-
-For any upper triangular or lower triangular square matrix, the determinant is equal to the product of the entries on the main diagonal.
-
-For example, for a 3 × 3 triangular matrix:
-
-A = ( a₁₁  a₁₂  a₁₃ )
-    (  0   a₂₂  a₂₃ )
-    (  0    0   a₃₃ )
-
+```math id="d4e5f6"
+A =
+\begin{pmatrix}
+a & b & c \\
+0 & d & e \\
+0 & 0 & f
+\end{pmatrix}
+```
 
 The determinant is:
 
-det(A) = a₁₁ × a₂₂ × a₃₃
+```math id="g7h8i9"
+\det(A)=a\cdot d\cdot f
+```
 
+This means that we only need to multiply the diagonal entries.
 
-The same rule applies to lower triangular matrices, where all entries above the main diagonal are zero.
+---
 
-## 4. Explain the rule using this example
+## 3. CALCULATE THE DETERMINANT
 
-In the given matrix:
+The main diagonal entries of our matrix are:
 
-A = ( 2   4   1 )
-    ( 0  -3   5 )
-    ( 0   0   7 )
+- First diagonal entry: 2
+- Second diagonal entry: -3
+- Third diagonal entry: 7
 
+Multiply these entries:
 
-The main diagonal contains the numbers 2, -3, and 7.
+```math id="j1k2l3"
+\det(A)=2\cdot(-3)\cdot7
+```
 
-All entries below the main diagonal are zero, so the matrix is upper triangular.
+First:
 
-We can calculate the determinant directly by multiplying the diagonal entries:
+```math id="m4n5o6"
+2\cdot(-3)=-6
+```
 
-det(A) = 2 × (-3) × 7
+Then:
 
-det(A) = -42
+```math id="p7q8r9"
+-6\cdot7=-42
+```
 
+Therefore:
 
-There is no need to expand the determinant because the triangular matrix property gives the result directly.
+```math id="s1t2u3"
+\boxed{\det(A)=-42}
+```
 
-## Conclusion
+---
 
-The determinant of the given matrix is:
+## 4. GENERAL RULE FOR TRIANGULAR MATRICES
 
-det(A) = -42
+For any upper or lower triangular square matrix, the determinant is the product of all entries on its main diagonal.
 
+For an n×n triangular matrix:
 
-For any triangular matrix, the determinant is the product of its main diagonal entries. This property makes calculating determinants easier because we do not need to use cofactor expansion or Sarrus' rule.
+```math id="v4w5x6"
+\det(A)=a_{11}\cdot a_{22}\cdot a_{33}
+\cdots a_{nn}
+```
+
+This rule works because all entries either above or below the main diagonal are zero.
+
+---
+
+## 5. EXPLANATION USING OUR EXAMPLE
+
+Our matrix is upper triangular because all entries below the main diagonal are zero.
+
+The diagonal entries are 2, -3, and 7.
+
+We do not need to expand the determinant or use Sarrus' rule.
+
+We simply multiply the diagonal entries:
+
+```math id="y7z8a9"
+2\cdot(-3)\cdot7=-42
+```
+
+---
+
+## 6. CONCLUSION
+
+The determinant of a triangular matrix is always equal to the product of its main diagonal entries.
+
+For the given matrix:
+
+```math id="b1c2d3"
+\boxed{\det(A)=-42}
+```
+
+This property allows us to calculate the determinant of triangular matrices quickly without performing a full determinant expansion.
