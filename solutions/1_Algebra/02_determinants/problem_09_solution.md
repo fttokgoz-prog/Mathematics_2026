@@ -1,199 +1,208 @@
-# Exercise 9. Area and the Determinant
 
-## Given
+# EXERCISE 9
+# AREA AND THE DETERMINANT
 
-The vectors are:
+---
 
-u = ( 3 )
-    ( 1 )
+## 1. GIVEN
 
+We are given two vectors:
 
-v = ( 1 )
-    ( 4 )
+```math id="q9v1a2"
+u =
+\begin{pmatrix}
+3 \\
+1
+\end{pmatrix}
+```
 
+```math id="b7c3d4"
+v =
+\begin{pmatrix}
+1 \\
+4
+\end{pmatrix}
+```
 
-These two vectors span a parallelogram. We need to calculate its area using a determinant, then reverse the order of the vectors and explain what changes in the determinant and what remains unchanged in the area.
+These vectors span a parallelogram.
 
-## 1. Form a matrix using the vectors
+We need to:
 
-To calculate the area of a parallelogram formed by two vectors in the plane, we place the vectors as columns of a 2 × 2 matrix.
+1. Calculate the area of the parallelogram using a determinant.
+2. Reverse the order of the vectors.
+3. Explain what changes in the determinant and what remains unchanged in the area.
 
-The first column is vector u, and the second column is vector v.
+---
 
-Therefore:
+## 2. DETERMINANT FORMULA
 
-A = ( 3  1 )
-    ( 1  4 )
+The area of a parallelogram formed by two vectors in two dimensions is the absolute value of the determinant of the matrix containing these vectors as columns.
 
+The general formula is:
 
-The area of the parallelogram is the absolute value of the determinant of this matrix.
+```math id="e5f6g7"
+\text{Area}=|\det(u,v)|
+```
 
-Area = |det(A)|
+The determinant of a 2×2 matrix is:
 
+```math id="h8i9j1"
+\det
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+=ad-bc
+```
 
-## 2. Calculate the determinant
+---
 
-For a 2 × 2 matrix, the determinant is calculated by multiplying the entries on the main diagonal and subtracting the product of the other diagonal.
+## 3. CALCULATE THE AREA
 
-The formula is:
+Place the two vectors as columns of a matrix:
 
-det(A) = ad - bc
+```math id="k2l3m4"
+A=
+\begin{pmatrix}
+3 & 1 \\
+1 & 4
+\end{pmatrix}
+```
 
+Calculate the determinant:
 
-For our matrix:
+```math id="n5o6p7"
+\det(A)=3\cdot4-1\cdot1
+```
 
-A = ( 3  1 )
-    ( 1  4 )
+Multiply the entries:
 
-
-The entries are:
-
-a = 3
-
-b = 1
-
-c = 1
-
-d = 4
-
-
-**Step 1: Multiply the main diagonal entries.**
-
-3 × 4 = 12
-
-
-**Step 2: Multiply the other diagonal entries.**
-
-1 × 1 = 1
-
-
-**Step 3: Subtract the second product from the first product.**
-
-det(A) = 12 - 1
-
-det(A) = 11
-
-
-Therefore:
-
-det(A) = 11
-
-
-## 3. Calculate the area of the parallelogram
-
-The determinant gives the signed area. The actual geometric area cannot be negative, so we take the absolute value of the determinant.
-
-Area = |det(A)|
-
-
-Substitute the determinant:
-
-Area = |11|
-
+```math id="r8s9t1"
+\det(A)=12-1
+```
 
 Therefore:
 
-Area = 11 square units
+```math id="u2v3w4"
+\det(A)=11
+```
 
+The area is the absolute value of the determinant:
 
-The area of the parallelogram formed by u and v is 11 square units.
+```math id="x5y6z7"
+\text{Area}=|11|=11
+```
 
+The area of the parallelogram is 11 square units.
 
-## 4. Reverse the order of the vectors
+---
 
-Now, we reverse the order of the vectors and place v in the first column and u in the second column.
+## 4. REVERSE THE ORDER OF THE VECTORS
+
+Now we reverse the order of the vectors.
 
 The new matrix is:
 
-B = ( 1  3 )
-    ( 4  1 )
+```math id="a8b9c1"
+B=
+\begin{pmatrix}
+1 & 3 \\
+4 & 1
+\end{pmatrix}
+```
 
+Calculate its determinant:
 
-We calculate its determinant.
+```math id="d2e3f4"
+\det(B)=1\cdot1-3\cdot4
+```
 
-det(B) = 1 × 1 - 3 × 4
+Simplifying:
 
-det(B) = 1 - 12
-
-det(B) = -11
-
-
-Therefore:
-
-det(B) = -11
-
-
-## 5. Calculate the area after reversing the vectors
-
-The area is the absolute value of the new determinant.
-
-Area = |det(B)|
-
-
-Substitute the result:
-
-Area = |-11|
-
+```math id="g5h6i7"
+\det(B)=1-12
+```
 
 Therefore:
 
-Area = 11 square units
+```math id="j8k9l1"
+\det(B)=-11
+```
 
+---
 
-The area remains unchanged even though the determinant has changed from 11 to -11.
+## 5. COMPARE THE DETERMINANTS AND AREAS
 
+The original determinant is:
 
-## 6. Explain what changes and what does not change
-
-Before reversing the vectors, we obtained:
-
-det(A) = 11
-
-
-After reversing the vectors, we obtained:
-
-det(B) = -11
-
-
-The sign of the determinant changes because exchanging the two columns of a matrix changes the sign of its determinant.
-
-However, the area is calculated using the absolute value of the determinant.
-
-Before reversing the vectors:
-
-Area = |11| = 11
-
+```math id="m2n3o4"
+\det(u,v)=11
+```
 
 After reversing the vectors:
 
-Area = |-11| = 11
+```math id="p5q6r7"
+\det(v,u)=-11
+```
 
+The determinant changes its sign because swapping the two columns of a matrix changes the sign of its determinant.
 
-Therefore, the determinant changes sign, but the area remains the same.
+However, the area is calculated using the absolute value of the determinant.
 
-Geometrically, exchanging the order of the vectors reverses the orientation of the parallelogram, but it does not change its shape or size.
+Original area:
 
+```math id="s8t9u1"
+|11|=11
+```
 
-## Conclusion
+Reversed area:
 
-The determinant of the matrix formed by u and v is:
+```math id="v2w3x4"
+|-11|=11
+```
 
-det(A) = 11
+Therefore, the area remains unchanged.
 
+---
 
-The area of the parallelogram is:
+## 6. FINAL RESULTS
 
-Area = 11 square units
+| Calculation | Result |
+|---|---:|
+| Original determinant | 11 |
+| Reversed determinant | -11 |
+| Original area | 11 |
+| Reversed area | 11 |
 
+The determinant changes sign, but the area does not change.
 
-After reversing the vectors, the determinant becomes:
+---
 
-det(B) = -11
+## 7. GEOMETRICAL EXPLANATION
 
+The two vectors form a parallelogram.
 
-The area remains:
+Reversing the order of the vectors changes the orientation of the parallelogram.
 
-Area = 11 square units
+The determinant records this orientation through its sign:
 
+- A positive determinant represents one orientation.
+- A negative determinant represents the opposite orientation.
 
-This example demonstrates that the absolute value of a determinant gives the area of a parallelogram, while the sign of the determinant indicates its orientation.
+However, the geometric area cannot be negative.
+
+Therefore, we always use the absolute value of the determinant when calculating area.
+
+---
+
+## 8. CONCLUSION
+
+The determinant of the matrix formed by the two vectors is 11.
+
+After reversing the vectors, the determinant becomes -11.
+
+Although the sign changes, the area remains the same because area is always non-negative.
+
+The final area of the parallelogram is 11 square units.
+
+This demonstrates the geometric meaning of the determinant and its relationship with orientation and area.
