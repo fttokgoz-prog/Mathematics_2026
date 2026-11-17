@@ -26,11 +26,11 @@ $$
 \right]
 $$
 
-## 2. STEP-BY-STEP SOLUTION
+## 2. SUCCESSIVE ROW OPERATIONS
 
 **Step 1: Eliminate the first element in the second row.**
 
-Apply the following row operation:
+Apply the row operation:
 
 $$
 R_2 \rightarrow R_2 - 3R_1
@@ -39,8 +39,10 @@ $$
 Calculation:
 
 $$
-(3,5)-(3,6)=(0,-1)
+(3,5)-3(1,2)=(0,-1)
 $$
+
+We apply the same operation to the entire augmented row, including the right side.
 
 The new augmented matrix is:
 
@@ -55,11 +57,13 @@ $$
 
 **Step 2: Make the second pivot equal to 1.**
 
-Apply the following row operation:
+Apply the row operation:
 
 $$
 R_2 \rightarrow -R_2
 $$
+
+The entire second row changes sign.
 
 The new augmented matrix is:
 
@@ -74,19 +78,19 @@ $$
 
 **Step 3: Eliminate the second element in the first row.**
 
-Apply the following row operation:
+Apply the row operation:
 
 $$
 R_1 \rightarrow R_1 - 2R_2
 $$
 
-Calculation:
+Calculation on the left side:
 
 $$
-(1,2)-(0,2)=(1,0)
+(1,2)-2(0,1)=(1,0)
 $$
 
-For the right side:
+Calculation on the right side:
 
 $$
 (1,0)-2(3,-1)=(-5,2)
@@ -105,13 +109,15 @@ $$
 
 ## 3. FINDING THE INVERSE MATRIX
 
-After applying the row operations, the left side becomes the identity matrix.
+After all row operations, the left side becomes the identity matrix.
+
+We have transformed:
 
 $$
 [A|I] \rightarrow [I|A^{-1}]
 $$
 
-Therefore, the right side of the final augmented matrix represents the inverse of A.
+Therefore, the right side of the final augmented matrix is the inverse of A.
 
 $$
 \boxed{
@@ -123,27 +129,49 @@ A^{-1} =
 }
 $$
 
-## 4. WHY DOES THIS METHOD WORK?
+## 4. WHY DOES OBTAINING I ON THE LEFT GIVE THE INVERSE ON THE RIGHT?
 
-The Gauss-Jordan method applies the same elementary row operations to both sides of the augmented matrix.
+Each elementary row operation can be represented by multiplication with an elementary matrix.
 
-When the left side becomes the identity matrix, the right side becomes the inverse of the original matrix.
+Let E₁, E₂, and E₃ represent the three row operations.
 
-This is because the row operations transform A into I while applying the same transformations to the identity matrix.
-
-Therefore:
+Applying these operations to the augmented matrix gives:
 
 $$
-[A|I] \rightarrow [I|A^{-1}]
+E_3E_2E_1[A|I]
+=
+[E_3E_2E_1A|E_3E_2E_1I]
 $$
+
+Since the left side becomes the identity matrix:
+
+$$
+E_3E_2E_1A=I
+$$
+
+By the definition of the inverse matrix, this means:
+
+$$
+E_3E_2E_1=A^{-1}
+$$
+
+Therefore, applying the same operations to the identity matrix produces:
+
+$$
+E_3E_2E_1I=A^{-1}
+$$
+
+This explains why, when the left side becomes I, the right side becomes the inverse of the original matrix.
 
 ## 5. CONCLUSION
 
-Using the Gauss-Jordan method, we successfully transformed the original matrix into the identity matrix on the left side.
+Using the Gauss-Jordan method, we transformed the augmented matrix [A | I] into [I | A⁻¹].
 
-The resulting matrix on the right side is the inverse of A.
+We showed every intermediate augmented matrix after each row operation.
 
-The final answer is:
+We also explained that the same elementary row operations transform the identity matrix into the inverse of A.
+
+The final result is:
 
 $$
 \boxed{
