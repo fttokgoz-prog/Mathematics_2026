@@ -25,7 +25,7 @@ $$
 
 Our task is to determine which matrix is invertible without using Gauss-Jordan elimination.
 
-For an invertible diagonal matrix, every diagonal element must be nonzero.
+For the invertible matrix, we must calculate its inverse and verify the result by multiplying the original matrix by its inverse.
 
 ## 2. CHECKING MATRIX D
 
@@ -40,15 +40,23 @@ D =
 \end{pmatrix}
 $$
 
-All diagonal elements are nonzero:
+For a diagonal matrix, the determinant is the product of its diagonal elements.
 
 $$
-2 \neq 0,\quad -3 \neq 0,\quad 5 \neq 0
+\det(D)=2(-3)(5)
 $$
 
-Therefore, matrix D is invertible.
+$$
+\boxed{\det(D)=-30}
+$$
 
-To find its inverse, we take the reciprocal of each diagonal element.
+Since the determinant is not equal to zero, matrix D is invertible.
+
+## 3. FINDING THE INVERSE OF D
+
+For an invertible diagonal matrix, we calculate its inverse by taking the reciprocal of each diagonal element.
+
+Therefore:
 
 $$
 D^{-1} =
@@ -59,7 +67,7 @@ D^{-1} =
 \end{pmatrix}
 $$
 
-Therefore:
+The inverse matrix is:
 
 $$
 \boxed{
@@ -72,50 +80,9 @@ D^{-1} =
 }
 $$
 
-## 3. CHECKING MATRIX E
+## 4. VERIFYING THE INVERSE BY MULTIPLICATION
 
-Now, we examine matrix E.
-
-$$
-E =
-\begin{pmatrix}
-2 & 0 & 0 \\
-0 & 0 & 0 \\
-0 & 0 & 5
-\end{pmatrix}
-$$
-
-The middle diagonal element is zero.
-
-$$
-0 = 0
-$$
-
-We can also calculate its determinant:
-
-$$
-\det(E)=2 \cdot 0 \cdot 5
-$$
-
-$$
-\boxed{\det(E)=0}
-$$
-
-A matrix has an inverse only if its determinant is not equal to zero.
-
-Since the determinant of E is zero, matrix E is not invertible.
-
-The second row also contains only zeros, which means the rows are linearly dependent.
-
-Therefore:
-
-$$
-\boxed{E^{-1}\text{ does not exist}}
-$$
-
-## 4. VERIFICATION OF D⁻¹ BY MULTIPLICATION
-
-To verify the inverse of D, we calculate DD⁻¹.
+To verify our result, we calculate the product of D and D⁻¹.
 
 $$
 DD^{-1} =
@@ -131,14 +98,22 @@ DD^{-1} =
 \end{pmatrix}
 $$
 
-Multiplying the corresponding diagonal elements:
+Calculating each element:
 
 $$
 DD^{-1} =
 \begin{pmatrix}
-2(\frac{1}{2}) & 0 & 0 \\
-0 & (-3)(-\frac{1}{3}) & 0 \\
-0 & 0 & 5(\frac{1}{5})
+2(\frac{1}{2})+0+0 &
+0+0+0 &
+0+0+0 \\
+
+0+0+0 &
+(-3)(-\frac{1}{3})+0+0 &
+0+0+0 \\
+
+0+0+0 &
+0+0+0 &
+5(\frac{1}{5})
 \end{pmatrix}
 $$
 
@@ -155,29 +130,74 @@ $$
 
 We obtain the identity matrix I.
 
-Therefore, the inverse of D is correct.
+Therefore:
 
-## 5. CONCLUSION
+$$
+\boxed{DD^{-1}=I}
+$$
+
+This confirms that the calculated inverse is correct.
+
+## 5. CHECKING MATRIX E
+
+Now, we examine matrix E.
+
+$$
+E =
+\begin{pmatrix}
+2 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 5
+\end{pmatrix}
+$$
+
+The determinant is the product of its diagonal elements.
+
+$$
+\det(E)=2(0)(5)
+$$
+
+$$
+\boxed{\det(E)=0}
+$$
+
+A matrix is invertible only if its determinant is not equal to zero.
+
+Since the determinant of E is zero, matrix E is not invertible.
+
+We can also see that the second row contains only zeros.
+
+Therefore, the rows are linearly dependent, and the inverse does not exist.
+
+$$
+\boxed{E^{-1}\text{ does not exist}}
+$$
+
+## 6. CONCLUSION
 
 We examined both diagonal matrices without using Gauss-Jordan elimination.
 
 Matrix D is invertible because all its diagonal elements are nonzero.
 
-Matrix E is not invertible because one of its diagonal elements is zero, making its determinant equal to zero.
-
-We also verified the inverse of D by multiplication.
-
-The final results are:
+Its inverse is:
 
 $$
-\boxed{
 D^{-1} =
 \begin{pmatrix}
 \frac{1}{2} & 0 & 0 \\
 0 & -\frac{1}{3} & 0 \\
 0 & 0 & \frac{1}{5}
 \end{pmatrix}
-}
+$$
+
+We verified the result by multiplying D by D⁻¹ and obtaining the identity matrix.
+
+Matrix E is not invertible because its determinant is zero.
+
+Therefore, the final results are:
+
+$$
+\boxed{DD^{-1}=I}
 $$
 
 $$
