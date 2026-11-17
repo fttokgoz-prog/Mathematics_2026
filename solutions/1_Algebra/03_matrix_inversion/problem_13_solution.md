@@ -6,17 +6,17 @@
 We are given two matrices:
 
 $$
-S =
+S=
 \begin{pmatrix}
-2 & 0 \\
+2 & 0\\
 0 & 1
 \end{pmatrix}
 $$
 
 $$
-H =
+H=
 \begin{pmatrix}
-1 & 1 \\
+1 & 1\\
 0 & 1
 \end{pmatrix}
 $$
@@ -27,40 +27,35 @@ $$
 T=HS
 $$
 
-Our task is to find T⁻¹ in two different ways, compare the results, and explain why the order of inverse transformations matters.
+Our task is to find T⁻¹ in two ways:
 
-## 2. FIRST METHOD – CALCULATING T AND THEN ITS INVERSE
+1. First, calculate T and then find its inverse.
+2. Use the inverse property (HS)⁻¹ = S⁻¹H⁻¹.
 
-First, we calculate the product T = HS.
+Additionally, we must calculate the reversed-order candidate H⁻¹S⁻¹ and compare it with the true inverse.
+
+## 2. FIRST METHOD – CALCULATING T AND ITS INVERSE
+
+First, we calculate T = HS.
 
 $$
-T =
+T=
 \begin{pmatrix}
-1 & 1 \\
+1 & 1\\
 0 & 1
 \end{pmatrix}
 \begin{pmatrix}
-2 & 0 \\
+2 & 0\\
 0 & 1
 \end{pmatrix}
 $$
 
-Calculating each element:
+Multiplying the matrices:
 
 $$
-T =
+T=
 \begin{pmatrix}
-1(2)+1(0) & 1(0)+1(1) \\
-0(2)+1(0) & 0(0)+1(1)
-\end{pmatrix}
-$$
-
-Therefore:
-
-$$
-T =
-\begin{pmatrix}
-2 & 1 \\
+2 & 1\\
 0 & 1
 \end{pmatrix}
 $$
@@ -68,11 +63,7 @@ $$
 Now, we calculate the determinant:
 
 $$
-\det(T)=2(1)-1(0)
-$$
-
-$$
-\det(T)=2
+\det(T)=2(1)-1(0)=2
 $$
 
 Since the determinant is not zero, the inverse exists.
@@ -83,7 +74,7 @@ $$
 T^{-1}=
 \frac{1}{2}
 \begin{pmatrix}
-1 & -1 \\
+1 & -1\\
 0 & 2
 \end{pmatrix}
 $$
@@ -94,7 +85,7 @@ $$
 \boxed{
 T^{-1}=
 \begin{pmatrix}
-\frac{1}{2} & -\frac{1}{2} \\
+\frac{1}{2} & -\frac{1}{2}\\
 0 & 1
 \end{pmatrix}
 }
@@ -102,59 +93,39 @@ $$
 
 ## 3. SECOND METHOD – USING THE INVERSE OF A PRODUCT
 
-We know the inverse property:
+We use the property:
 
 $$
 (AB)^{-1}=B^{-1}A^{-1}
 $$
 
-Since T = HS, we obtain:
+Since T = HS:
 
 $$
 (HS)^{-1}=S^{-1}H^{-1}
 $$
 
-First, we calculate S⁻¹.
-
-$$
-S =
-\begin{pmatrix}
-2 & 0 \\
-0 & 1
-\end{pmatrix}
-$$
-
-Taking the reciprocal of the diagonal elements:
+First, we calculate S⁻¹:
 
 $$
 S^{-1}=
 \begin{pmatrix}
-\frac{1}{2} & 0 \\
+\frac{1}{2} & 0\\
 0 & 1
 \end{pmatrix}
 $$
 
-Next, we calculate H⁻¹.
-
-$$
-H =
-\begin{pmatrix}
-1 & 1 \\
-0 & 1
-\end{pmatrix}
-$$
-
-Using the 2×2 inverse formula:
+Next, we calculate H⁻¹:
 
 $$
 H^{-1}=
 \begin{pmatrix}
-1 & -1 \\
+1 & -1\\
 0 & 1
 \end{pmatrix}
 $$
 
-Now, we multiply S⁻¹ by H⁻¹ in the correct order.
+Now, we multiply them in the correct order:
 
 $$
 T^{-1}=S^{-1}H^{-1}
@@ -163,11 +134,11 @@ $$
 $$
 T^{-1}=
 \begin{pmatrix}
-\frac{1}{2} & 0 \\
+\frac{1}{2} & 0\\
 0 & 1
 \end{pmatrix}
 \begin{pmatrix}
-1 & -1 \\
+1 & -1\\
 0 & 1
 \end{pmatrix}
 $$
@@ -178,7 +149,7 @@ $$
 T^{-1}=
 \begin{pmatrix}
 \frac{1}{2}(1)+0(0) &
-\frac{1}{2}(-1)+0(1) \\
+\frac{1}{2}(-1)+0(1)\\
 0(1)+1(0) &
 0(-1)+1(1)
 \end{pmatrix}
@@ -188,32 +159,104 @@ Therefore:
 
 $$
 \boxed{
-T^{-1}=
+S^{-1}H^{-1}=
 \begin{pmatrix}
-\frac{1}{2} & -\frac{1}{2} \\
+\frac{1}{2} & -\frac{1}{2}\\
 0 & 1
 \end{pmatrix}
 }
 $$
 
-Both methods give the same result.
+Both methods give the same inverse.
 
-## 4. CHECKING THE INCORRECT ORDER
+## 4. CALCULATING THE REVERSED-ORDER CANDIDATE H⁻¹S⁻¹
 
-Now, we calculate the product in the incorrect order:
+Now, we calculate the reversed-order candidate explicitly:
 
 $$
 H^{-1}S^{-1}
 $$
 
+Using the previously calculated inverse matrices:
+
 $$
 H^{-1}S^{-1}=
 \begin{pmatrix}
-1 & -1 \\
+1 & -1\\
 0 & 1
 \end{pmatrix}
 \begin{pmatrix}
-\frac{1}{2} & 0 \\
+\frac{1}{2} & 0\\
+0 & 1
+\end{pmatrix}
+$$
+
+Calculating each element:
+
+$$
+H^{-1}S^{-1}=
+\begin{pmatrix}
+1(\frac{1}{2})+(-1)(0) &
+1(0)+(-1)(1)\\
+0(\frac{1}{2})+1(0) &
+0(0)+1(1)
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+\boxed{
+H^{-1}S^{-1}=
+\begin{pmatrix}
+\frac{1}{2} & -1\\
+0 & 1
+\end{pmatrix}
+}
+$$
+
+## 5. COMPARING THE REVERSED ORDER WITH THE TRUE INVERSE
+
+The true inverse obtained from the first two methods is:
+
+$$
+T^{-1}=
+\begin{pmatrix}
+\frac{1}{2} & -\frac{1}{2}\\
+0 & 1
+\end{pmatrix}
+$$
+
+The reversed-order candidate is:
+
+$$
+H^{-1}S^{-1}=
+\begin{pmatrix}
+\frac{1}{2} & -1\\
+0 & 1
+\end{pmatrix}
+$$
+
+Comparing the two matrices:
+
+$$
+\boxed{
+S^{-1}H^{-1}\neq H^{-1}S^{-1}
+}
+$$
+
+The matrices are different because matrix multiplication is not generally commutative.
+
+To verify that the reversed-order candidate is not the true inverse, we multiply T by H⁻¹S⁻¹:
+
+$$
+T(H^{-1}S^{-1})=
+\begin{pmatrix}
+2 & 1\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{2} & -1\\
 0 & 1
 \end{pmatrix}
 $$
@@ -221,64 +264,30 @@ $$
 Calculating:
 
 $$
-H^{-1}S^{-1}=
+=
 \begin{pmatrix}
-\frac{1}{2} & -1 \\
-0 & 1
-\end{pmatrix}
-$$
-
-This result is different from the correct inverse:
-
-$$
-S^{-1}H^{-1}=
-\begin{pmatrix}
-\frac{1}{2} & -\frac{1}{2} \\
-0 & 1
+2(\frac{1}{2})+1(0) &
+2(-1)+1(1)\\
+0(\frac{1}{2})+1(0) &
+0(-1)+1(1)
 \end{pmatrix}
 $$
 
 Therefore:
 
 $$
-\boxed{S^{-1}H^{-1}\neq H^{-1}S^{-1}}
-$$
-
-To verify that the incorrect order does not give the inverse, we multiply T by the incorrect result.
-
-$$
-T(H^{-1}S^{-1})=
-\begin{pmatrix}
-2 & 1 \\
-0 & 1
-\end{pmatrix}
-\begin{pmatrix}
-\frac{1}{2} & -1 \\
-0 & 1
-\end{pmatrix}
-$$
-
-$$
 =
 \begin{pmatrix}
-1 & -2+1 \\
-0 & 1
-\end{pmatrix}
-$$
-
-$$
-=
-\begin{pmatrix}
-1 & -1 \\
+1 & -1\\
 0 & 1
 \end{pmatrix}
 $$
 
 This is not the identity matrix.
 
-Therefore, the incorrect order does not produce the inverse of T.
+Thus, H⁻¹S⁻¹ is not the inverse of T.
 
-## 5. WHY MUST THE ORDER BE REVERSED?
+## 6. WHY MUST THE ORDER BE REVERSED?
 
 The original transformation is:
 
@@ -286,25 +295,24 @@ $$
 T=HS
 $$
 
-When a vector is multiplied by HS, the transformation S is applied first, followed by H.
+When applying HS to a vector, S acts first and H acts second.
 
-To undo this composite transformation, we must reverse the order of the operations.
+To undo the original transformation, we must reverse the order:
 
-First, we undo H using H⁻¹.
+1. First, undo H using H⁻¹.
+2. Then, undo S using S⁻¹.
 
-Then, we undo S using S⁻¹.
-
-This is why:
+Therefore, the correct inverse is:
 
 $$
 \boxed{(HS)^{-1}=S^{-1}H^{-1}}
 $$
 
-The inverse of a product always reverses the order of the original matrices.
+The reversed order H⁻¹S⁻¹ does not give the correct inverse.
 
-## 6. CONCLUSION
+## 7. CONCLUSION
 
-We calculated T⁻¹ using two different methods.
+We found T⁻¹ using two different methods.
 
 The first method involved calculating T = HS and then finding its inverse.
 
@@ -320,12 +328,22 @@ $$
 \boxed{
 T^{-1}=
 \begin{pmatrix}
-\frac{1}{2} & -\frac{1}{2} \\
+\frac{1}{2} & -\frac{1}{2}\\
 0 & 1
 \end{pmatrix}
 }
 $$
 
-We also demonstrated that using the incorrect order H⁻¹S⁻¹ produces a different matrix and does not give the identity when multiplied by T.
+We also calculated the reversed-order candidate:
 
-Therefore, when undoing a composition of transformations, we must always reverse the order of the operations.
+$$
+H^{-1}S^{-1}=
+\begin{pmatrix}
+\frac{1}{2} & -1\\
+0 & 1
+\end{pmatrix}
+$$
+
+This matrix is different from the true inverse and does not produce the identity matrix when multiplied by T.
+
+Therefore, when undoing a composition of transformations, we must reverse the order of the operations.
