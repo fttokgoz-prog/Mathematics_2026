@@ -3,7 +3,7 @@
 
 ## 1. GIVEN
 
-We are given the following linear system:
+We are given the linear system:
 
 $$
 Ax=b
@@ -12,7 +12,7 @@ $$
 Where:
 
 $$
-A =
+A=
 \begin{pmatrix}
 2 & 1 \\
 1 & 3
@@ -22,7 +22,7 @@ $$
 And:
 
 $$
-b =
+b=
 \begin{pmatrix}
 5 \\
 7
@@ -35,9 +35,11 @@ $$
 x=A^{-1}b
 $$
 
+After finding the solution, we must substitute the resulting vector back into the original equation Ax = b to verify the result.
+
 ## 2. CALCULATING THE INVERSE OF A
 
-First, we calculate the determinant of matrix A.
+First, we calculate the determinant of A.
 
 $$
 \det(A)=2(3)-1(1)
@@ -52,17 +54,8 @@ Since the determinant is not equal to zero, the inverse exists.
 Using the 2×2 inverse formula:
 
 $$
-A^{-1}=\frac{1}{ad-bc}
-\begin{pmatrix}
-d & -b \\
--c & a
-\end{pmatrix}
-$$
-
-Substituting the values:
-
-$$
-A^{-1}=\frac{1}{5}
+A^{-1}=
+\frac{1}{5}
 \begin{pmatrix}
 3 & -1 \\
 -1 & 2
@@ -72,22 +65,22 @@ $$
 Therefore:
 
 $$
-\boxed{
 A^{-1}=
 \begin{pmatrix}
 \frac{3}{5} & -\frac{1}{5} \\
 -\frac{1}{5} & \frac{2}{5}
 \end{pmatrix}
-}
 $$
 
 ## 3. SOLVING THE SYSTEM USING x = A⁻¹b
 
-Now, we calculate x by multiplying the inverse matrix by vector b.
+We use the formula:
 
 $$
 x=A^{-1}b
 $$
+
+Substituting the matrices:
 
 $$
 x=
@@ -121,7 +114,7 @@ x=
 \end{pmatrix}
 $$
 
-Therefore:
+Therefore, the solution is:
 
 $$
 \boxed{
@@ -135,64 +128,95 @@ $$
 
 ## 4. VERIFICATION BY SUBSTITUTION
 
-To check our result, we substitute the values of x back into the original equation:
+To verify the obtained solution, we substitute the vector x back into the original equation:
 
 $$
 Ax=b
 $$
 
-We use:
+We have found:
 
 $$
-x_1=\frac{8}{5}, \qquad x_2=\frac{9}{5}
+x=
+\begin{pmatrix}
+\frac{8}{5} \\
+\frac{9}{5}
+\end{pmatrix}
 $$
 
-The original system is:
+Now, we substitute this vector into the equation:
 
 $$
-\begin{cases}
-2x_1+x_2=5 \\
-x_1+3x_2=7
-\end{cases}
+\begin{pmatrix}
+2 & 1 \\
+1 & 3
+\end{pmatrix}
+\begin{pmatrix}
+\frac{8}{5} \\
+\frac{9}{5}
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 \\
+7
+\end{pmatrix}
 $$
 
-First equation:
+Calculating the matrix multiplication:
 
 $$
-2\left(\frac{8}{5}\right)+\frac{9}{5}
+\begin{pmatrix}
+2(\frac{8}{5})+1(\frac{9}{5}) \\
+1(\frac{8}{5})+3(\frac{9}{5})
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 \\
+7
+\end{pmatrix}
 $$
 
-$$
-=\frac{16}{5}+\frac{9}{5}
-$$
+Simplifying:
 
 $$
-=\frac{25}{5}=5
+\begin{pmatrix}
+\frac{16+9}{5} \\
+\frac{8+27}{5}
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 \\
+7
+\end{pmatrix}
 $$
 
-Second equation:
+Therefore:
 
 $$
-\frac{8}{5}+3\left(\frac{9}{5}\right)
+\begin{pmatrix}
+\frac{25}{5} \\
+\frac{35}{5}
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 \\
+7
+\end{pmatrix}
 $$
 
-$$
-=\frac{8}{5}+\frac{27}{5}
-$$
+Both sides are equal.
+
+Thus, the obtained solution satisfies the original equation Ax = b.
 
 $$
-=\frac{35}{5}=7
+\boxed{Ax=b}
 $$
-
-Both equations are satisfied.
-
-Therefore, the solution is correct.
 
 ## 5. CONCLUSION
 
 We calculated the inverse of matrix A and used it to solve the linear system.
 
-By applying the formula x = A⁻¹b, we obtained:
+The obtained solution is:
 
 $$
 \boxed{
@@ -204,10 +228,6 @@ x=
 }
 $$
 
-Finally, we substituted the values back into the original system and verified that both equations are satisfied.
+Finally, we substituted this vector into the original equation Ax = b.
 
-Therefore, the final solution is:
-
-$$
-\boxed{x_1=\frac{8}{5}, \quad x_2=\frac{9}{5}}
-$$
+The matrix multiplication produced the original vector b, confirming that the solution is correct.
