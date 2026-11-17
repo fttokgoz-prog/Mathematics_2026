@@ -14,7 +14,7 @@ Where:
 $$
 A=
 \begin{pmatrix}
-2 & 1 \\
+2 & 1\\
 1 & 3
 \end{pmatrix}
 $$
@@ -24,17 +24,17 @@ And:
 $$
 b=
 \begin{pmatrix}
-7 \\
+7\\
 8
 \end{pmatrix}
 $$
 
-Our task is to solve the system using two different methods:
+Our task is to solve the system using two methods:
 
-1. Using the inverse matrix method: x = A⁻¹b.
-2. Using Gaussian elimination.
+1. The inverse matrix method: x = A⁻¹b.
+2. Gaussian elimination.
 
-Then, we will compare both methods.
+After solving, we must compare both solutions, count the essential steps, and identify which method is simpler in this example.
 
 ## 2. FIRST METHOD – USING THE INVERSE MATRIX
 
@@ -44,7 +44,7 @@ $$
 x=A^{-1}b
 $$
 
-First, we calculate the determinant of A.
+**Step 1: Calculate the determinant.**
 
 $$
 \det(A)=2(3)-1(1)
@@ -56,13 +56,15 @@ $$
 
 Since the determinant is not zero, the inverse exists.
 
+**Step 2: Calculate the inverse matrix.**
+
 Using the 2×2 inverse formula:
 
 $$
 A^{-1}=
 \frac{1}{5}
 \begin{pmatrix}
-3 & -1 \\
+3 & -1\\
 -1 & 2
 \end{pmatrix}
 $$
@@ -72,25 +74,21 @@ Therefore:
 $$
 A^{-1}=
 \begin{pmatrix}
-\frac{3}{5} & -\frac{1}{5} \\
+\frac{3}{5} & -\frac{1}{5}\\
 -\frac{1}{5} & \frac{2}{5}
 \end{pmatrix}
 $$
 
-Now, we calculate x:
-
-$$
-x=A^{-1}b
-$$
+**Step 3: Calculate x = A⁻¹b.**
 
 $$
 x=
 \begin{pmatrix}
-\frac{3}{5} & -\frac{1}{5} \\
+\frac{3}{5} & -\frac{1}{5}\\
 -\frac{1}{5} & \frac{2}{5}
 \end{pmatrix}
 \begin{pmatrix}
-7 \\
+7\\
 8
 \end{pmatrix}
 $$
@@ -100,7 +98,7 @@ Calculating each element:
 $$
 x=
 \begin{pmatrix}
-\frac{3}{5}(7)-\frac{1}{5}(8) \\
+\frac{3}{5}(7)-\frac{1}{5}(8)\\
 -\frac{1}{5}(7)+\frac{2}{5}(8)
 \end{pmatrix}
 $$
@@ -110,7 +108,7 @@ Simplifying:
 $$
 x=
 \begin{pmatrix}
-\frac{21-8}{5} \\
+\frac{21-8}{5}\\
 \frac{-7+16}{5}
 \end{pmatrix}
 $$
@@ -121,7 +119,7 @@ $$
 \boxed{
 x=
 \begin{pmatrix}
-\frac{13}{5} \\
+\frac{13}{5}\\
 \frac{9}{5}
 \end{pmatrix}
 }
@@ -131,56 +129,37 @@ $$
 
 Now, we solve the same system using Gaussian elimination.
 
-First, we write the augmented matrix:
+**Step 1: Create the augmented matrix.**
 
 $$
 \left[
 \begin{array}{cc|c}
-2 & 1 & 7 \\
+2 & 1 & 7\\
 1 & 3 & 8
-\end{array}
-\right]
-$$
-
-**Step 1: Swap the two rows.**
-
-Apply the row operation:
-
-$$
-R_1 \leftrightarrow R_2
-$$
-
-The new augmented matrix is:
-
-$$
-\left[
-\begin{array}{cc|c}
-1 & 3 & 8 \\
-2 & 1 & 7
 \end{array}
 \right]
 $$
 
 **Step 2: Eliminate the first element in the second row.**
 
-Apply the row operation:
+To avoid fractions, we use:
 
 $$
-R_2 \rightarrow R_2-2R_1
+R_2 \rightarrow 2R_2-R_1
 $$
 
 Calculation:
 
 $$
-(2,1,7)-2(1,3,8)
+2(1,3,8)-(2,1,7)
 $$
 
 $$
-=(2,1,7)-(2,6,16)
+=(2,6,16)-(2,1,7)
 $$
 
 $$
-=(0,-5,-9)
+=(0,5,9)
 $$
 
 The new augmented matrix is:
@@ -188,106 +167,109 @@ The new augmented matrix is:
 $$
 \left[
 \begin{array}{cc|c}
-1 & 3 & 8 \\
-0 & -5 & -9
+2 & 1 & 7\\
+0 & 5 & 9
 \end{array}
 \right]
 $$
 
-**Step 3: Solve for x₂ using back substitution.**
+**Step 3: Use back substitution.**
 
 From the second row:
 
 $$
--5x_2=-9
+5x_2=9
 $$
 
 Therefore:
 
 $$
-\boxed{x_2=\frac{9}{5}}
+x_2=\frac{9}{5}
 $$
 
-**Step 4: Solve for x₁.**
-
-From the first row:
+Now, we substitute this value into the first equation:
 
 $$
-x_1+3x_2=8
-$$
-
-Substituting x₂:
-
-$$
-x_1+3\left(\frac{9}{5}\right)=8
+2x_1+x_2=7
 $$
 
 $$
-x_1=8-\frac{27}{5}
+2x_1+\frac{9}{5}=7
 $$
 
 $$
-x_1=\frac{40}{5}-\frac{27}{5}
+2x_1=\frac{35}{5}-\frac{9}{5}
+$$
+
+$$
+2x_1=\frac{26}{5}
 $$
 
 Therefore:
 
 $$
-\boxed{x_1=\frac{13}{5}}
+x_1=\frac{13}{5}
 $$
 
-The final solution using Gaussian elimination is:
+The final solution is:
 
 $$
 \boxed{
 x=
 \begin{pmatrix}
-\frac{13}{5} \\
+\frac{13}{5}\\
 \frac{9}{5}
 \end{pmatrix}
 }
 $$
 
-## 4. COMPARING BOTH METHODS
+## 4. COMPARISON OF BOTH METHODS
 
-Both methods give exactly the same solution.
+Both methods produce exactly the same solution.
 
-**First method – Inverse matrix:**
-
-$$
-x=
-\begin{pmatrix}
-\frac{13}{5} \\
-\frac{9}{5}
-\end{pmatrix}
-$$
-
-**Second method – Gaussian elimination:**
+**Inverse matrix method:**
 
 $$
 x=
 \begin{pmatrix}
-\frac{13}{5} \\
+\frac{13}{5}\\
 \frac{9}{5}
 \end{pmatrix}
 $$
 
-The results are identical.
+**Gaussian elimination:**
+
+$$
+x=
+\begin{pmatrix}
+\frac{13}{5}\\
+\frac{9}{5}
+\end{pmatrix}
+$$
+
+Therefore, both methods give the same result.
 
 ### Comparison of essential steps
 
+For a fair comparison, we count the main calculation stages rather than every individual arithmetic operation.
+
 | Inverse Matrix Method | Gaussian Elimination |
 |---|---|
-| Calculate the determinant | Create the augmented matrix |
-| Find the inverse matrix | Swap the rows |
-| Multiply A⁻¹ by b | Eliminate one variable |
-| | Use back substitution |
+| 1. Calculate the determinant | 1. Create the augmented matrix |
+| 2. Calculate the inverse matrix | 2. Perform row elimination |
+| 3. Multiply A⁻¹ by b | 3. Use back substitution |
 
-For this example, Gaussian elimination is simpler because we only need to solve one system.
+Both methods require 3 main calculation stages in this example.
 
-The inverse matrix method requires calculating the entire inverse matrix before multiplying it by b.
+### Which method is simpler?
 
-Gaussian elimination allows us to find the solution directly without calculating the full inverse.
+Gaussian elimination is simpler in this particular example.
+
+The reason is that we only need to solve one linear system. Gaussian elimination requires just one row elimination followed by back substitution.
+
+The inverse matrix method requires calculating the complete inverse matrix before multiplying it by b.
+
+Therefore, Gaussian elimination avoids the additional work of finding the full inverse matrix.
 
 ## 5. CONCLUSION
 
@@ -297,10 +279,16 @@ Both methods produced the same result:
 
 $$
 \boxed{
-x_1=\frac{13}{5}, \qquad x_2=\frac{9}{5}
+x=
+\begin{pmatrix}
+\frac{13}{5}\\
+\frac{9}{5}
+\end{pmatrix}
 }
 $$
 
-Gaussian elimination was simpler in this example because it required fewer essential calculations and did not require finding the complete inverse matrix.
+We compared the essential calculation stages and found that both methods require three main stages in this example.
 
-However, the inverse matrix method is also useful when the inverse is already known or when the same matrix is used to solve several different systems.
+However, Gaussian elimination is simpler because it solves the system directly without calculating the complete inverse matrix.
+
+Therefore, Gaussian elimination is the more convenient method for this particular system.
