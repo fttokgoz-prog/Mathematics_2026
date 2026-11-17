@@ -12,7 +12,7 @@ $$
 Where:
 
 $$
-A =
+A=
 \begin{pmatrix}
 1 & 2 \\
 0 & 1
@@ -22,7 +22,7 @@ $$
 And:
 
 $$
-B =
+B=
 \begin{pmatrix}
 3 & 1 \\
 2 & 4
@@ -31,9 +31,19 @@ $$
 
 Our task is to find matrix X and verify the result by calculating AX.
 
-## 2. DECIDING WHICH SIDE TO USE
+## 2. DECIDING WHICH SIDE TO USE BEFORE CALCULATING
 
-Since A is on the left side of X in the equation AX = B, we must multiply both sides by A⁻¹ on the left.
+Before calculating the inverse, we must determine on which side A⁻¹ should be applied.
+
+The original equation is:
+
+$$
+AX=B
+$$
+
+Matrix A is on the left side of X.
+
+Therefore, we must multiply both sides of the equation by A⁻¹ ON THE LEFT.
 
 We obtain:
 
@@ -41,7 +51,7 @@ $$
 A^{-1}(AX)=A^{-1}B
 $$
 
-Using the associative property of matrix multiplication:
+Using the associative property:
 
 $$
 (A^{-1}A)X=A^{-1}B
@@ -65,9 +75,13 @@ $$
 \boxed{X=A^{-1}B}
 $$
 
+We must not multiply by A⁻¹ on the right because matrix multiplication is not generally commutative.
+
 ## 3. CALCULATING THE INVERSE OF A
 
-First, we calculate the determinant of A.
+Now, we calculate the inverse of matrix A.
+
+First, we calculate its determinant:
 
 $$
 \det(A)=1(1)-2(0)
@@ -104,7 +118,7 @@ $$
 
 ## 4. CALCULATING X
 
-We use the formula:
+We use the formula determined earlier:
 
 $$
 X=A^{-1}B
@@ -144,7 +158,7 @@ X=
 \end{pmatrix}
 $$
 
-Therefore, the solution is:
+Therefore:
 
 $$
 \boxed{
@@ -158,7 +172,7 @@ $$
 
 ## 5. VERIFICATION BY CALCULATING AX
 
-To verify our result, we substitute X into the original equation AX = B.
+To verify our result, we substitute the calculated matrix X into the original equation AX = B.
 
 $$
 AX=
@@ -212,9 +226,17 @@ The result is correct.
 
 ## 6. CONCLUSION
 
-We solved the matrix equation AX = B by multiplying both sides by A⁻¹ on the left.
+We solved the matrix equation AX = B.
 
-The inverse was calculated successfully, and we found:
+Before calculating the inverse, we determined that A⁻¹ must be applied on the left side because A is on the left side of X.
+
+We obtained:
+
+$$
+X=A^{-1}B
+$$
+
+The final solution is:
 
 $$
 \boxed{
@@ -226,12 +248,4 @@ X=
 }
 $$
 
-Finally, we verified the result by calculating AX.
-
-Since AX is equal to B, our solution is correct.
-
-The important rule is that when solving AX = B, we multiply by A⁻¹ on the left:
-
-$$
-\boxed{X=A^{-1}B}
-$$
+Finally, we verified the solution by calculating AX and confirmed that it is equal to B.
