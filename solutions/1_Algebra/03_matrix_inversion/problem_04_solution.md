@@ -1,9 +1,9 @@
 
 # EXERCISE 4 – GAUSS-JORDAN METHOD
 
-## 1. GIVEN
+## Question
 
-We are given the following matrix:
+Find A^(-1) using the Gauss-Jordan method for:
 
 $$
 A =
@@ -13,9 +13,13 @@ A =
 \end{pmatrix}
 $$
 
-Our task is to find the inverse of A using the Gauss-Jordan method.
+Show the augmented matrix [A | I] after each successive operation and explain why obtaining I on the left gives the inverse on the right.
 
-We start by creating the augmented matrix [A | I], where I is the identity matrix.
+## Solution
+
+### Step 1 – Initial Augmented Matrix
+
+We start by writing the matrix A next to the identity matrix I.
 
 $$
 \left[
@@ -26,23 +30,13 @@ $$
 \right]
 $$
 
-## 2. SUCCESSIVE ROW OPERATIONS
-
-**Step 1: Eliminate the first element in the second row.**
+### Step 2 – Eliminate the First Number in Row 2
 
 Apply the row operation:
 
 $$
 R_2 \rightarrow R_2 - 3R_1
 $$
-
-Calculation:
-
-$$
-(3,5)-3(1,2)=(0,-1)
-$$
-
-We apply the same operation to the entire augmented row, including the right side.
 
 The new augmented matrix is:
 
@@ -55,15 +49,13 @@ $$
 \right]
 $$
 
-**Step 2: Make the second pivot equal to 1.**
+### Step 3 – Make the Pivot Equal to 1
 
 Apply the row operation:
 
 $$
 R_2 \rightarrow -R_2
 $$
-
-The entire second row changes sign.
 
 The new augmented matrix is:
 
@@ -76,7 +68,7 @@ $$
 \right]
 $$
 
-**Step 3: Eliminate the second element in the first row.**
+### Step 4 – Eliminate the Second Number in Row 1
 
 Apply the row operation:
 
@@ -84,19 +76,7 @@ $$
 R_1 \rightarrow R_1 - 2R_2
 $$
 
-Calculation on the left side:
-
-$$
-(1,2)-2(0,1)=(1,0)
-$$
-
-Calculation on the right side:
-
-$$
-(1,0)-2(3,-1)=(-5,2)
-$$
-
-The final augmented matrix is:
+The new augmented matrix is:
 
 $$
 \left[
@@ -107,78 +87,39 @@ $$
 \right]
 $$
 
-## 3. FINDING THE INVERSE MATRIX
+### Step 5 – Final Result
 
-After all row operations, the left side becomes the identity matrix.
-
-We have transformed:
+The left side is now the identity matrix. Therefore, the right side is the inverse of the original matrix.
 
 $$
-[A|I] \rightarrow [I|A^{-1}]
-$$
-
-Therefore, the right side of the final augmented matrix is the inverse of A.
-
-$$
-\boxed{
 A^{-1} =
 \begin{pmatrix}
 -5 & 2 \\
 3 & -1
 \end{pmatrix}
-}
 $$
 
-## 4. WHY DOES OBTAINING I ON THE LEFT GIVE THE INVERSE ON THE RIGHT?
+### Explanation
 
-Each elementary row operation can be represented by multiplication with an elementary matrix.
+Each elementary row operation is equivalent to multiplying the original matrix by an elementary matrix.
 
-Let E₁, E₂, and E₃ represent the three row operations.
-
-Applying these operations to the augmented matrix gives:
+If we apply all these operations to A, we obtain:
 
 $$
-E_3E_2E_1[A|I]
-=
-[E_3E_2E_1A|E_3E_2E_1I]
+EA = I
 $$
 
-Since the left side becomes the identity matrix:
+Therefore:
 
 $$
-E_3E_2E_1A=I
+E = A^{-1}
 $$
 
-By the definition of the inverse matrix, this means:
+The same operations are applied to the identity matrix on the right side of the augmented matrix. As a result, when the left side becomes the identity matrix, the right side becomes the inverse of A.
+
+This explains why:
 
 $$
-E_3E_2E_1=A^{-1}
+[A \mid I] \rightarrow [I \mid A^{-1}]
 $$
 
-Therefore, applying the same operations to the identity matrix produces:
-
-$$
-E_3E_2E_1I=A^{-1}
-$$
-
-This explains why, when the left side becomes I, the right side becomes the inverse of the original matrix.
-
-## 5. CONCLUSION
-
-Using the Gauss-Jordan method, we transformed the augmented matrix [A | I] into [I | A⁻¹].
-
-We showed every intermediate augmented matrix after each row operation.
-
-We also explained that the same elementary row operations transform the identity matrix into the inverse of A.
-
-The final result is:
-
-$$
-\boxed{
-A^{-1} =
-\begin{pmatrix}
--5 & 2 \\
-3 & -1
-\end{pmatrix}
-}
-$$
