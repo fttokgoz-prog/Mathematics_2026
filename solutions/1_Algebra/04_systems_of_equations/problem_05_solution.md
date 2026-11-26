@@ -35,7 +35,7 @@ Therefore:
 
 ### Step 2 – Write the Equations
 
-The matrix represents the following equations:
+The augmented matrix represents the following equations:
 
 $$
 x+2y-z=3
@@ -55,12 +55,12 @@ This equation does not create a contradiction or an additional restriction.
 
 ### Step 3 – Choose the Free Variable
 
-Since column 3 has no pivot, z can be chosen freely.
+Since the third column has no pivot, z can be chosen freely.
 
 Let:
 
 $$
-z=t,\qquad t\in\mathbb{R}
+z=t,\quad t\in\mathbb{R}
 $$
 
 From the second equation:
@@ -69,7 +69,7 @@ $$
 y+2z=1
 $$
 
-Substitute z = t:
+Substitute z=t:
 
 $$
 y+2t=1
@@ -89,7 +89,7 @@ $$
 x+2y-z=3
 $$
 
-Substitute y = 1 - 2t and z = t:
+Substitute y=1-2t and z=t:
 
 $$
 x+2(1-2t)-t=3
@@ -113,66 +113,66 @@ $$
 
 ### Step 5 – Write the Parametric Solution
 
-The solution is:
+The parametric solution is:
 
 $$
-\boxed{
-\begin{aligned}
-x&=1+5t\\
-y&=1-2t\\
-z&=t
-\end{aligned}
-\qquad t\in\mathbb{R}
-}
+x=1+5t
 $$
 
-In vector form:
+$$
+y=1-2t
+$$
 
 $$
-\boxed{
-\begin{pmatrix}
-x\\y\\z
-\end{pmatrix}
-=
-\begin{pmatrix}
-1\\1\\0
-\end{pmatrix}
-+
-t
-\begin{pmatrix}
-5\\-2\\1
-\end{pmatrix},
-\quad t\in\mathbb{R}
-}
+z=t
+$$
+
+where t can be any real number.
+
+In ordered triple form:
+
+$$
+(x,y,z)=(1+5t,1-2t,t)
 $$
 
 ### Step 6 – Determine the Number of Solutions
 
-There are two pivot columns and one non-pivot column.
+There are three variables and two pivot columns.
 
-The non-pivot column corresponds to one free variable, z.
+Therefore, there is one free variable.
 
-The zero row represents 0 = 0, so the system is consistent.
+The third row represents 0=0, so the system is consistent.
 
 Since the free variable can take any real value, the system has infinitely many solutions.
 
 ### Explanation
 
-In row echelon form, each pivot column corresponds to a leading variable, while each non-pivot column corresponds to a free variable.
+In row echelon form, pivot columns correspond to leading variables, while columns without pivots correspond to free variables.
 
-The number of free variables is equal to the number of columns without pivots.
+The number of free variables is equal to the number of non-pivot columns.
 
-Here, there are three variables and two pivot columns, so there is one free variable.
+In this matrix, there are two pivot columns and one non-pivot column. Therefore, z is the only free variable.
 
-Because the system is consistent and has one free variable, it has infinitely many solutions.
+Since there is no contradictory row, the system is consistent and has infinitely many solutions.
 
 ### Final Answer
 
+The system has infinitely many solutions:
+
 $$
-\boxed{
-(x,y,z)=(1+5t,\ 1-2t,\ t),
-\quad t\in\mathbb{R}
-}
+x=1+5t
 $$
 
-The system has infinitely many solutions because it contains one free variable and no contradictory row.
+$$
+y=1-2t
+$$
+
+$$
+z=t
+$$
+
+where:
+
+$$
+t\in\mathbb{R}
+$$
