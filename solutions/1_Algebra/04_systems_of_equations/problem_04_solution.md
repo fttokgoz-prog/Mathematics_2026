@@ -31,14 +31,28 @@ $$
 
 ### Step 2 – Eliminate the First Column
 
-Apply the row operations:
+Apply the following row operations:
 
 $$
-R_2\rightarrow R_2-2R_1
+R_2 \rightarrow R_2-2R_1
 $$
 
+The matrix becomes:
+
 $$
-R_3\rightarrow R_3-R_1
+\left[
+\begin{array}{ccc|c}
+1&1&1&2\\
+0&0&0&0\\
+1&-1&1&0
+\end{array}
+\right]
+$$
+
+Now apply:
+
+$$
+R_3 \rightarrow R_3-R_1
 $$
 
 The new matrix is:
@@ -58,7 +72,7 @@ $$
 Apply:
 
 $$
-R_2\leftrightarrow R_3
+R_2 \leftrightarrow R_3
 $$
 
 The new matrix is:
@@ -78,7 +92,7 @@ $$
 Apply:
 
 $$
-R_2\rightarrow -\frac{1}{2}R_2
+R_2 \rightarrow -\frac{1}{2}R_2
 $$
 
 The new matrix is:
@@ -98,7 +112,7 @@ $$
 Apply:
 
 $$
-R_1\rightarrow R_1-R_2
+R_1 \rightarrow R_1-R_2
 $$
 
 The final matrix is:
@@ -115,7 +129,7 @@ $$
 
 ### Step 6 – Identify the Free Variable
 
-The matrix represents the equations:
+The final matrix represents:
 
 $$
 x+z=1
@@ -125,21 +139,21 @@ $$
 y=1
 $$
 
-There is no pivot in the third column, so z is a free variable.
+There is no pivot in the third column. Therefore, z is a free variable.
 
 Let:
 
 $$
-z=t,\qquad t\in\mathbb{R}
+z=t,\quad t\in\mathbb{R}
 $$
 
 From the first equation:
 
 $$
-x=1-z=1-t
+x=1-t
 $$
 
-And:
+From the second equation:
 
 $$
 y=1
@@ -147,37 +161,26 @@ $$
 
 ### Step 7 – Write the Parametric Solution
 
-Therefore, the solution is:
+The parametric solution is:
 
 $$
-\boxed{
-\begin{aligned}
-x&=1-t\\
-y&=1\\
-z&=t
-\end{aligned}
-\qquad t\in\mathbb{R}
-}
+x=1-t
 $$
 
-In vector form:
+$$
+y=1
+$$
 
 $$
-\boxed{
-\begin{pmatrix}
-x\\y\\z
-\end{pmatrix}
-=
-\begin{pmatrix}
-1\\1\\0
-\end{pmatrix}
-+
-t
-\begin{pmatrix}
--1\\0\\1
-\end{pmatrix},
-\quad t\in\mathbb{R}
-}
+z=t
+$$
+
+where t can be any real number.
+
+Therefore:
+
+$$
+(x,y,z)=(1-t,1,t)
 $$
 
 ### Step 8 – Check One Chosen Parameter Value
@@ -191,7 +194,7 @@ $$
 Then:
 
 $$
-x=1,\qquad y=1,\qquad z=0
+x=1,\quad y=1,\quad z=0
 $$
 
 Substitute these values into the original equations.
@@ -218,8 +221,22 @@ All three equations are satisfied.
 
 ### Final Answer
 
+The system has infinitely many solutions:
+
 $$
-\boxed{(x,y,z)=(1-t,1,t),\quad t\in\mathbb{R}}
+(x,y,z)=(1-t,1,t)
 $$
 
-The system has infinitely many solutions because z is a free variable and can take any real value.
+where:
+
+$$
+t\in\mathbb{R}
+$$
+
+### Explanation
+
+The system has one free variable because the third column has no pivot.
+
+The last row represents 0 = 0, which does not create a contradiction.
+
+Since the free variable can take any real value, the system has infinitely many solutions.
