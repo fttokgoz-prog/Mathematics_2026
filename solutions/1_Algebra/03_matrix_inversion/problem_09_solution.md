@@ -1,133 +1,74 @@
 
 # EXERCISE 9 – MATRIX EQUATION
 
-## 1. GIVEN
-
-We are given the matrix equation:
+## Given
 
 $$
-AX=B
-$$
-
-Where:
-
-$$
-A=
+A =
 \begin{pmatrix}
 1 & 2 \\
 0 & 1
-\end{pmatrix}
-$$
-
-And:
-
-$$
-B=
+\end{pmatrix},
+\qquad
+B =
 \begin{pmatrix}
 3 & 1 \\
 2 & 4
 \end{pmatrix}
 $$
 
-Our task is to find matrix X and verify the result by calculating AX.
+## Problem
 
-## 2. DECIDING WHICH SIDE TO USE BEFORE CALCULATING
+Solve the matrix equation AX = B for X.
 
-Before calculating the inverse, we must determine on which side A⁻¹ should be applied.
+Before calculating, decide on which side of the equation A^(-1) must be used to isolate X. Explain why the order of multiplication matters.
 
-The original equation is:
+After finding X, check the result by computing AX.
 
-$$
-AX=B
-$$
+## Solution
 
-Matrix A is on the left side of X.
+### Step 1 – Decide Which Side to Use
 
-Therefore, we must multiply both sides of the equation by A⁻¹ ON THE LEFT.
-
-We obtain:
+We are given:
 
 $$
-A^{-1}(AX)=A^{-1}B
+AX = B
 $$
 
-Using the associative property:
+Since A is on the left side of X, we must multiply both sides by A^(-1) from the left.
 
 $$
-(A^{-1}A)X=A^{-1}B
+A^{-1}AX = A^{-1}B
 $$
 
-Since:
+Since A^(-1)A = I, we obtain:
 
 $$
-A^{-1}A=I
-$$
-
-We get:
-
-$$
-IX=A^{-1}B
+IX = A^{-1}B
 $$
 
 Therefore:
 
 $$
-\boxed{X=A^{-1}B}
+X = A^{-1}B
 $$
 
-We must not multiply by A⁻¹ on the right because matrix multiplication is not generally commutative.
-
-## 3. CALCULATING THE INVERSE OF A
-
-Now, we calculate the inverse of matrix A.
-
-First, we calculate its determinant:
+### Step 2 – Calculate the Inverse of A
 
 $$
-\det(A)=1(1)-2(0)
-$$
-
-$$
-\det(A)=1
-$$
-
-Since the determinant is not zero, the inverse exists.
-
-Using the 2×2 inverse formula:
-
-$$
-A^{-1}=
-\frac{1}{1}
+A^{-1} =
 \begin{pmatrix}
 1 & -2 \\
 0 & 1
 \end{pmatrix}
 $$
 
-Therefore:
+### Step 3 – Calculate X
+
+We substitute the matrices:
 
 $$
-\boxed{
-A^{-1}=
-\begin{pmatrix}
-1 & -2 \\
-0 & 1
-\end{pmatrix}
-}
-$$
-
-## 4. CALCULATING X
-
-We use the formula determined earlier:
-
-$$
-X=A^{-1}B
-$$
-
-Substituting the matrices:
-
-$$
-X=
+X =
 \begin{pmatrix}
 1 & -2 \\
 0 & 1
@@ -138,44 +79,30 @@ X=
 \end{pmatrix}
 $$
 
-Calculating each element:
+Multiply the matrices:
 
 $$
-X=
+X =
 \begin{pmatrix}
 1(3)+(-2)(2) & 1(1)+(-2)(4) \\
 0(3)+1(2) & 0(1)+1(4)
 \end{pmatrix}
 $$
 
-Simplifying:
-
 $$
-X=
-\begin{pmatrix}
-3-4 & 1-8 \\
-2 & 4
-\end{pmatrix}
-$$
-
-Therefore:
-
-$$
-\boxed{
-X=
+X =
 \begin{pmatrix}
 -1 & -7 \\
 2 & 4
 \end{pmatrix}
-}
 $$
 
-## 5. VERIFICATION BY CALCULATING AX
+### Step 4 – Check the Result
 
-To verify our result, we substitute the calculated matrix X into the original equation AX = B.
+To verify our answer, we calculate AX.
 
 $$
-AX=
+AX =
 \begin{pmatrix}
 1 & 2 \\
 0 & 1
@@ -186,61 +113,29 @@ AX=
 \end{pmatrix}
 $$
 
-Calculating each element:
-
 $$
-AX=
+AX =
 \begin{pmatrix}
 1(-1)+2(2) & 1(-7)+2(4) \\
 0(-1)+1(2) & 0(-7)+1(4)
 \end{pmatrix}
 $$
 
-Simplifying:
-
 $$
-AX=
-\begin{pmatrix}
--1+4 & -7+8 \\
-2 & 4
-\end{pmatrix}
-$$
-
-Therefore:
-
-$$
-AX=
+AX =
 \begin{pmatrix}
 3 & 1 \\
 2 & 4
 \end{pmatrix}
 $$
 
-This is exactly equal to matrix B.
+This is equal to the original matrix B.
 
-$$
-\boxed{AX=B}
-$$
-
-The result is correct.
-
-## 6. CONCLUSION
-
-We solved the matrix equation AX = B.
-
-Before calculating the inverse, we determined that A⁻¹ must be applied on the left side because A is on the left side of X.
-
-We obtained:
-
-$$
-X=A^{-1}B
-$$
-
-The final solution is:
+### Final Answer
 
 $$
 \boxed{
-X=
+X =
 \begin{pmatrix}
 -1 & -7 \\
 2 & 4
@@ -248,4 +143,12 @@ X=
 }
 $$
 
-Finally, we verified the solution by calculating AX and confirmed that it is equal to B.
+### Explanation
+
+The order of multiplication is important because matrix multiplication is not commutative.
+
+In the equation AX = B, A^(-1) must be multiplied from the left because A is on the left side of X.
+
+Multiplying from the right would not correctly isolate X.
+
+The final check confirms that AX = B, so the solution is correct.
